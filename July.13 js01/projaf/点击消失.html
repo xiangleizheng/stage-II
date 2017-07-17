@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>点击消失</title>
+	<style>
+	body{text-align: center;}
+	input{
+		width: 200px;
+		height: 50px;
+		border:1px solid #fff;
+		background-color: #fa8801;
+		border-radius: 10px;
+		outline: none;
+		color: #fff;
+	}
+    div#gost{
+    	width: 200px;
+    	height: 200px;
+    	background-color: #fa8801;
+    	border-radius: 10px;
+    	margin: 20px auto;
+    	opacity: 0.8;
+    }
+    #gost span{
+    	display: inline-block;
+    	margin:40px 25px;
+    	width: 20px;
+    	height: 20px;
+    	background-color: #fff;
+    	border-radius:50%;
+    }
+    #gost i{
+    	display: inline-block;
+    	width: 150px;
+    	height: 90px;
+    	background-color: #fff;
+    	border-radius: 50%;
+    }
+	</style>
+</head>
+<body>
+
+<input type="button" id="btn" value="Tibbers！">
+<div id="gost">
+ <span></span>
+ <span></span>
+ <i id="cry"></i>
+</div>
+
+<script>
+var btn = document.getElementById("btn");
+var gost = document.getElementById("gost");
+var cry = document.getElementById("cry");
+var a = "none";
+var b = "block";
+var c = "#65c5f5";//淡蓝
+var d = "#e8e362";//淡黄
+var e = "#d6e675";//淡绿
+var f = "#fa9cbb";//淡粉
+var g = "#f6a280";//淡橘
+
+var i = 0;
+var i = 30;
+var j = 60;
+var k = 90;
+var l = 120;
+var m = 150;
+var n = 180;
+var o = 210;
+var p = 240;
+
+var r ="90px";
+var s ="70px";
+var t ="50px"; 
+var u ="30px";
+var v ="10PX";
+
+
+btn.onclick =function(){
+	[a,b]=[b,a];
+	var h = d;
+	    c = d;
+	    d = e;
+	    e = f;
+	    f = g;
+	    g = h;
+ 
+	    var q = i;
+	        i = j;
+	        j = k;
+	        k = l;
+	        l = m;
+	        m = n;
+	        n = o;
+	        o = p;
+	        p = q;
+
+	    var w = r;
+	        r = s;
+	        s = t;
+	        t = u;
+	        u = v;
+	        v = w;
+	            
+
+	btn.style.background=c;
+    gost.style.display=a;
+    gost.style.transform = "rotate("+i+"deg)";
+    // gost.style.transform = "scale(1.1,1.1)";
+    cry.style.height=r;
+
+}
+</script>
+</body>
+</html>

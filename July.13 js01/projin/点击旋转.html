@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+    #gost{
+    	margin:50px auto;
+    	width: 0;
+    	height:0;
+    	border:50px solid;
+    	border-color:transparent #00aaff transparent transparent;
+    }
+	</style>
+</head>
+<body>
+<div id="gost"></div>
+
+
+<script>
+  var gost = document.getElementById("gost");
+  var a = 0;
+  var b = 60;
+  var c = 120;
+  var d = 180;
+  var e = 240;
+  var f = 300;
+
+  gost.onclick = function(){
+  	var g = a;
+  	    a = b;
+  	    b = c;
+  	    c = d;
+  	    d = e;
+  	    e = f;
+  	    f = g;
+
+  	this.style.transform = "rotate("+a+"deg)";
+  }
+</script>	
+</body>
+</html>

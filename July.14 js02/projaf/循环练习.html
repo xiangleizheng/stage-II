@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>循环练习</title>
+</head>
+<body>
+<!-- 1.打印1到100
+2 打印1到100的和
+3 求1-100之间所有数的和、平均值
+4 求1-100之间所有偶数的和、所有奇数的和
+5 本金10000元存入银行，年利率是千分之三，每过1年，将本金和利息相加作为新的本金。计算5年后，获得的本金是多少？
+6 有个人想知道，一年之内一对兔子能繁殖多少对？于是就筑了一道围墙把一对兔子关在里面。已知一对兔子每个月可以生一对小兔子，而一对兔子从出生后第3个月起每月生一对小兔子。假如一年内没有发生死亡现象，那么，一对兔子一年内（12个月）能繁殖成多少对？ 
+兔子的规律为数列，1，1，2，3，5，8，13，21  -->
+  <script>
+
+// 求总和，平均值
+  var sum=0;
+  for(var i = 1 ; i<=100 ; i++){	
+  	console.log(i);
+  	sum= sum+i;
+  }
+  var average= sum/(i-1);
+  console.log("1加到100的总和为"+sum);
+  console.log("平均数为"+average);
+
+// 求奇偶数和
+  var  evennumber = 0;
+  var  oddnumber = 0;
+  for( var n = 1 ; n <100;n++){
+  	if(n%2==0){
+  		evennumber = evennumber +n;
+  	}else{
+  		oddnumber = oddnumber + n;
+  	}
+   }
+  console.log("1~100内的偶数和为"+evennumber);
+  console.log("1~100内的奇数和为"+oddnumber);
+
+// 求本金
+  var b =10000;
+  for( var m=1 ; m<=5; m++){
+     b=b+(b*0.003);
+  }
+  console.log("一年后的本金为"+b);
+
+  //兔子问题
+  var f = 1 ;//第一个月
+  var s = 1 ;//第二个月
+  var t = 0 ;
+  for(var h=3 ; h<=12; h++){
+  	t=f+s;
+  	f=s;
+  	s=t;
+  }
+ console.log("12个月后兔子的对数"+t);
+ </script>	
+</body>
+</html>

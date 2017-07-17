@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+    #test{
+    	width:100px;
+    	height: 100px;
+    	background: #00aaff;
+    	border:1px solid pink;
+    }
+	</style>
+</head>
+<body>
+
+<div id="test"></div>
+
+
+<script>
+var box= document.getElementById("test")
+box.onclick= function(){
+	this.style.width=250+"px";
+	this.style.height=250+"px";
+}
+
+
+var num1 =1;
+var num2 =2;
+
+/*var num3 =num1;
+num1=num2;
+num2=num3;
+//方法一:添加第二个变量
+*/
+
+/*num1=[num1,num2];
+num2=num1[0];
+num1=num1[1];
+//方法二
+*/
+
+num1=[num2,num2=num1][0];
+//根据运算符优先级，首先执行b=a 
+//此时的b直接得到了a的变量值 
+//然后一步数组索引让a得到了b的值
+//方法三
+
+
+/*
+[num1,num2]=[num2,num1];
+//ES6的解构赋值语法
+//方法四
+*/
+
+console.log("num1的值为:"+num1,"-----num2的值为"+num2)
+
+</script>	
+
+</body>
+</html>

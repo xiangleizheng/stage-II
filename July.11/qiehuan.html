@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片切换</title>
+	<style>
+    *{
+    	margin:0;
+    	padding:0;
+    }
+
+    body{
+    	text-align: center;
+    }
+    /*切换点*/
+    span{
+        margin:30px 10px;
+    	display: inline-block;
+    	width: 20px;
+    	height: 20px;
+    	background-color:#000;
+    	border-radius: 50%;
+    	transition: all 0.5s;
+    }
+    span:hover{
+    	box-shadow: 0 0 6px 1px #000;
+    	background-color: transparent;
+    }
+    /*图片显示窗口修饰*/
+    div.exhibition{
+        margin-left: auto;
+        margin-right: auto; 
+        border-radius: 20px;
+    	width: 640px;
+    	height: 320px;
+    	overflow: hidden;
+    	position: relative;
+    }
+  /* 图片修饰 */
+    div.exhibition a{
+        display: block;
+        position: absolute;
+    }
+
+    div.exhibition a.first_pic{
+        left:0; 
+        transition: all 0.8s;
+    }
+    div.exhibition a.second_pic{
+        left:640px; 
+        transition: all 0.8s;
+    }
+    div.exhibition a.third_pic{
+        left: 640px;
+        transition: all 0.8s;
+    }
+
+  /* 点击切换修饰 */
+
+  /*第一个点*/
+    span.circle_one:hover+span.circle_two+span.circle_three+div.exhibition a.first_pic{
+       left:0;
+    }
+
+/* 第二个点 */
+    span.circle_two:hover+span.circle_three+div.exhibition a.first_pic{
+       left:-640px;
+    }
+    span.circle_two:hover+span.circle_three+div.exhibition a.second_pic{
+       left:0;
+    }
+
+/* 第三个点 */
+    span.circle_three:hover+div.exhibition a.second_pic,a.first_pic{
+       left:-640px;
+    }
+    span.circle_three:hover+div.exhibition a.third_pic{
+       left:0;
+    }
+
+
+	</style>
+    
+</head>
+<body>
+    <!-- 切换点 -->
+    <span class="circle_one "></span>
+    <span class="circle_two"></span>
+    <span class="circle_three"></span>
+    <!-- 图片切换窗口 -->
+	<div class="exhibition">
+	     <a href="#11" class="first_pic"><img src="images/1.jpg"></a>
+	     <a href="#11" class="second_pic"><img src="images/2.jpg"></a>
+	     <a href="#11" class="third_pic"><img src="images/3.jpg"></a>
+	</div>
+
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+    *{margin:0;padding:0;}
+    .center{margin:0 auto;}
+    ul{list-style: none;}
+    a{text-decoration: none;}
+    /*轮播*/
+    .header{
+    	text-align: center;
+    	width: auto;
+    	height: 500px;
+    	overflow: hidden;
+    }
+
+    /*访问小米*/
+    .header div.enter_mi{
+    	width: 56%;
+    	text-align: right;
+    	line-height: 60px;
+    	font-size: 15px;
+    	color:skyblue;
+    }
+    .header div.enter_mi a{color:#fff;}
+    /*导航*/
+    .header div.nav{
+    	width:60%;
+    	height: 70px;
+    	background-color: #000;
+    	opacity: 0.7;
+    	border-radius: 35px;
+    }
+    .header div.nav ul{
+    	display: flex;
+    	flex-direction: row;
+    	justify-content: center;
+    }
+    .header div.nav ul li{
+    	width: 13%;
+    	line-height: 70px;
+    	font-weight: bolder;
+    	color: #ffffff;
+    }
+    .header div.nav ul li.mid{
+    	width: 22%;
+    }
+    .header div.nav ul li a{
+        display: inline-block;
+    	color: #ffffff;
+    }
+    .header div.nav>ul>li:hover>a{
+    	width:80px;
+    	height:40px;
+    	line-height: 40px;
+    	border-radius:20px;
+    	background-color:#00aeff; 
+    }
+    .header div.nav ul li a.miwifi{
+    	display: inline-block;
+    	margin-top: 15px;
+    	width: 134px;
+    	height: 36px;
+    	background: transparent url(img/wf_miwifi.png) no-repeat center center;
+    }
+    .header div.nav ul li:hover a.miwifi{border-radius: 0;}
+    /*下拉内容*/
+    .nav ul li.drop1 ul.drop1_content{
+        display: flex;
+    	width: 125px;
+        flex-direction: column;
+    	justify-content: center;
+    	border-radius:20px;
+    	background-color:transparent;
+        opacity:0;
+    } 
+    .nav ul li.drop1 ul.drop1_content li{
+    	width: 125px;
+    	line-height: 50px;
+    	font-weight: lighter;
+    	margin-top: 2px;
+    	border:3px solid transparent;
+    	background-color:#000;
+    	opacity: 0.9;	
+    }
+    .nav ul li.drop1 ul.drop1_content li.start{
+    	margin-top:2px;
+    	border-top-left-radius: 15px;
+    	border-top-right-radius: 15px;
+    }
+    .nav ul li.drop1 ul.drop1_content li.end{
+    	border-bottom-left-radius: 15px;
+    	border-bottom-right-radius: 15px;
+    }
+    .nav ul li.drop1:hover ul.drop1_content{
+    	opacity:1;
+    	}
+    .nav ul li.drop1 ul.drop1_content li a:hover{
+    	color:#00aaff;
+    }	
+    a.circle{
+    	display: inline-block;
+    	width: 12px;
+    	height:12px;
+    	border-radius: 50%;
+    	background-color:rgba(0,0,0,0.1);
+    	box-shadow: 0 0 0 3px #fff;
+    }
+    div.show_pic{
+        position: absolute;
+        top:0;
+        z-index: -100;
+    }
+    div.show_pic i{
+    	float: left;
+    	display: block;
+    	width: 1930px;
+    	height: 720px;
+    }
+    div.show_pic i.first_pic{
+    	background: transparent url(img/wf_rocket_bg.png) no-repeat center center;
+    }
+    div.show_pic i.second_pic{
+        margin-left: 1930px;
+        margin-top: -720px;
+    	background: transparent url(img/wf_app_bg.png) no-repeat center center;
+    	transition: all 0.5s;
+    	z-index:-80;
+    }
+    a.two:focus+.show_pic i.second_pic{
+    	margin-left:0;
+    }
+
+	</style>
+</head>
+<body>
+    <!-- 头部开始 -->
+	<div class="header">
+	   <div class="enter_mi center"><a href="javascript:;">访问小米网&gt;</a></div>
+	   <!-- 导航栏开始 -->
+	   <div class="nav center">
+	     <ul>
+	       <li class="drop1">
+	           <a href="javascript:;">产品</a>
+	           <ul class="drop1_content">
+	             <li class="start"><a href="javascript:;">小米路由器</a> </li>
+	             <li><a href="javascript:;">小米路由器mini</a></li>
+	             <li class="end"><a href="javascript:;">小米随身Wifi</a></li>
+	           </ul>
+	       </li>
+	       <li><a href="javascript:;">下载</a></li>
+	       <li><a href="javascript:;">公测</a></li>
+	       <li class="mid"><a class="miwifi" href="javascript:;"></a></li>
+	       <li><a href="javascript:;">开放</a></li>
+	       <li><a href="javascript:;">论坛</a></li>
+	       <li><a href="javascript:;">招聘</a></li>
+	     </ul>
+	   </div>
+	   <!-- 导航栏结束 -->
+	</div>
+	<!-- 头部结束 -->
+	<a class="circle one" href="javascript:;"></a>
+	<a class="circle two" href="javascript:;"></a>
+	<a class="circle three" href="javascript:;"></a>
+	<div class="show_pic">
+       <i class="first_pic"></i>
+       <i class="second_pic"></i>
+       <i class="three_pic"></i>
+	</div>
+</body>
+</html>

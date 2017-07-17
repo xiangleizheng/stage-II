@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>translate</title>
+	<style>
+    *{
+    	margin:0;
+        padding: 0; 
+    }
+     .content{
+     	width: 1400px;
+     	margin:20px auto;
+     	border:1px solid #d3d3d3;
+     	border-radius: 20px;
+     }
+     .content ul{
+     	/*margin-top:20px;*/
+     	list-style: none;
+     	overflow: hidden;
+     	text-align:center;
+     }
+     .content ul li{
+     	background-color: #efefef;
+     	float: left;
+     	overflow: hidden;
+     	position: relative;
+     	width:250px;
+     	height: 300px;
+        margin:20px 49px;
+     }
+      .content ul li:hover{
+      	box-shadow: 0 0 15px 0 #666666;
+      }
+     .content ul li i{
+     	margin-top: 20px;
+     	display: block;
+     	width:250px;
+     	height:125px; 
+     }
+     .content p{
+     	font-size:20px;
+     	font-weight: bolder;
+     	color:#666; 
+     	border-bottom: 1px solid #d3d3d3;
+     	padding-left:50px; 
+     	line-height: 40px
+     }
+     .content ul li p{
+     	padding-left:0;
+     	font-size: 20px;
+     	line-height: 100px;
+     	color: #fa8801;
+     }
+     .content ul li i.pic_one{
+     	background: transparent url(images/1.jpg) no-repeat center center;
+     	background-size: cover;
+     }
+     .content ul li i.pic_two{
+     	background: transparent url(images/2.jpg) no-repeat center center;
+     	background-size: cover;
+     }
+     .content ul li i.pic_three{
+     	background: transparent url(images/3.jpg) no-repeat center center;
+     	background-size: cover;v
+     }
+     .content ul li i.pic_four{
+     	background: transparent url(images/4.jpg) no-repeat center center;
+     	background-size: cover;
+     }
+     ul li span.up{
+     	display: block;
+     	width: 250px;
+     	height: 60px;
+     	background-color: #fa8801;
+     	position: absolute;
+     	top:100%;
+     	line-height: 40px;
+     	color:#ffffff;
+     	transition: all 0.5s;
+     }
+     ul li:hover span.up{
+        margin-top: -60px;
+    }
+
+	</style>
+</head>
+<body>
+<div class="content">
+    <p> 热映影片</p>
+	<ul>
+	   <li>
+		     <i class="pic_one"></i>
+		     <p class="introduce">WALL·E</p>
+		     <span class="up"> 了解详情</span>
+	   </li>
+	   <li>
+		   	 <i class="pic_two"></i>
+		     <p class="introduce">飞屋历险记</p>
+		     <span class="up"> 了解详情</span>
+	   </li>
+	   <li>
+		   	 <i class="pic_three"></i>
+		     <p class="introduce">Kung Fu Panda 3</p>
+		     <span class="up"> 了解详情</span>
+	   </li>
+	   <li>
+	         <i class="pic_four"></i>
+		     <p class="introduce">Cars 3:闪电再起</p>
+		     <span class="up"> 了解详情</span>
+	   </li>
+	</ul>
+</div>	
+</body>
+</html>

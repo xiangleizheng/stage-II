@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+    body{
+    	text-align: center;
+    } 
+    input{
+    	line-height: 40px;
+    	border-radius: 5px;
+    	border:1px solid #d3d3d3;
+    	padding-left: 8px;
+    	outline: none;
+    	box-sizing:border-box;
+    }
+    input#button:hover{
+        background-color: #333;
+        border:1px solid transparent;
+        color:#ffffff;
+    }
+	</style>
+</head>
+<body>
+	<input type="text" id="inpOne">
+	<input type="button" value="交换一下！" id="button">
+	<input type="text" id="inpTwo">
+
+<script>
+   var inp1 = document.getElementById("inpOne");
+   var btn = document.getElementById("button");
+   var inp2 = document.getElementById("inpTwo");
+
+   btn.onclick = function(){
+    	var inpV1 = inp1.value;
+    	var inpV2 = inp2.value;
+
+    	var a = inpV2;
+    	inp2.value = inpV1;
+    	inp1.value = a;
+    }
+
+</script>
+</body>
+</html>

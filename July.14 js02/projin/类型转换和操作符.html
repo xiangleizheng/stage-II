@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数据类型转换</title>
+</head>
+<body>
+	
+	<script>
+    var a= 12;
+    var b= true;
+    console.log(typeof(a+""));
+    console.log(typeof(b+"abc"));
+    console.log(typeof(a.toString()));
+    console.log(typeof(String(b)));
+    //加""  或者 "abc"
+    //String(变量)
+    //变量.toString()   这一种转换方法undefined 、null 无法使用
+     
+
+    var num1 = "11"-1;
+    var num2 = "20"*2;
+    var num3 = "30"/2;
+    var num4 = "nihoua";
+    var num5 = parseInt("12.23544ajdhflj");
+    var num6 = parseFloat("12.23544aaaaa").toFixed(4);
+    console.log(typeof(num1));
+    console.log(typeof(num2));
+    console.log(typeof(num3));
+    console.log(typeof(Number(num4)));
+    console.log(num5);
+    console.log(num6);
+    //进行运算时 把字符串转换成了Number类型
+    //用Number(变量)
+    //用取整、取浮点 parseInt() 和 parseFloat()
+    //
+    //空字符串parseInt()和parseFloat()返回NaN，Number("")
+    //
+    //.toFixed()规定浮点数的小数点后的位数
+    
+    var bool="1111";
+    console.log(Boolean(bool));
+    console.log(!!bool);
+
+    //  Boolean(变量)
+    //  ！！变量
+    //第一个逻辑非操作会基于无论什么操作数返回一个与之相反的布尔值
+    //第二个逻辑非操作则对该布尔值求反
+    //于是就得到了这个值真正对应的布尔值
+
+
+
+
+    //操作符
+    
+
+    var c = 121||333;
+    var d = ""||null;
+    var e = 0||252;
+    var f = 456||null;
+    console.log(c);
+    console.log(d);
+    console.log(e);
+    console.log(f);
+
+    //使用 或 判断符号"||"时，
+    //前后都是true 取前面的值;前后都是flase 取后面的值; 亦真亦假取真;
+    
+    var g = 121&&333;
+    var h = ""&&null;
+    var i = 0&&252;
+    var j = 456&&undefined;
+    console.log(g);
+    console.log(h);
+    console.log(i);
+    console.log(j);
+
+    //使用 且 判断符号"&&"时，
+    //前后都是true 取后面的值;前后都是flase 取前面的值; 亦真亦假取假;
+   
+	</script>
+</body>
+</html>
