@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>阶乘</title>
+<style>
+	body{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
+	i{
+		width: 200px;
+		height:0px;
+		text-align: center;
+		position: relative;
+	}
+
+    input{
+    	margin-top: 200px;
+    	width: 200px;
+    	font-size: 15px;
+    	line-height: 40px;
+    	background-color: #faa801;
+    	color: #fff;
+    	border: 2px solid #faa801;
+    	box-sizing: border-box;
+    	outline: none;
+    }
+    i:hover{
+    	height: 250px;
+    	margin-top: 0px;
+    }
+    i:hover input{
+    	transition: all 0.8s;
+    	border-radius: 50%;
+    	width: 120px;
+    	height: 130px;
+    	background-color: #fb6a1b;
+    	border: 0;
+    	margin-top: 2px;
+    }
+    i:hover div.line{
+    	transition: all 8s;
+    	display: block;
+    }
+    div.line{
+    	position: absolute;
+    	left:50%;
+    	width: 1px;
+    	height: 80px;
+        background-color:#faa801; 
+    	display: none;
+    }
+</style>
+</head>
+<body>
+
+    <i id="btn1">
+    <input type="button" value="求阶乘" >
+    <div class="line"></div>
+    </i>
+
+    <i id="btn2">
+    <input type="button" value="求阶乘和">
+    <div class="line"></div>
+    </i>
+	<script>
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+
+    btn1.onclick = function(){
+    	fac();
+    }
+    btn2.onclick = function(){
+    	facSum();
+    }
+
+
+     function fac(){
+     var a =parseInt( prompt("请输入要求阶乘的数！"));
+	 var factorial = 1;
+	    if(a==0 || a==1){alert(1)} 
+	    else{	
+		     for(i=1;i<=a;i++){
+		       factorial *=i; 
+		     } 
+		     if(String(factorial)=="1"){alert("请输入数字！")}
+		     else{alert(factorial);} 
+		    }
+     }
+
+     function facSum(){
+       var a = parseInt(prompt("请输入要求阶乘和的数！"));
+       var factorial = 1;
+       var sum = 0
+       if(a==0){alert(1)}
+       else{
+		   for(i=1;i<=a;i++){
+	       factorial *=i;
+	       sum +=factorial;
+           } 
+           if(String(sum)=="0"){alert("请输入数字！")}
+           else{alert(sum);}
+       }
+     }
+ 
+
+
+	</script>
+</body>
+</html>
