@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>function</title>
+</head>
+<body>
+
+
+   <script>
+   //三个数中的最大值
+    function Max(a,b,c){
+     var max; 
+     if(a>b){
+     	if(a>c){
+     		max=a;
+     	}else{
+     		max=c;
+     	}
+     	
+     }else if(b>c){
+            max = b 
+           }else {
+           	max = c;
+           }
+     return max;
+    }
+
+   var b = Max(6,20,12);
+   console.log(b)
+
+   //一组数中的最大值和最小值
+
+   function Max(arr){
+	 var max=0 
+	 for(var i=0;i<=arr.length-1;i++){
+		 	if(arr[i]>max){
+		 		max=arr[i];
+		 	}
+		 	else{
+		 		max = max;
+		 	    }
+	 }
+		   return max 
+   }
+  
+  var a =[2,354,87,4,11,]
+  var b = Max(a)
+  document.write(b);
+   </script>	
+</body>
+</html>

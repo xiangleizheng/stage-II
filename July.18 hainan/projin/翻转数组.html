@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>翻转</title>
+</head>
+<body>
+   <script>
+
+    function arrOverturn(arr){
+    	for(var i=0; i<parseInt(arr.length/2);i++){
+            [arr[i],arr[arr.length-1-i]]=[arr[arr.length-1-i],arr[i]]
+        }
+    }
+
+    var a = [21,2,2,335,6545,98,64,65,65,64,6545]
+    arrOverturn(a);
+    console.log(a);
+   </script>	
+</body>
+</html>

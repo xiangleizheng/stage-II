@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>计算器</title>	<style>
+
+	</style>
+</head>
+<body>
+	<input type="text" id="firstNum">
+	<input type="text" id="secondNum">
+	<input type="button" value="+" id="plus">
+	<input type="button" value="-" id="subtract">
+	<input type="button" value="*" id="multiply">
+	<input type="button" value="/" id="divide">
+	<input type="text" id="result">
+	<input type="button" value="清空" id="clear">
+
+	<script>
+   
+    var firstNum = document.getElementById("firstNum");
+    var secondNum = document.getElementById("secondNum");
+    var result = document.getElementById("result");
+    var plus = document.getElementById("plus");
+    var subtract = document.getElementById("subtract");
+    var multiply = document.getElementById("multiply");
+    var divide = document.getElementById("divide");
+    var clear = document.getElementById("clear")
+    
+    var c = 0;
+    var a =firstNum.value ;
+    var b =secondNum.value ;
+
+    plus.onclick = function(){
+        add();
+    };
+
+    subtract.onclick = function(){
+        sub();
+    };
+    multiply.onclick = function(){
+         mul(); 
+    }
+    divide.onclick = function(){
+    	 div();
+    }
+    clear.onclick = function(){
+         del();
+    }
+    function add(){
+    	var a =parseInt(firstNum.value);
+        var b =parseInt(secondNum.value);
+    	result.value= a+b;
+    }
+     function sub(){
+        var a =parseInt(firstNum.value);
+        var b =parseInt(secondNum.value) ;
+    	result.value=a-b;
+    }   
+    function mul(){
+    	var a =parseInt(firstNum.value);
+        var b =parseInt(secondNum.value) ;
+    	result.value=a*b;
+    } 
+    function div(){
+    	var a =parseInt(firstNum.value);
+        var b =parseInt(secondNum.value) ;
+    	result.value=a/b;
+    }
+    function del(){
+    	firstNum.value="";
+    	secondNum.value="";
+    	result.value="";
+    }
+	</script>
+</body>
+</html>

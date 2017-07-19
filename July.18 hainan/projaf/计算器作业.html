@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>计算器作业</title>
+	<style>
+	*{margin: 0;padding: 0;}
+     input{
+     	width: 100px;
+     	height:30px;
+     	margin-left:-2px;
+     	padding-right: 10px;
+     	
+     }
+     #show{
+     	width: 393px;
+     	text-align: right;ox-sizing: border-box;
+     	margin-left: -2px;
+     }
+     #equal{
+     	float: left;
+     	width: 203px;
+     	margin-top: -30px;
+     	margin-left: 203px;
+     }
+	</style>
+</head>
+<body>
+	    <table>
+
+        <tr>
+        <td colspan="4"><input type="text" value="" id="show" /></td>
+        </tr>
+
+        <tr>
+        <td><input type="button" value="平方" id="square"/></td>
+        <td><input type="button" value="立方" id="cube"/></td>
+        <td><input type="button" value="平方根" id="squareRoot"/></td>
+        <td><input type="button" value="清除" id="clear"/></td>
+        </tr>
+
+        </table>
+
+        <div id="number">
+	        <input type="button" value="1" >
+	        <input type="button" value="2" >
+	        <input type="button" value="3" >
+	        <input type="button" value="4" ><br/>
+	        <input type="button" value="5" >
+	        <input type="button" value="6" >
+	        <input type="button" value="7" >
+	        <input type="button" value="8" ><br/>
+	        <input type="button" value="9" >
+	        <input type="button" value="0" >
+            <input type="button" value="." >
+            <input type="button" value="/" ><br/>
+            <input type="button" value="+" >
+            <input type="button" value="-" >
+            <input type="button" value="*" >
+            <input type="button" value="%" ><br/>
+            <input type="button" value="(" >
+            <input type="button" value=")" >
+            
+        </div>
+        
+            <input type="button" value="=" id="equal" >
+            <input type="button" value="取消" id="del">
+         
+  
+    <script>
+    var show = document.getElementById("show");
+    var square = document.getElementById("square");
+    var cube = document.getElementById("cube");
+    var squareRoot = document.getElementById("squareRoot");
+    var clear = document.getElementById("clear");
+    var number = document.getElementById("number");
+    var equal = document.getElementById("equal");
+    var del = document.getElementById("del")
+    show.value = 0;
+    number.onclick = function(e){
+        getNumber(e);
+    }
+
+    equal.onclick = function(){
+    	dengYu();
+    }
+    
+    square.onclick = function(){
+    	pingfang();
+    }
+    
+    cube.onclick = function(){
+    	lifang();
+    }
+
+    squareRoot.onclick =function(){
+    	pingfanggeng();
+    }
+
+    clear.onclick = function(){
+    	qingchu();
+    } 
+    
+    del.onclick=function(){
+    	shanchu();
+    }
+
+
+    function getNumber(e){
+    	if(show.value==0){
+    		show.value="";
+    	}
+        var n = e.target; //返回点击的节点（这里是点击的那个input标签）
+    	var nval = n.value;
+    	show.value = show.value +nval;
+    } 
+    function dengYu(){
+    		show.value=eval(show.value);	
+    }
+    function pingfang(){
+    	var a = parseFloat(show.value);
+    	show.value=(a*a);
+    }
+    function lifang(){
+    	var a = parseFloat(show.value);
+    	show.value=(a*a*a);
+    }
+    function pingfanggeng(){
+    	var a = parseFloat(show.value);
+    	show.value=Math.sqrt(a);
+    }
+    function qingchu(){
+    	show.value=0;
+    }
+    function shanchu(){
+    	if(show.value==0){
+
+    	}
+	    	else{
+	    	var a = show.value;
+	    	a=a.substring(0,a.length-1);
+	    	show.value=a;
+		    	if(a.length==0){
+		    		show.value=0;
+		    	}
+	        }  
+    }
+
+    </script>
+</body>
+</html>

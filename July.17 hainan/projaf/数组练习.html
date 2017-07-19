@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组练习</title>
+</head>
+<body>
+<!-- 
+1.把1-100之间所有的数，放到数组中
+2.把1-100之间所有的奇数，放到数组中
+3.1-100之间能被3整数的数字，存到数组中 
+4.求一组数中的所有数的和 和平均值
+5.求一组数中的最大值
+-->
+
+ <script>
+ //将1~100放入数组arr中;再写到页面上。
+ /* var arr = new Array();
+  for(var i=1;i<=100;i++){
+  	arr.push(i);
+  }
+  for(var i=0 ; i<=arr.length-1;i++){
+  	document.write(arr[i]+"<hr/>");
+  }*/
+
+//将1~100 中的所有奇数放到数组中。
+/*var secondArr = new Array();
+for( var i = 1; i<=100;i++){
+	if(i%2==1){
+		secondArr.push(i);
+	}
+}
+for(var i=0 ; i<=secondArr.length-1;i++){
+  	document.write("奇数 ： "+secondArr[i]+"<hr/>");
+  }
+*/
+ //将1~100 中能被3整除的数放到数组中。
+ var thirdArr = new Array();
+for( var i = 1; i<=100;i++){
+	if(i%3==0){
+		thirdArr.push(i);
+	}
+}
+for(var i=0 ; i<=thirdArr.length-1;i++){
+  	document.write("能被三整除的数 ： "+thirdArr[i]+"<hr/>");
+  }
+
+ // 一个数组中的最大值  ;
+ var max=0
+ for(var i=0;i<=thirdArr.length-1;i++){
+ 	if(thirdArr[i]>max){
+ 		max=thirdArr[i];
+ 	}else{
+ 		max = max;
+ 	}
+ }
+ console.log("数组中的最大值为 ："+max); 
+
+ //求一组数中的所有数的和 和平均值
+ var sum = 0;
+ for(var i=0;i<=thirdArr.length-1;i++){
+ 	sum +=thirdArr[i];
+ }
+console.log("数组和为 ："+sum);
+console.log("数组元素个数为 ："+thirdArr.length);
+console.log("平均值为"+sum/thirdArr.length);
+
+//es6 字符串的拼接
+var a = "郑向磊";
+console.log(`es6 字符串的拼接----我是${a}`);
+ </script>
+
+</body>
+</html>

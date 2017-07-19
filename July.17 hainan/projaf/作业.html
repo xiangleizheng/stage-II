@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>homework</title>
+	<style>
+	div{
+		margin:0 auto;
+		width: 20%;
+		height: 200px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+    input{
+    	width: 100%;
+    	line-height: 50px;
+    	font-size: 20px;
+    	background-color: #fbbc42;
+    	border-left:8px solid #fbbc42;
+    	border-right:0px solid #fbbc42;
+    	border-top:0px solid #fbbc42;
+    	border-bottom:0px solid #fbbc42;
+    	outline: none;
+    	box-sizing: border-box;
+
+    }
+    input:hover{
+    	color:#fff;
+    	background-color: #fbb327;
+    	border-left:8px solid #f6f788;
+    }
+	</style>
+</head>
+<body>
+   <div>
+	    <input type="button" value="第一题" id="first">
+	    <input type="button" value="第二题" id="second">
+	    <input type="button" value="第三题" id="third">
+   </div>
+	<script>
+
+	//判断输入数字是否能被5/6整除
+	var firstButton = document.getElementById("first")
+	firstButton.onclick = function(){
+	var a = parseInt(prompt("请输入一个数字吧！"));
+		 if(a%5==0){
+			 	if(a%6==0){
+			 		alert("congratulation！这个数可以同时被5和6整除。");
+			 	}else{
+			 		alert("虽然这个数可以被5整除，但是不能被6整除。");
+			 	}      
+		 }else if(a%6==0){
+				 	alert("虽然这个数不能被5整除，但是可以被6整除。");
+				 }else{
+				 	alert("太惨了！这个数既不能被5整除又不能被6整除。")
+				 } 
+		 }
+    
+	 //	1~10000中能被5或者6整除的数
+	var secondButton = document.getElementById("second")
+	secondButton.onclick = function(){
+	for(var count = 1; count<=1000; count++){
+	 	if(count%5==0||count%6==0){
+	 		console.log(count);
+	 	}
+	 }
+     }
+
+    //输出所有能被整除的数
+     var thirdButton = document.getElementById("third")
+     thirdButton.onclick = function(){
+     var b = parseInt(prompt("请输入一个大于零的数字吧！"));
+     for(var n = 1 ; n<=b ;n++){
+     	if(b%n==0){
+     		console.log(n);
+     	 }
+        }
+     }
+
+	</script>
+</body>
+</html>
