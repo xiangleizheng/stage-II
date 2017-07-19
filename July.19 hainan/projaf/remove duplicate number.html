@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Text</title>
+	<style>
+     body{
+     	text-align: center;
+     }
+	</style>
+</head>
+<body>
+
+  <script>
+
+  //数组去重Remove duplicate Numbers
+  //
+  //方法一
+  function removeDup(arr){
+ 			 var a =[];
+		 	 for(var i = 0 ;i<arr.length;i++){
+				  	if(a.indexOf(arr[i])==-1){
+				         a.push(arr[i]);
+				  	}
+		 }
+		 return a;
+  }
+
+
+  //方法二
+  function removeDup2(arr){
+    	for(var i =0;i<arr.length;i++){
+		 	for(var j = i+1;j<arr.length;j++){
+		 		if(arr[i] == arr[j]){
+		 			arr.splice(j,1)
+		 			j--;
+		 		}
+		 	}
+	 	}
+            return arr;
+  }
+
+
+ //方法三
+function removeDup3(arr){
+	 	var arr1 = arr.sort()
+		for(var i =0;i<arr1.length;i++){
+			if(arr1[i]==arr[i+1]){
+	 			arr1.splice(i,1)
+				i--;
+			}
+
+		}
+		return arr1;
+ }
+
+  var arr1=[5,6,9,7,8,5,5,9,6,5,65,2,21,65,46,7,8,21,46];
+  console.log(removeDup(arr1));
+  console.log(removeDup2(arr1));
+  console.log(removeDup3(arr1));
+
+
+  </script>	
+</body>
+</html>

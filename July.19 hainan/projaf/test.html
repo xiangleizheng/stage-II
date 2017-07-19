@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+     body{
+     	text-align: center;
+      }
+	</style>
+</head>
+<body>
+
+  <input type="text" id="inp1">
+  <input type="button" id="btn1" value="addzero">
+
+  <input type="button" id="threes" value="三位数的各项值和">
+  <input type="button" id="odds" value="200~300之间的奇数和">
+  <input type="button" id="seven" value="200~300之间第一个能被7整除的数">
+  <input type="button" id="scores" value="1+1/2+1/4+1/8">
+  <script>
+  //给1~9之间的数字加0；
+  var btn1 = document.getElementById("btn1");
+  btn1.onclick = function(){
+	addZero();
+  }
+  function addZero(){
+	var inp1 = document.getElementById("inp1");
+	var a = inp1.value;
+	var b = Number(inp1.value);
+	if(a==""){
+		alert("请输入数字！")
+		inp1.value="";
+	}else if(b>0 && b<9){
+		inp1.value="0"+inp1.value;
+	}else{
+		alert("请输入1到9之间的数字");
+		inp1.value="";
+	}
+}
+
+ //1、用JS计算下列算式，并将结果在控制台输出：
+    var a =(123+45*78)/(34+543)-9*(324-34);
+    console.log(a);
+
+//2.编写程序，让用户输入摄氏度，向用户提示出对应的华氏温度。
+//3.用户输入一个三位数，用程序计算三位数字的和。
+   var threes = document.getElementById("threes");
+   threes.onclick = function(){
+   	threeSum();                                               
+   }
+   function  threeSum(){
+   var a = parseInt(prompt("请输入一个三位数！"));
+   var b = a%10 ;           //b存储个位数  
+   var c = (a-b)/10%10;      //c存储十位数
+   var d = (a-10*c-b)/100;   //d存储百位数
+   alert(b+c+d);
+   }
+
+ //求200~300间的奇数和
+ var odds = document.getElementById("odds");
+ odds.onclick = function(){
+ 	oddSum();
+ }
+ function oddSum(){
+   var oddsum = 0;
+   for(var i = 200; i<=300; i++){
+   	if(i%2){
+   		oddsum +=i;
+   	}
+   }
+  alert(oddsum);
+}
+
+  //求200-300之间第一个能被7整数的数;
+  var seven = document.getElementById("seven");
+  seven.onclick = function(){
+  	Seven();
+  }
+
+  function Seven(){
+	  for(var i = 200;i<=300;i++){
+	  	if (i%7==0){
+	  		alert(i);
+	  		break;
+	  	}
+	  }
+  }
+
+//求1+1/2+1/4+1/8的和（用循环）
+var scores = document.getElementById("scores");
+scores.onclick = function(){
+  	scoreSum();
+}
+
+function scoreSum(){
+var a = 1;
+for(var i=1;i<4;i++){
+   a +=a/2;
+}
+alert(a);
+}
+
+//写一个方法从大到小排序 (冒泡排序)
+
+var a =[2,35,544,85,5,23,21,321,5,6,143,5613214,555555555];
+maxToMin(a);
+
+function maxToMin(arr){
+var flag;
+for(var i= 0 ; i<arr.length-1;i++){
+     flag =true;
+     
+     	for(var j =0; j<arr.length-1-i;j++){
+	     		if(arr[j]<arr[j+1]){
+	     			var temp = arr[j+1];
+	     			arr[j+1] = arr[j];
+	     			arr[j] = temp;
+	     		    flag =false; 
+	     		}
+     	}
+     if(flag==true){
+     	break;
+     }
+     
+}
+console.log(arr);
+}
+
+</script>	
+</body>
+</html>
