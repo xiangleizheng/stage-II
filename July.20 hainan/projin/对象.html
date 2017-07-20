@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象</title>
+</head>
+<body>
+
+	<script>
+    var boss = new Object()
+    boss.firstGF = "一号";
+    boss.secondGF = "二号";
+    boss.thirdGF = "三号";
+
+    boss.angray = function(){
+    	alert("I will kill you !");
+    }
+
+    document.write("第一个女朋友: "+boss.firstGF+"<hr/>");
+    document.write("第三个女朋友: "+boss.secondGF+"<hr/>");
+    boss.angray();
+    console.log(boss);
+	</script>
+</body>
+</html>

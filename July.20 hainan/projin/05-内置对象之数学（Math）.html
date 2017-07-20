@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+
+        //Math对象比较特殊，他不需要创建。直接调用内部方法。
+
+        Math.abs();//绝对值。
+
+
+        var a = 1.12111116;
+
+
+        // console.log(Math.floor(a));//向下取整。
+        // console.log(Math.ceil(a))//向上取整。
+
+        // console.log(Math.round(a));//四舍五入取整。
+
+
+
+        Math.random();//0-1随机数。
+
+        document.write(parseInt(Math.random()*100))
+
+
+        Math.PI;//3.1415926....
+        Math.pow();//哪个数的多少次方。
+        Math.sqrt();//某个数的平方根
+        console.log(getRandomInt(1,9))
+        function getRandomInt(min, max) {
+          return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+
+    </script>
+</body>
+</html>

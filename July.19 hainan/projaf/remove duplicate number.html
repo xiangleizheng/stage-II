@@ -16,6 +16,9 @@
   //数组去重Remove duplicate Numbers
   //
   //方法一
+  //创建一个空数组，数组内有没有这个(indexOf)
+  //indexOf()、lastIndexOf()   //如果没找到返回-1
+  //索引值 = 数组.indexOf/lastIndexOf(数组中的元素);
   function removeDup(arr){
  			 var a =[];
 		 	 for(var i = 0 ;i<arr.length;i++){
@@ -28,6 +31,7 @@
 
 
   //方法二
+  //两个for循环，比第一个和第二个;如果相等删除
   function removeDup2(arr){
     	for(var i =0;i<arr.length;i++){
 		 	for(var j = i+1;j<arr.length;j++){
@@ -42,6 +46,7 @@
 
 
  //方法三
+ //先排序。找相同。删掉相同的
 function removeDup3(arr){
 	 	var arr1 = arr.sort()
 		for(var i =0;i<arr1.length;i++){
@@ -53,11 +58,37 @@ function removeDup3(arr){
 		}
 		return arr1;
  }
+//方法四  开闭原则
+		function removeDup4(arr){
+			var arr1 = []
+			for(var i=0;i<arr.length;i++){
+				var flag = true;
+
+				for(var j=i+1;j<arr.length;j++){
+					if(arr[i]==arr[j]){
+						flag = false;
+					}
+				}
+
+
+				if(flag==true){
+					arr1.push(arr[i])
+				}
+			}
+
+			return arr1;
+		}
+
+
+
+
+
 
   var arr1=[5,6,9,7,8,5,5,9,6,5,65,2,21,65,46,7,8,21,46];
   console.log(removeDup(arr1));
   console.log(removeDup2(arr1));
   console.log(removeDup3(arr1));
+  console.log(removeDup4(arr1));
 
 
   </script>	

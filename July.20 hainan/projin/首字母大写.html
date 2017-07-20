@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>首字母大写</title>
+</head>
+<body>
+<script>
+  var str1="Hello,world,hao,hao,hao,hao,noNE,rEaLundEFinEd"
+
+  function upperFirstOne(str){
+  var arr= str.split(",");
+	  for(var i = 0 ;i<arr.length; i++){
+	  	var a =arr[i].slice(0,1);
+	  	var b =arr[i].slice(1); 
+	  	arr[i]=a.toUpperCase()+b.toLowerCase();
+	  }
+	  return arr.join(",");
+  }
+
+  document.write(upperFirstOne(str1));
+
+  console.log(typeof(upperFirstOne(str1)));
+
+</script>
+</body>
+</html>

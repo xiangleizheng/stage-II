@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>润年</title>
+</head>
+<body>
+
+  <input type="text" id="num"> 
+  <input type="button" id="btn" value="润年？">
+  
+  <input type="text" id="date">
+  <input type="button" id="btn1" value="今天是今年第几天？">
+
+  <script>
+  var num = document.getElementById("num");
+  var btn = document.getElementById("btn");
+  var date = document.getElementById("date");
+  var btn1 = document.getElementById("btn1");
+  
+  btn.onclick = function(){
+		runNian();
+	}
+
+//判断是否为润年
+//
+//
+  function runNian(){
+       var i = Number(num.value);
+       if(i==0){alert("请输入年份!")}
+       else{ 
+		   if((i%4==0&&i%100!=0)||(i%400==0)){
+		        alert(i+"年为润年");
+		        flag = true;
+		   }else{
+		   	    alert(i+"年不是润年");
+		   	    flag = false;
+		   }
+		   num.value="";
+		}   
+   }  
+ 
+
+
+//判断当前年份已经过了几天
+//
+//
+//
+ btn1.onclick=function(){
+ 	passDay();
+ }   
+function passDay(){
+   var d = date.value
+   var arr = d.split(".");          //将输入的值按照“.”分为有三个元素的数组
+   var arr1 = [31,28,31,30,31,30,31,31,30,31,30,31];  //平年的每月天数
+   var s ;
+ if(d==""){
+ 	alert('请输入年月日，以" . "隔开');
+    
+ }else{ 
+   for(var i = 0 ; i<arr.length ; i++){
+	   	if(i==0){
+			       var years = parseInt(arr[i]);
+			       	if((years%4==0&&years%100!=0)||(years%400==0)){
+				         s=1;
+				   }else{
+				   	     s=0;
+				   }
+
+	   	}
+	   	else if(i==1){
+
+		   		var m = parseInt(arr[i]);
+		   		var sum = 0;
+	            for( var j = 0; j<m-1 ;j++){
+	                sum +=arr1[j];
+	            }
+	            if(m>2){
+	            	sum +=s;
+	            }
+	            
+
+	   	}
+	   	else if(i==2){
+	   		  var ri= parseInt(arr[i]) ;
+
+	   	}
+   }
+   document.write(sum+ri);
+} 
+}
+
+  </script>	
+</body>
+</html>
