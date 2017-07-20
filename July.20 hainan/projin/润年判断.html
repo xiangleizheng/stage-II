@@ -43,7 +43,7 @@
 
 
 //判断当前年份已经过了几天
-//
+//方法一
 //
 //
  btn1.onclick=function(){
@@ -89,7 +89,43 @@ function passDay(){
    document.write(sum+ri);
 } 
 }
-
+//方法二
+//
+//
+// var arr = (prompt("")).split(".")
+// var a = Number(arr[0]); //年
+// var b = Number(arr[1]); //月
+// var c = Number(arr[2]); //日
+// 
+// document.write(getDay(a,b,c)) //调用函数
+// 
+// 
+// 
+// function getDay(year,month,day){
+// 
+//   var monthArr = [31,28,31,30,31,30,31,31,30,31,30,31];
+//   
+//   for( var i = 0 ; i<month-1;i++){
+//       
+//       day +=monthArr[i];
+//   }
+//   
+//   if((month>2)&&isRunnian(year)){       //isRunnian()是判断是否为润年的方法，如果是返回true,不是返回false;
+//       day++
+//   }
+//   return day ;
+// }
+// 
+// 方法判断是否为润年
+// 
+//    function isRunnian(year){
+//      var years = parseInt(year);
+//		if((years%4==0&&years%100!=0)||(years%400==0)){
+//				    return true;
+//		   }else{
+//				    return false;
+//               }
+//     }
   </script>	
 </body>
 </html>
