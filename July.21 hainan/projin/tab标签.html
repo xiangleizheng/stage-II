@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tab标签</title>
+		<style>
+		.sub{
+			width: 400px;
+			height: 400px;
+			position: relative;
+		}
+		.sub div{
+			width: 400px;
+			height: 400px;
+			border: 0;
+			position: absolute;
+			background-color: #dbfcfa;
+			
+		}
+		.none{
+			
+			display: none;
+		}
+		.block {
+			display: block;
+		}
+		button{
+			width: 100px;
+			height: 50px;
+			border: 0;
+			outline: none;
+			background-color: #dbfcfa;
+		}
+
+		
+
+	</style>
+</head>
+<body>
+		<button>手机</button><button>数码</button><button>相机</button><button>电脑</button>
+
+	<div class="sub" id="div">
+		<div  >第一个</div>
+		<div class="none">第二个</div>
+		<div class="none">第三个</div>
+		<div class="none">第四个</div>
+
+	</div>
+
+	<script>
+
+
+
+			var btns = document.getElementsByTagName('button');
+			var divs = document.getElementById('div').getElementsByTagName('div');
+			
+			for(var i =0;i<btns.length;i++){
+				//点击获取当前button的索引值
+				//console.log(i)
+				btns[i].index = i;
+				
+				btns[i].onclick = function () {
+					for(var j = 0;j<btns.length;j++){
+						
+						divs[j].className = "none"
+					}
+					divs[this.index].className = "block"
+					
+				}
+			}
+
+			var arr = []
+			arr.index = 1 ;
+			
+
+	</script
+</body>
+</html>

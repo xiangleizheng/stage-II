@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Object</title>
+</head>
+<body>
+  <script>
+/*console.log(createNPC("莎兰","Mage","元素亲和","跟随风的指引"));
+
+
+//一 . 构造函数创建对象
+
+function createNPC(npcName,npcProfession,npcTalent,npcTag){
+   var NPC = new Object();
+   NPC.name = npcName;
+   NPC.profession=npcProfession;
+   NPC.talent=npcTalent;
+   NPC.tag= npcTag;
+   NPC.say=function(){
+   	alter(this.tag);
+   } 
+  return NPC;
+}*/
+//Some Mage, Warrior, Shaman, Rogue and Paladin class specific quests have been added. 
+
+
+
+
+//二 . new创建了一个新的空白对象。
+
+//1.开辟内存空间，存储新创建的对象（ new Object() ）
+//2.把this设置为当前对象
+//3.返回新创建的对象
+function createNPC(npcName,npcProfession,npcTalent,npcTag){
+   this.name = npcName;
+   this.profession=npcProfession;
+   this.talent=npcTalent;
+   this.tag= npcTag;
+   this.say=function(){
+   	alter(this.tag);
+   } 
+}
+
+var Gourdin = new createNPC("Gourdin","Warrior","防御加二","真厉害！");
+var Shaman = new createNPC("Shaman","pontifex","图腾召唤","图腾之力会毁灭你！")
+ 
+ console.log(Gourdin)
+ console.log(Shaman)
+
+
+
+  </script>	
+</body>
+</html>

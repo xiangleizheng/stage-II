@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Timer</title>
+	<style>
+     input{
+     	width: 30px;
+     	text-align: center;
+     	border:1px solid #d3d3d3 ;
+     	outline: none;
+     }
+	</style>
+</head>
+<body>
+
+<input type="text">
+<span>秒</span>
+<input type="text">
+<span>分钟</span>
+<input type="text">
+<span>小时</span>
+<input type="text">
+<span>天</span>
+<input type="button" value="start" onclick="start()" style="width: 50px;">
+<input type="button" value="stop" onclick="stop()" style="width: 50px;">
+
+<script>
+  var showText = document.getElementsByTagName('input');
+  var scond,i,j,k,l;
+  i=1;  j=0;  k=0;  l=0;
+
+  function start(){
+  	second = setInterval(function(){
+  		showText[0].value = i++;
+  		if(i==61){
+           i=1;
+           j++;
+           showText[1].value =j;
+           if(j==60){
+           	j=0;
+           	k++;
+           	showText[2].value =k;
+           	if(k==24){
+           		k=0;
+           		l++;
+           		showText[3].value=l;
+           	}
+           }
+  		}
+  	},300)
+  }
+
+  function stop(){
+  	clearInterval(second);
+  }
+</script>	
+</body>
+</html>

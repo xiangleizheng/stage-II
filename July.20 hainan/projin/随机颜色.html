@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>随机颜色</title>
+  <style>
+    body{
+      width: 60%;
+      margin:0 auto;
+    }
+    input{
+      position: absolute;
+      width: 100px;
+        height: 30px;
+    }
+    div{
+    display:inline-block; 
+      width:24%;
+      height: 250px;
+    }
+    i{
+      display:block;
+    }
+  </style>
+</head>
+<body>
+  <input id="btn" type="button" value="Change C">
+  <i id="box">
+  <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+  </i>
+  <script>
+    var btn = document.getElementById("btn");
+    var block = document.getElementsByTagName("div");
+    var box = document.getElementById("box");
+    //初始颜色为白色
+    for(var i =0 ;i<block.length;i++){
+    block[i].style.background="#fff"
+    }
+
+    btn.onclick = function () {
+      for(var i =0 ;i<block.length;i++){
+      block[i].style.background = changeC();
+        }
+    }
+  
+    box.onclick = function(e){
+       alert("当前颜色为： "+e.target.style.background);
+    } 
+
+
+  function changeC(){
+    var s = "#";
+    for(var i = 0;i<6;i++){
+      s+=parseInt(Math.random()*17).toString(16)
+    }
+    return s;
+  }
+    
+
+  </script>	
+</body>
+</html>

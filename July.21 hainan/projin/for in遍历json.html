@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>for...in</title>
+</head>
+<body>
+    <script>
+
+        //for....in...遍历json
+        //键值对 key value
+        var json = {
+            "name":"Malfurion Stormrage",
+            "wife":"Tyrande Whisperwind",
+            "brother":"Illidan Stormrage",
+            "profession":"Arch-Druid",
+            "race":"Night Elf",
+            "age":1200,
+            "address":"Azeroth-Emerald Dream"
+        };
+        console.log(json)
+
+
+        //不用管遍历多少次，有多少属性，自动遍历多少次。
+        for(var k in json){
+            document.write(k.toUpperCase()+" -----: "+json[k]+"<br/>");//k代表json中的属性。
+            //k不能加引号，所以k当做变量看。  json[k]代表k属性对应的属性值。
+        }
+
+
+    </script>	
+</body>
+</html>

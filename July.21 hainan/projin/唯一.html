@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+    .dec{
+    	color: #fff;
+    	background-color: #ffb615;
+    	border-bottom: 2px solid #20c647;
+    	text-decoration: underline;
+    }
+    ul{overflow: hidden;}
+    li{
+    	float: left;
+    	width: 100px;
+    	line-height: 35px;
+    	cursor: pointer;
+    	text-align: center;
+    	list-style: none;
+    }
+	</style>
+</head>
+<body>
+    <ul>
+    <li>Annie</li> 
+    <li>Becrey</l>
+    <li>Jared</li>
+    <li>Casio</li>
+    </ul>
+
+	<script>
+  var liArr = document.getElementsByTagName("li");
+  
+  for(var i =0 ;i<liArr.length;i++){
+      liArr[i].onmouseover = function(){
+                // onlyMe(i);
+                for(var j=0 ;j<liArr.length;j++){ 
+			   		liArr[j].className = "";
+			    	}
+                 this.className = "dec";
+      }
+  	}
+  
+
+/*function onlyMe(n){	  
+		for(var j=0 ;j<liArr.length;j++){ 
+			   		liArr[j].className = "";
+		}
+        liArr[n].className = "dec";			   	 
+}*/
+	</script>
+</body>
+</html>
