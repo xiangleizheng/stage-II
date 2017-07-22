@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>js轮播</title>
+	<title>JS轮播(直接判断)</title>
 	<style>
 	body{
 	
@@ -49,10 +49,12 @@
     .beRed{
     	background-color: red;
     }
-    .no{		
+    .no{
+        transition: all 0.5s; 		
 		opacity:0;
 	}
 	.block {
+		transition: all 0.5s;
 		opacity:1;
 	}
 	</style>
@@ -89,10 +91,10 @@
    j=0;
     
    
-   //网页一加载完就自动切换
+   //网页一显示自动切换
    move();
-   //鼠标滑出图片上时开始自动循环
-   //
+   
+
     function move(){
 
             //判断。当前第几个图片是显示状态,从这个图片开始循环
@@ -102,8 +104,8 @@
 			    if(s=="block"&&t=="beRed"){        
 			         j=i     //把这个图片的索引值给j
 			    }
-		    }
-            //计时执行run方法
+		    }//计时执行run方法
+            
             time = setInterval(Run,2200)
 			  	
     } 

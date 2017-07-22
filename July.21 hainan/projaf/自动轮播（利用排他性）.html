@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS轮播(排他)</title>
+	<style>
+	body{
+	
+	}
+   #hitMe{
+   	width: 10%;
+   	height: 22px;
+   	position: absolute;
+   	left:50%;
+   	margin-left: -6%;
+   	z-index: 10;
+   	margin-top: 280px;
+   	background-color: rgba(255,255,255,0.3);
+   	border-radius: 11px;
+   	padding: 0 8px;
+   	display: flex;
+   	flex-direction: row;
+   	justify-content: space-around;
+   }
+    span{
+    	margin-top:5px; 
+    	display: inline-block;
+    	width: 12px;
+    	height: 12px;
+    	border-radius: 50%;
+    	background-color: #fff;
+    }
+    
+    .sub{
+    	margin:0 auto;
+		width: 640px;
+		height: 320px;
+		position: relative;
+	}
+	.sub div{
+		width: 640px;
+		height: 320px;
+		border: 0;
+		position: absolute;
+		background-color: rgb(160,202,222);		
+	}
+    .beRed{
+    	background-color: red;
+    }
+    .no{		
+		display: none;
+	}
+	.block {
+		display: block;
+	}
+	</style>
+</head>
+<body>
+
+<div id="hitMe">
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+</div>
+
+<div class="sub" id="showPic">
+	<div class="block"><img src="images/1.jpg"></div>
+	<div class="no"><img src="images/2.jpg"></div>
+	<div class="no"><img src="images/3.jpg"></div>
+	<div class="no"><img src="images/4.jpg"></div>
+	<div class="no"><img src="images/5.jpg"></div>
+</div>
+
+
+
+
+<script>
+  var spanArr = document.getElementById('hitMe').getElementsByTagName('span');
+  var divArr = document.getElementById('showPic').getElementsByTagName('div');
+  var clickSpace=document.getElementById("hitMe");
+  var showSpace =document.getElementById("showPic");
+  var time;
+  var j = 0;  //使用全局变量后，要注意之后的变量不要与之冲突。
+
+    move();
+   
+
+    function move(){
+
+            //判断。当前第几个图片是显示状态,从这个图片开始循环
+		    for(var g=0 ; g<divArr.length;g++){                   
+			   var s=divArr[g].className;
+			   var t=spanArr[g].className; 
+			    if(s=="block"&&t=="beRed"){        
+			         j=g     //把这个图片的索引值给j
+			    }
+		    }//计时执行run方法
+            
+            time = setInterval(Run,2200)
+			  	
+    } 
+			  	
+    
+
+    function Run(){
+            
+            for(var f=0;f<divArr.length;f++){
+               
+		        divArr[f].className="no";
+		        spanArr[f].className="span";
+            } 
+            divArr[j].className="block";
+            spanArr[j].className="beRed";
+             j++;   
+            
+            if(j>divArr.length-1){
+                j=0;
+             }
+
+    }
+
+    //鼠标滑上图片时停止自动循环
+    showSpace.onmouseover= function(){
+   	    clearInterval(time); 
+   }
+   //鼠标滑出图片上时开始自动循环
+   //
+    showSpace.onmouseout= function(){
+   	    move();
+   }
+
+   //鼠标到按钮背景时停止自动循环
+   
+    clickSpace.onmouseover= function(){
+   	    clearInterval(time); 
+   }
+
+    //点击下个按钮时，上一个按钮样式清空 , 同时点击切换图片
+    for(var k =0;k<spanArr.length;k++){
+			spanArr[k].index = k;       //保存下索引值				
+			spanArr[k].onclick = function () {
+                 clearInterval(time);
+				for(var j = 0;j<spanArr.length;j++){						
+					divArr[j].className = "no";
+					spanArr[j].className ="span";
+					}
+				divArr[this.index].className = "block";
+				spanArr[this.index].className = "beRed";					
+			}
+	}
+</script>
+</body>
+</html>
