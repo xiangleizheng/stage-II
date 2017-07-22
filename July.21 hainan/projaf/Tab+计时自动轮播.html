@@ -21,6 +21,7 @@
    	display: flex;
    	flex-direction: row;
    	justify-content: space-around;
+   	cursor: pointer;
    }
     span{
     	margin-top:5px; 
@@ -29,6 +30,7 @@
     	height: 12px;
     	border-radius: 50%;
     	background-color: #fff;
+
     }
     
     .sub{
@@ -48,16 +50,17 @@
     	background-color: red;
     }
     .no{		
-		display: none;
+		opacity:0;
 	}
 	.block {
-		display: block;
+		opacity:1;
 	}
 	</style>
 </head>
 <body>
 
 <div id="hitMe">
+	<span class="beRed"></span>
 	<span></span>
 	<span></span>
 	<span></span>
@@ -71,6 +74,7 @@
 	<div class="no"><img src="images/3.jpg"></div>
 	<div class="no"><img src="images/4.jpg"></div>
 	<div class="no"><img src="images/5.jpg"></div>
+	<div class="no"><img src="images/2.png"></div>
 </div>
 
 
@@ -79,54 +83,94 @@
 <script>
   var spanArr = document.getElementById('hitMe').getElementsByTagName('span');
   var divArr = document.getElementById('showPic').getElementsByTagName('div');
+  var clickSpace = document.getElementById("hitMe"); 
   var showSpace =document.getElementById("showPic");
-  var time;
-  var i = 5;
-
-  
-  time = setInterval(Run(),5000)
-			  	
+  var time ,j;
+   j=0;
     
+   
+   //网页一加载完就自动切换
+   move();
+   //鼠标滑出图片上时开始自动循环
+   //
+    function move(){
+
+            //判断。当前第几个图片是显示状态,从这个图片开始循环
+		    for(var i=0 ; i<divArr.length;i++){                   
+			   var s=divArr[i].className;
+			   var t=spanArr[i].className; 
+			    if(s=="block"&&t=="beRed"){        
+			         j=i     //把这个图片的索引值给j
+			    }
+		    }
+            //计时执行run方法
+            time = setInterval(Run,2200)
+			  	
+    } 
+
+  //鼠标滑上图片时停止自动循环
+    showSpace.onmouseover= function(){
+   	    clearInterval(time); 
+   }
+   //鼠标滑出图片上时开始自动循环
+   //
+    showSpace.onmouseout= function(){
+   	    move();
+   }
+
 
     function Run(){
-            
-            for(var j=0;j<divArr.length;j++){
-               console.log(i)
+          //j经过j++后等于数组长度时 重置为0
+          if(j==divArr.length){
+	             j=0;
+	       }  
+          //从当前显示的图片开始计算，将第一个显示的图片隐藏，将之后的一个隐藏元素显示，然后挑出循环。 
+    	  for( j ;j<divArr.length;j++){  
+                  
+	              var s=divArr[j].className;
+	              var t=spanArr[j].className; 
 
-		        divArr[j].className="no";
-            } 
-            divArr[i].className="block";
-            
-             i=i-1;   
-            
-            if(i<0){
-                i=5;
-             }
+	              if(s=="block"){
+	              	s=divArr[j].className="no";
+	              	t=spanArr[j].className="span";
+                           //当最后一张图片被隐藏时，在它之后没有可以被显示的图片，所以将第一张图片显示出来。保证不会出现所有图片都消失的情况。
+                           if(j==divArr.length-1){
+	              		 	divArr[0].className="block";
+	              		 	spanArr[0].className="beRed";
+	              		   }   
+
+	              	// console.log("隐藏第"+j+"个");                              	              	
+	              }else if(s=="no"){
+	              	s=divArr[j].className="block";
+	              	t=spanArr[j].className="beRed";
+	              	// console.log("出现第"+j+"个");
+                    return j;
+
+	              	break; //跳出循环，因为只需要将显示的图片隐藏，其后第一张隐藏的显示即可。
+	              }            
+                
+
+            }
 
     }
 
 
+   clickSpace.onmouseover= function(){
+   	    clearInterval(time); 
+   }
 
-    // 点击下个按钮时，上一个按钮样式清空。
-    for(var i =0 ;i<spanArr.length;i++){
-      spanArr[i].onmouseover = function(){
-               
-                for(var j=0 ;j<spanArr.length;j++){ 
-			   		spanArr[j].className = "span";
-			    	}
-                 this.className = "beRed";
-      }
-  	}
 
-    //点击切换图片
+    //点击下个按钮时，上一个按钮样式清空。同时点击切换图片
     for(var i =0;i<spanArr.length;i++){
 			spanArr[i].index = i;       //保存下索引值				
 			spanArr[i].onclick = function () {
-
+                clearInterval(time); 
 				for(var j = 0;j<spanArr.length;j++){						
 					divArr[j].className = "no"
+					spanArr[j].className = "span"
 					}
-				divArr[this.index].className = "block"					
+				divArr[this.index].className = "block";
+				spanArr[this.index].className = "beRed";			
 			}
 	}
 </script>
