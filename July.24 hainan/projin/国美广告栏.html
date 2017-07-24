@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>goMe</title>
+	<style>
+	*{margin:0;padding: 0;}
+
+    div{
+    	height: 320px;
+    	position: relative;
+    	text-align: center;
+    }
+    #top{
+    	width: 640px;
+    	height: 320px;
+    	margin:0 auto;
+    }
+
+    div span.delAD{
+
+    	display:inline-block;
+        opacity: 0;
+        background: rgba(0,0,0,0.4);
+    	width: 45px;
+    	height: 45px;
+    	color:#fff;
+    	line-height: 35px;
+    	font-size: 30px;
+    	position: absolute;
+    	margin-top:-325px;
+    	margin-left:275px;
+    	z-index: 100;
+    	cursor: pointer;
+    }
+   
+	</style>
+	
+</head>
+<body>
+	<div id="top">
+     <img src="images/3.jpg">
+     <span class="delAD">x</span>
+	</div>
+
+	<div id="bottom">
+	<img src="images/4.jpg">
+	</div>
+<script>
+
+var div1 = document.getElementById("top");
+var delAD = document.getElementsByTagName("span")[0];
+var timer;
+div1.onmouseover = function(){
+	delAD.style.opacity=1;
+}
+div1.onmouseout = function(){
+	delAD.style.opacity=0;
+}
+
+delAD.onclick = function(){
+	del();
+}
+
+function del(){
+	var s=1;
+	timer = setInterval(function(){		
+        s=s-0.1; 
+        div1.style.opacity=s;
+
+
+      	if(s<=-0.5){
+      		
+      		delAD.style.display="none";
+      		div1.style.transition="all 0.5s";
+      	    div1.style.height=0;       	
+        	clearInterval(timer);
+
+        }
+   
+
+   
+	},100)
+	    } 
+
+</script>	
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>水平移动</title>
+	<style>
+    span{
+     	display: block;
+     	width: 30px;
+     	height: 30px;
+     	border-radius: 50%;
+     	background-color: #faa081;
+     	position: absolute;
+     	left:20px;
+ 
+     }
+	</style>
+</head>
+<body>
+  <button id="btn0">High!</button>	
+  <button id="btn1">Stop!</button>
+  <span id="ball"></span>	
+
+<script>
+var btn0 = document.getElementById('btn0');
+var btn1 = document.getElementById("btn1");
+var ball = document.getElementById("ball");
+var timer,x;
+
+
+btn1.onclick = function(){
+	clearInterval(timer);
+}
+btn0.onclick = function(){
+
+      levelmove();
+}   
+
+    function levelmove(){
+
+    	timer = setInterval(changeW,100);
+    }
+
+    function changeW(){
+       
+           x = 20;
+           ball.style.transition = "all 0.3s";   		
+    	   var w = ball.style.left;
+    	   w = ball.offsetLeft+x+"px";
+    	   ball.style.left=w; 
+            		  	 
+    }
+</script>	
+</body>
+</html>

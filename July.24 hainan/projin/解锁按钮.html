@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>解锁按钮</title>
+	<style>
+    div{
+    	border:1px solid #d3d3d3;
+    	width: 400px;
+    	height: 200px;
+    }
+	</style>
+</head>
+<body>
+<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque praesentium suscipit quibusdam fugit, sit dolore magnam blanditiis saepe, reiciendis minus repudiandae ad iure corporis voluptate libero minima. Sequi, at, veritatis.</div>
+<input type="button" value="5秒后可用" disabled="true">
+
+<script>
+var btn = document.getElementsByTagName('input')[0];
+var timer,n;
+n=5;
+Call();
+function Call(){
+	timer = setInterval(function(){
+     n--;
+     btn.value=n+"秒后可用";
+        if(n<1){
+           btn.value="确认";
+           btn.disabled=false;
+           clearInterval(timer);
+        }   
+
+	},1000)
+}
+</script>	
+</body>
+</html>

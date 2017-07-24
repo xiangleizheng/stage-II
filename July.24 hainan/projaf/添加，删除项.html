@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Add Del</title>
+	<style>
+     input{
+     
+     	outline: none;
+     
+     }
+     #text{
+     	padding: 10px;
+     	box-sizing: border-box;
+     	height: 35px;
+     	line-height: 35px;
+     	font-size: 16px;
+     }
+     #add{
+    
+     	background-color: rgba(0,0,0,0.2);
+     	border:0;
+     	width: 70px;
+     	font-size: 18px;
+     	line-height: 35px;
+     	height: 35px;
+     }
+     #add:hover{
+     	color:#fff;
+     	background-color: rgba(0,0,0,1);
+     }
+     tr{
+     	border:1px solid red; 
+     }
+     td{
+     	width: 500px;
+     }
+ 	</style>
+</head>
+<body>
+
+<input type="text" id="text">
+<input type="button" value="添加" id="add">
+
+<table>
+
+</table>
+   <script>
+    var text = document.getElementById('text');
+    var add  = document.getElementById('add');
+    var table = document.getElementsByTagName('table')[0];
+    var arr = [];
+
+  add.onclick = function(){
+      var dat = text.value;
+             	     
+	      if(arr.indexOf(dat)!=-1){
+             alert("已存在，请勿重复输入！");
+             text.value="";
+	      } 
+	      else{
+	            	arr.push(dat);
+	            	//添加一行 
+	            	x = table.insertRow();
+	            	//将这行分为两列
+	            	//一列放值
+	            	//一列放 a标签 删除
+	            	var y =x.insertCell(0);
+           		    var z =x.insertCell(1);   
+           		    for(var i =0 ;i<arr.length;i++){
+           		   			     
+			        y.innerHTML=arr[i];
+			        z.innerHTML=[ '<a href="javascript:;" onclick="del(this)">删除</a>' ]
+			        
+			        }
+			        
+	       }      
+
+  }
+//找到点击的这个 a标签 的父级 td标签  再找到td的父级 tr标签，将它从表中删除。
+//
+  function del(n){
+      var i = n.parentNode.parentNode.rowIndex;//rowIndex 属性返回某一行在表格的行集合中的位置。
+
+      table.deleteRow(i);
+  }   
+  
+
+   </script>
+
+</body>
+</html>

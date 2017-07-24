@@ -76,7 +76,9 @@
 	<div class="no"><img src="images/3.jpg"></div>
 	<div class="no"><img src="images/4.jpg"></div>
 	<div class="no"><img src="images/5.jpg"></div>
-	<div class="no"><img src="images/2.png"></div>
+	<div class="no"><img src="images/6.jpg"></div>
+	<span class="goLeft"><</span>
+	<span class="goRight">></span>
 </div>
 
 
@@ -87,6 +89,8 @@
   var divArr = document.getElementById('showPic').getElementsByTagName('div');
   var clickSpace = document.getElementById("hitMe"); 
   var showSpace =document.getElementById("showPic");
+  var goLeft = document.getElementById("goLeft");
+  var goRight = document.getElementById("goRight");
   var time ,j;
    j=0;
     
@@ -111,6 +115,7 @@
     } 
 
   //鼠标滑上图片时停止自动循环
+  //
     showSpace.onmouseover= function(){
    	    clearInterval(time); 
    }
@@ -156,7 +161,8 @@
 
     }
 
-
+   //鼠标滑上点击按钮的半透明背景时清楚定时器
+   //
    clickSpace.onmouseover= function(){
    	    clearInterval(time); 
    }
