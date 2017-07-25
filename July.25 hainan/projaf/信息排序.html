@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>sort info</title>
+	<style>
+     div{
+       position: absolute;
+     } 
+    input{
+    	font-size: 16px;
+    	margin-right: 20px;
+    }	
+	</style>
+</head>
+
+<body>
+
+<input type="button" value="姓名">
+<input type="button" value="年龄">
+<input type="button" value="分数">
+<div><span>武团团</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>21</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>149</i></div>
+<div><span>段导演</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>24</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>130</i></div>
+<div><span>黄娅娅</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>22</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>129</i></div>
+<div><span>董满意</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>18</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>131</i></div>
+
+
+
+  <script>
+  var inps = document.getElementsByTagName("input");
+  var divs = document.getElementsByTagName("div");
+  var ages = document.getElementsByTagName("em");
+  var scores = document.getElementsByTagName("i"); 
+  var ageArr=[],checkArr=[],num=[],flag; 
+  var scoreArr=[];
+ 
+  originalClass();
+  getArr(); 
+  
+  inps[1].onclick = function(){
+        
+        traversal(ageArr);
+	  	minToMax(ageArr);      
+        compare(ageArr);
+        addClass();
+        getArr();
+  } 
+
+  inps[2].onclick = function(){
+        traversal(scoreArr);
+    	minToMax(scoreArr);
+    	compare(scoreArr);
+        addClass();
+        getArr();
+  }
+
+function originalClass(){
+	for(var i = 0;i<divs.length;i++){
+		divs[i].style.top=(i+1)*35+"px";
+	}
+}
+function getArr(){
+	  for(var i = 0;i<ages.length;i++){
+	  ageArr[i]=parseInt(ages[i].innerHTML);
+	  scoreArr[i]=parseInt(scores[i].innerHTML);
+	  }
+} 
+
+function addClass(){
+	    for(var i =0;i<num.length;i++){
+            divs[i].style.top=(num[i]+1)*35+"px";
+        }
+}
+
+function compare(m){
+	for(var i = 0; i<m.length;i++){
+	     num[i] = m.indexOf(checkArr[i]);
+    }
+}
+
+function traversal(s){
+        for(var i = 0;i<s.length;i++){
+	  		checkArr[i]=s[i];
+	  	}
+}
+
+function minToMax(a){
+
+	  	for(var i = 0; i<=a.length-1;i++){
+
+  		  flag=true;
+          for(var j =0 ;j<=a.length-1-i;j++){
+              if(a[j]>a[j+1]){
+              	 var temp = a[j+1];
+              	 a[j+1]=a[j];
+              	 a[j]=temp;
+              	 flag=false;
+               }
+           }
+           if(flag==true){
+           	break;
+           }
+  	}
+}
+
+
+  </script>	
+
+</body>
+</html>

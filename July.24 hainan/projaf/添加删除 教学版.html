@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>add del (teach version)</title>
+</head>
+<body>
+	<input type="text">
+	<button>添加</button>
+	<div></div>
+
+	<script>
+    var inp = document.getElementsByTagName("input")[0];
+    var btn = document.getElementsByTagName("button")[0];
+    var div = document.getElementsByTagName("div")[0];
+    var arr = [0];
+     btn.onclick = function(){
+     	var txt = inp.value;
+     	arr.push(txt);
+     	add();
+     } 
+
+     function del(a){
+     	arr.splice(a,1);
+     	add();
+     }
+
+     function add(){
+     	div.innerHTML = "";
+     	for(var i = 0 ; i<arr.length;i++){
+     		div.innerHTML+="<p>" +arr[i]+ "<a href='#' onclick='del(" +i+ ")'>删除</a></p>";
+     	}
+     }
+	</script>
+</body>
+</html>
