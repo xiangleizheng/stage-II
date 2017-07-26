@@ -9,29 +9,29 @@
 
   <script>
   var arr = [2,3,5,8,9,10,25,56,78,5416];
-  var temp,flag,firstCount,secondCount;
-  firstCount = secondCount = 0;
+document.write(maoPao(arr));
+ 
 
+ 
+function maoPao(a){
+  for(var i=0; i<a.length-1;i++){
+    	var flag = true;
+      for( var j=0;j<a.length-1-i;j++){
+          if(a[j]>a[j+1]){
+          	var temp = a[j+1];
+          	a[j+1] = a[j];
+          	a[j] = temp;
+          	flag = false;  //只要有前一个大于后一个元素的情况，就将flag的值改为flase,继续循环。
+          }                  //循环完这一轮后，回到第一个for循环,flag的值重置为true，
+                             //再判断是否有前一项大于后一项的情况   如此往复
+      }
+      if(flag==true){
+      	break;
+      }
+  }
+  return a; 
+}  
 
-  for(var i=0; i<arr.length-1;i++){
-    firstCount++
-  	flag = true;
-    for( var j=0;j<arr.length-1-i;j++){
-    	secondCount++
-        if(arr[j]>arr[j+1]){
-        	temp = arr[j+1];
-        	arr[j+1] = arr[j];
-        	arr[j] = temp;
-        	flag = false;  //只要有前一个大于后一个元素的情况，就将flag的值改为flase,继续循环。
-        }                  //循环完这一轮后，回到第一个for循环,flag的值重置为true，
-                           //再判断是否有前一项大于后一项的情况   如此往复
-    }
-    if(flag==true){
-    	break;
-    }
-  } 
-  console.log(firstCount);
-  console.log(secondCount);
   </script>	
 </body>
 </html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>switching value</title>
+	<style>
+	input{}
+     div{
+     	width: 200px;
+     	height:200px;
+     	border:1px solid #d3d3d3; 
+     }
+     .hide{
+     	display: none;
+     }
+	</style>
+</head>
+<body>
+<input type="button" value="隐藏">
+<div></div>
+
+<script>
+var btn = document.getElementsByTagName('input')[0];
+var div = btn.nextElementSibling||btn.nextSibling;
+btn.onclick = function(){
+	if(btn.value=="隐藏"){
+		btn.value="显示";
+		div.className="hide";
+	}else{
+		btn.value="隐藏";
+		div.className="";
+	}
+}
+</script>	
+</body>
+</html>

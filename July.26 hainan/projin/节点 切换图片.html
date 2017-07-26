@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Node album</title>
+	    <style type="text/css">
+        body {
+            font-family: "Helvetica", "Arial", serif;
+            color: #333;
+            margin: 1em 30%;
+        }
+
+        h1 {
+            color: #333;
+            background-color: transparent;
+         
+        }
+
+        a {
+            color: #c60;
+            background-color: transparent;
+            font-weight: bold;
+            text-decoration: none;
+
+        }
+        div.im{
+        	height: 330px;
+        }
+
+        ul {
+            padding: 0;
+        }
+        img:hover{
+        	margin-top:-5px;
+           box-shadow: 0 8px 20px -4px rgba(0,0,0,0.9); 
+        }
+
+        li {
+            float: left;
+                        padding: 1em;
+            list-style: none;
+        }
+
+        #imagegallery {
+
+            list-style: none;
+        }
+
+        #imagegallery li {
+            margin: 0px 35px 20px 0px;
+            padding: 0px;
+            display: inline;
+        }
+
+        #imagegallery li a img {
+            border: 0;
+        }
+
+    </style>
+</head>
+<body>
+	
+	<h2>HOT&nbsp;&nbsp;POSTER</h2>
+    <a href="javascript:;">more...</a>
+
+    <ul id="imagegallery">
+        <li>
+            <a href="images/1.jpg" title="Wall-E">
+                <img src="images/1.jpg" width="100" alt="poster1"/>
+            </a>
+        </li>
+        <li>
+            <a href="images/2.jpg" title="Michael Giacchino UP">
+                <img src="images/2.jpg" width="100" alt="poster2"/>
+            </a>
+        </li>
+        <li>
+            <a href="images/3.jpg" title="Kung-Fu Panda 3">
+                <img src="images/3.jpg" width="100" alt="poster3"/>
+            </a>
+        </li>
+        <li>
+            <a href="images/4.jpg" title="Cars">
+                <img src="images/4.jpg" width="100" alt="poster4"/>
+            </a>
+        </li>
+        <li>
+            <a href="images/5.jpg" title="Apollo">
+                <img src="images/5.jpg" width="100" alt="poster5"/>
+            </a>
+        </li>
+    </ul>
+
+
+    <div style="clear:both"></div>
+    <div class="im"><img id="image" src="images/6.jpg" width="640px"/></div>
+    <p id="description">Get one you like...</p>
+
+
+	<script>
+     var pic = document.getElementById("image");
+     var des = document.getElementById("description") 
+     var aArr = document.getElementsByTagName("a");
+
+     for(var i = 0 ; i<aArr.length; i++){
+     	 aArr[i].index=i
+         aArr[i].onclick = function(){
+           var a = aArr[this.index].firstChild.src || aArr[this.index].firstElementChild.src;
+         
+           pic.src=a;
+           des.innerHTML=aArr[this.index].title; 
+           return false;//阻止a标签跳转
+         } 
+
+     }
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Interlaced coloring</title>
+	<style>
+	    input {
+            padding: 10px;
+            margin: 10px 165px;
+        }
+        ul{
+        	list-style: none;
+            width: 500px;
+            margin: 100px;
+        }
+        li {
+            cursor: pointer;
+            line-height: 35px;
+            font: 500 24px/35px "微软雅黑""simsun";
+            text-align: center;
+        }
+        .c{
+        	background-color:#f04040;
+        	color:#fff;
+        }
+        .cdeep{
+        	background-color:#f64747;
+        	color:#fff;
+        }
+	</style>
+</head>
+<body>
+
+<div>
+    <input type="button" value="添加颜色">
+    <input type="button" value="护眼">
+
+        <ul>
+            <li>面对大河我无限惭愧 </li>
+            <li>我年华虚度</li>
+            <li>空有一身疲倦 </li>
+            <li>和所有以梦为马的诗人一样 </li>
+            <li>岁月易逝</li>
+            <li> 一滴不剩</li>
+            <li>给每一条河每一座山</li>
+            <li>取一个温暖的名字 </li>
+        </ul>
+</div>
+
+<script>
+var btn = document.getElementsByTagName("input")[0];
+var btn1 = document.getElementsByTagName('input')[1];
+var ul = document.getElementsByTagName("ul")[0];
+var bd = document.getElementsByTagName("body")[0];
+var liArr = ul.children;
+var i=0;
+// console.log(liArr)
+
+btn.onclick= function(){
+	if(btn.value=="添加颜色"){
+		    btn.value="清除颜色";
+		   for(var i=0 ;i<liArr.length;i++){
+		        if(i%2){
+		        	liArr[i].className="c";
+		        }else{
+		        	liArr[i].className="cdeep"
+		        }
+		   }
+	}
+	else{
+         btn.value="添加颜色";
+		for(var i=0 ;i<liArr.length;i++){
+			liArr[i].className="";
+		}
+	}	   
+}
+btn1.onclick = function(){
+	if(i%2==0){
+		bd.style.transition="all 1s"
+		bd.style.background="rgba(167,245,222,1)";
+	}else{
+        bd.style.background="#fff";
+	}
+    i++;
+}
+
+for(var i = 0 ; i<liArr.length ; i++ ){
+	liArr[i].index= i;
+    liArr[i].onclick = function(){
+
+    	 for(var j = 0;j<liArr.length;j++){
+    	 	liArr[j].style.background="";
+    	 	liArr[j].style.color="#000";
+    	 }
+
+       this.style.transition="all 0.5s";
+       this.style.background="#3c3030";
+       this.style.color="#fff"
+    }
+
+} 
+</script>	
+</body>
+</html>

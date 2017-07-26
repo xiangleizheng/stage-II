@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>xingming</button>
+<button>年龄</button>
+<button>成绩</button>
+<p><span>小王</span><span>5</span>&nbsp;<span>99</span></p>
+<p><span>小六</span><span>30</span>&nbsp;<span>150</span></p>
+<p><span>小七</span><span>19</span>&nbsp;<span>5</span></p>
+<p><span>小七</span><span>19</span>&nbsp;<span>15</span></p>
+<p><span>小七</span><span>88</span>&nbsp;<span>85</span></p>
+<p><span>小七</span><span>99</span>&nbsp;<span>58</span></p>
+<p><span>小七</span><span>191</span>&nbsp;<span>500</span></p>
+
+<script>
+    var btnArr = document.getElementsByTagName("button");
+    var pArr = document.getElementsByTagName("p");
+
+
+    for(var i =0;i<pArr.length;i++){
+        pArr[i].spanArr = pArr[i].getElementsByTagName("span");//自定义属性
+
+    }
+    for(var i = 1;i<btnArr.length;i++){
+        btnArr[i].index = i;//获取按钮的索引；提供给span
+        btnArr[i].onclick = function () {
+
+            for(var i=0;i<pArr.length-1;i++){
+                for(var j = 0;j<pArr.length-1-i;j++){
+                    if(Number(pArr[j].spanArr[this.index].innerHTML)>Number(pArr[j+1].spanArr[this.index].innerHTML)){
+                        var temp = pArr[j].innerHTML;
+                        pArr[j].innerHTML = pArr[j+1].innerHTML;
+                        pArr[j+1].innerHTML = temp
+                    }
+                }
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

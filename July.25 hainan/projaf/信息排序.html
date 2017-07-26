@@ -23,7 +23,9 @@
 <div><span>段导演</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>24</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>130</i></div>
 <div><span>黄娅娅</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>22</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>129</i></div>
 <div><span>董满意</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>18</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>131</i></div>
-
+<div><span>李超鬼<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>25</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>119</i></div>
+<div><span>功勋</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>19</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>150</i></div>
+<div><span>宗美含</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>20</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>128</i></div>
 
 
   <script>
@@ -47,6 +49,7 @@
   } 
 
   inps[2].onclick = function(){
+
         traversal(scoreArr);
     	minToMax(scoreArr);
     	compare(scoreArr);
@@ -55,52 +58,56 @@
   }
 
 function originalClass(){
-	for(var i = 0;i<divs.length;i++){
-		divs[i].style.top=(i+1)*35+"px";
-	}
+	    for(var i = 0;i<divs.length;i++){
+		    divs[i].style.top=(i+1)*35+"px";
+	    }
 }
+//将年龄成绩等转化为数组
 function getArr(){
-	  for(var i = 0;i<ages.length;i++){
-	  ageArr[i]=parseInt(ages[i].innerHTML);
-	  scoreArr[i]=parseInt(scores[i].innerHTML);
-	  }
+	    for(var i = 0;i<ages.length;i++){
+	        ageArr[i]=parseInt(ages[i].innerHTML);
+	        scoreArr[i]=parseInt(scores[i].innerHTML);
+	    }
 } 
-
+//按照排序的位置变化给div添加class修饰
 function addClass(){
 	    for(var i =0;i<num.length;i++){
             divs[i].style.top=(num[i]+1)*35+"px";
         }
 }
-
+//查看原数组的元素在排序后数组中的位置
 function compare(m){
-	for(var i = 0; i<m.length;i++){
-	     num[i] = m.indexOf(checkArr[i]);
-    }
+	    for(var i = 0; i<m.length;i++){
+	        num[i] = m.indexOf(checkArr[i]);
+        }
 }
-
+//将原数组存入checkArr数组中
 function traversal(s){
         for(var i = 0;i<s.length;i++){
 	  		checkArr[i]=s[i];
 	  	}
 }
-
+//冒泡排序
 function minToMax(a){
 
 	  	for(var i = 0; i<=a.length-1;i++){
+  		        flag=true;
 
-  		  flag=true;
-          for(var j =0 ;j<=a.length-1-i;j++){
-              if(a[j]>a[j+1]){
-              	 var temp = a[j+1];
-              	 a[j+1]=a[j];
-              	 a[j]=temp;
-              	 flag=false;
-               }
-           }
-           if(flag==true){
-           	break;
-           }
-  	}
+	            for(var j =0 ;j<=a.length-1-i;j++){
+		            if(a[j]>a[j+1]){
+		              	var temp = a[j+1];
+		              	a[j+1]=a[j];
+		              	a[j]=temp;
+		              	flag=false;
+		            }
+	            }
+
+	            if(flag==true){
+	           	    break;
+	            }
+
+  	    }
+  	    return a ;
 }
 
 

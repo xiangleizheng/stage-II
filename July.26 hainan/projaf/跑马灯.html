@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Marquee</title>
+	<style>
+	*{
+		margin:0;
+		padding: 0;
+	}
+     #visualArea{
+	       height:30px;
+	       width:300px;
+	       overflow:hidden;
+	       margin-top:15px;
+	       	
+     }
+     ul{    
+            width:150px;
+     	    height:30px;
+     	    margin-left: 30px;
+     	    list-style:none;
+     	     	
+     }
+     li{
+	         width:50px;
+	         height:30px;
+	         line-height:30px;
+	         text-align: center;
+	         color:#fff;
+	         background-color:black;
+     }
+	</style>
+</head>
+<body>
+	<div id="visualArea">
+	<ul>
+       <li>1</li>
+       <li>2</li>
+       <li>3</li>
+       <li>4</li>
+       <li>5</li>
+       <li>6</li>
+       <li>7</li>
+       <li>8</li>
+       <li>9</li>
+       <li>10</li>
+	</ul>
+    </div> 
+
+	<script>
+    var  visualArea = document.getElementById("visualArea");
+    var  list = document.getElementsByTagName("ul")[0]; 
+    var  liArr = list.children;
+    console.log(liArr)
+     
+     setInterval(function(){
+            var listH = 0;
+            var timer =setInterval(function(){ 
+		          if(listH>-30){
+		          	listH--;
+		          	list.style.marginTop= listH+"px"; 
+		          }else{
+		          	clearInterval(timer);
+		          	list.appendChild(liArr[0]);
+		          	list.style.marginTop=0+"px";
+		          	console.log(liArr);
+		          }   
+	        },20)  
+     },1000)
+	</script>
+</body>
+</html>
