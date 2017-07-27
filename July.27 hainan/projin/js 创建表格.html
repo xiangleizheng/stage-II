@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建表格</title>
+	<style>
+    .bg{
+    	background-color: #3c3030;
+    	color:#fff;
+    }
+     button{
+     	width: 100%;
+     	height: 40px;
+     	padding:-1px -1px;
+     	background-color: #3c3030;
+     	border: 0;
+     	color:#fff;
+     	outline: none;
+     }
+     #delStyle{
+     	background-color:rgba(255,0,0,0.2);
+     }
+	</style>
+</head>
+<body>
+  
+  <script>
+
+  var thArr = ["大名","才能の技能","ランク","操業する","詳しい情況"]
+  var trArr = [["旋涡鸣人","らせんがん,らせんまる","SSS"],["佐助","すさのお","SSS"],["卡卡西","千鸟","S"],["千手纲手","なめくじ","SS"],["千手柱间","木遁の术","SSS"],["千手扉间","禁术·秽土転生","SSS"]]
+  var theTab = document.createElement("table");
+  theTab.style.cssText="line-height:40px;width:100%;text-align:center";
+  // theTab.rules="none";
+  // theTab.border=1;
+  // 
+  /*把表格添加到body显示*/
+  document.body.appendChild(theTab); 
+
+  /*添加th*/
+  for(var i = 0;i<1;i++){
+      var tr = document.createElement("tr");
+      tr.style.cssText="width:100%"
+      for(var j = 0 ;j<thArr.length;j++){
+      	var th = document.createElement("th");
+      	th.innerHTML = thArr[j];
+      	tr.appendChild(th);
+      	th.style.cssText="width:20%"
+      }
+
+      theTab.appendChild(tr);
+  }
+
+ /*添加tr*/
+    for(var i = 0;i<trArr.length;i++){
+           
+	       var tr = document.createElement("tr")
+	       //给每一行加上onmouseover 和 onmouseout事件
+	       tr.setAttribute("onmouseover","getclo(this)");
+	       tr.setAttribute("onmouseout","removeclo(this)")
+	       //判断 偶数行加背景色
+	       if(i%2==0){
+	       	tr.setAttribute("class","bg")
+	       }
+	       //将二维数组中的数组中的元素，逐个加入到一行的各个列中
+	       for(var j = 0 ;j<trArr[i].length;j++){
+		      	var td = document.createElement("td");
+		      	td.innerHTML = trArr[i][j];
+		      	tr.appendChild(td);
+	       }
+	       
+          //将tr添加到table中
+	      theTab.appendChild(tr);
+
+          //将删除键添加到tr中
+	      var btnDel = document.createElement("td");
+	      btnDel.style.background="#3c3030";
+          btnDel.innerHTML = "<button onclick='del(this)' onmouseover='getfontclo(this)' onmouseout='removefontclo(this)'>删除</button>";
+          tr.appendChild(btnDel);
+
+          //将跳转标签加入tr中
+          var btnLink = document.createElement("td");
+          btnLink.style.background="#fff";
+          btnLink.innerHTML = "<button onmouseover='getfontclo(this)' onmouseout='removefontclo(this)'>进入"+tr.firstElementChild.innerHTML+"的主页</button>";
+          tr.appendChild(btnLink);
+          td.style.cssText="width:20%";
+
+    }
+    theTab.rules="none";
+    
+    
+
+
+   //行的鼠标进出样式 
+    function getclo(tr){
+        tr.setAttribute("style","background:rgba(255,0,0,0.2);color:black")
+    } 
+    function removeclo(tr) {
+        tr.setAttribute("style","")
+    }
+   //删除按钮的鼠标进出样式
+    function getfontclo(a){
+        a.setAttribute("id","delStyle")
+    } 
+    function removefontclo(a) {
+        a.setAttribute("id","")
+    }
+    //删除按钮的点击事件
+    function del(delBtn){
+    	theTab.removeChild(delBtn.parentNode.parentNode)
+    }
+  </script>	
+</body>
+</html>

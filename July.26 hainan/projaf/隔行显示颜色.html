@@ -21,11 +21,9 @@
         }
         .c{
         	background-color:#f04040;
-        	color:#fff;
         }
         .cdeep{
         	background-color:#f64747;
-        	color:#fff;
         }
 	</style>
 </head>
@@ -86,14 +84,14 @@ btn1.onclick = function(){
 
 for(var i = 0 ; i<liArr.length ; i++ ){
 	liArr[i].index= i;
-    liArr[i].onclick = function(){
+    liArr[i].onmouseover = function(){
 
     	 for(var j = 0;j<liArr.length;j++){
     	 	liArr[j].style.background="";
     	 	liArr[j].style.color="#000";
     	 }
 
-       this.style.transition="all 0.5s";
+       this.style.transition="all 0.2s";
        this.style.background="#3c3030";
        this.style.color="#fff"
     }

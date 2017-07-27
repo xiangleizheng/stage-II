@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM</title>
+	<style>
+    ul li{
+    	float: left;
+    }
+    #back{
+    	transition:all 1s;width:100px;height:100px;border:0;border-radius:0;background-color:rgba(255,255,255,1)
+    }
+	</style>
+</head>
+<body>
+    <input type="button" value="变形">
+    <input type="button" value="かげぶんしんのじゅつ">
+	<ul>
+       <li></li>
+	</ul>
+
+	<script>
+    var btns = document.getElementsByTagName('input');
+    var ul = btns[1].nextElementSibling||btns[1].nextSibling;
+    var liArr = ul.children;
+    var m = 0;
+
+    ul.style.cssText="list-style:none";
+
+    liArr[0].style.cssText="width:100px;height:100px;border:0;border-radius:50%;background-color:rgba(255,0,0,0.3)";
+
+    btns[0].onclick = function(){
+        if(m%2){
+        	liArr[0].setAttribute("style","transition:all 1s;width:100px;height:100px;border:0;border-radius:0;background-color:rgba(255,0,0,0.7)");
+        }else{
+        	liArr[0].setAttribute("style","transition:all 1s;width:100px;height:100px;border:0;border-radius:50%;background-color:rgba(255,0,0,0.3)");
+        }
+        m++;
+    }
+    btns[1].onclick = function(){
+    	var li = document.createElement("li");
+
+    	li=liArr[0].cloneNode(true);
+    	
+        
+	        li.onmouseover = function(){
+	    		if(this.style.borderRadius=="50%"){
+	    	
+	    			this.setAttribute("style","transition:all 1s;width:100px;height:100px;border:0;border-radius:0;background-color:rgba(255,0,0,0.3)");
+	    		}else{
+	    	
+	    			this.setAttribute("style","transition:all 1s;width:100px;height:100px;border:0;border-radius:50%;background-color:rgba(255,0,0,0.7)");
+	    		}
+	        }  
+        ul.appendChild(li); 
+        
+
+    } 
+
+
+
+    function beWhite(){
+       var a = parseInt(Math.random()*1000+1);
+       if(a<liArr.length){
+           liArr[a].style="transition:all 1s;width:100px;height:100px;border:0;background-color:rgba(255,255,255,0)";
+       } 
+    }
+
+
+    setInterval(beWhite,10)
+    
+
+	</script>
+</body>
+</html>

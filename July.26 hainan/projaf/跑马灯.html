@@ -52,7 +52,7 @@
     var  visualArea = document.getElementById("visualArea");
     var  list = document.getElementsByTagName("ul")[0]; 
     var  liArr = list.children;
-    console.log(liArr)
+    // console.log(liArr)
      
      setInterval(function(){
             var listH = 0;
@@ -64,7 +64,6 @@
 		          	clearInterval(timer);
 		          	list.appendChild(liArr[0]);
 		          	list.style.marginTop=0+"px";
-		          	console.log(liArr);
 		          }   
 	        },20)  
      },1000)

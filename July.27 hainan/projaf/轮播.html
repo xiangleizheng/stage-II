@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图</title>
+	<style>
+	*{
+		margin:0;
+		padding: 0;
+	}
+     #visualArea{
+	       height:320px;
+	       width:640px;
+	       overflow:hidden;
+	       margin-top:70px;
+	       margin-left:640px;
+	       background-color: black;
+	       box-shadow: 0 15px 20px -5px #000;	
+     }
+     #clickSpace{
+     	width: 200px;
+     	height: 24px;
+     	position: absolute;
+     	left:50%;
+     	margin-left: -100px;
+     	top:350px; 
+     	display: flex;
+     	flex-direction: row;
+     	justify-content: space-around;
+     	background-color: rgba(255,255,255,0.4);
+     	border-radius:12px;
+     	padding: 0 10px;
+     	cursor: pointer;
+     	 box-shadow: 0 10px 20px -5px #000;	
+     }
+     ul{    width:5000px;
+     	    height:320px;
+     	    margin-left:0;
+     	    list-style:none;    	     	
+     }
+     li{     
+             float: left; 
+	         width:640px;
+	         height:320px;
+	         text-align: center;
+	         color:#fff;
+	         background-color:black;
+     }
+     span{
+     	display: inline-block;
+     	width: 18px;
+     	height: 18px;
+     	margin-top:3px;
+     	border-radius:50%;
+     	background-color: #fff;
+     }
+     .beRed{
+     	background-color:rgba(255,111,19,1);
+     }
+	</style>
+</head>
+<body>
+    <div id="clickSpace">
+        <span class="beRed"></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div id="visualArea">
+			<ul>
+		       <li><img src="images/1.jpg"></li>
+		       <li><img src="images/2.jpg"></li>
+		       <li><img src="images/3.jpg"></li>
+		       <li><img src="images/4.jpg"></li>
+		       <li><img src="images/5.jpg"></li>
+		       <li><img src="images/6.jpg"></li>
+			</ul>
+    </div> 
+
+	<script>
+	var  spans = document.getElementsByTagName('span');
+	var clickSpace = document.getElementById("clickSpace");
+    var  visualArea = document.getElementById("visualArea");
+    var  list = document.getElementsByTagName("ul")[0]; 
+    var  liArr = list.children;
+    var  m=0,clock;
+    // console.log(liArr)
+    move();
+    clickSpace.onmouseover = function(){
+    	clearInterval(clock);
+    }
+    clickSpace.onmouseout = function(){
+    	move();
+    }
+    for(var i = 0;i<spans.length ; i++){
+           spans[i].onmouseover =function(){
+           	clearInterval(clock);
+           } 
+           spans[i].onclick = function(){
+
+           	   var a = liArr[0].offsetWidth;
+               list.style.marginLeft=-i*a;
+               return list.style.marginLeft;
+           }
+    } 
+
+    
+function move(){
+    var clock = setInterval(function(){
+    	    m++;
+    	    if(m>=spans.length){
+	        	m=0;
+	        }
+            var listL = 0;
+            var a = liArr[0].offsetWidth
+            var timer =setInterval(function(){ 
+
+		          if(listL>-a){
+		          	listL-=5;
+		          	list.style.marginLeft= listL+"px"; 
+		          }else{
+		          	clearInterval(timer);
+		          	list.insertBefore(liArr[0],liArr[liArr.length]);
+		          	list.style.marginLeft=0+"px";
+		          } 
+
+	        },parseInt(2000/a)) 
+
+	        for(var i = 0;i<spans.length;i++){
+	        	spans[i].className="";
+	        } 
+	        spans[m].className="beRed";
+
+            
+     },3000)
+    return clock;
+}    
+	</script>
+</body>
+</html>
