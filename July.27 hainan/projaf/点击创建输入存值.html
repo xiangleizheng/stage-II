@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>点击创建、传值、存储</title>
+</head>
+<body>
+	<input type="text">行数<br/>
+	<input type="text">列数<br/>
+	<input type="button" value="创建" style="width:172px;">
+    
+<script>
+  window.onload = function(){
+     var btn = document.getElementsByTagName("input")[2];
+     var tab = document.createElement("table");
+     document.body.append(tab);
+     tab.border=1;
+     tab.style="border-collapse:collapse;"
+
+     btn.onclick = function(){
+         var Row =document.getElementsByTagName("input")[0].value;
+         var Column =document.getElementsByTagName("input")[1].value;
+         
+	         for(var i= 0 ; i<Row ; i++){
+	         	var tr = document.createElement("tr");
+	         	tab.appendChild(tr);
+
+		         	for(var j =0 ;j<Column ;j++){
+		                var td = document.createElement("td");
+		                tr.appendChild(td);
+		                td.width = 173;
+		                td.height = 30;
+		                td.setAttribute("onclick","addInp(this)")  
+		         	}
+
+	         }  
+     }
+  
+  } 
+
+  var inp = document.createElement("input");
+
+  function addInp(td){
+  	   inp.value = td.textContent;
+  	   td.innerHTML = "";   //再次点击td时，将td里面的字符串给新加入的input ,同时清空td里面的内容(包括里面的标签)。
+  	   td.appendChild(inp);
+  	   inp.setAttribute("onblur","passValue(this)");//失去焦点时，inp将值传给td
+  	   inp.focus();
+  }   
+  
+  function passValue(inp){
+    inp.parentNode.innerHTML=inp.value; 
+  }
+</script> 
+</body>
+</html>

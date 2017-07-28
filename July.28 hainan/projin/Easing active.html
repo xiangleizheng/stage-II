@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ease in/out</title>
+	<style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            left:0;
+        }
+        .b{
+            position: absolute;
+            left: 500px;
+            width: 1px;
+            height: 20px;
+            background-color:#000;
+        }
+        .c{
+            position: absolute;
+            left: 1000px;
+            width: 1px;
+            height: 20px;
+            background-color:#000;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">开始</button>
+<div id="box"></div>
+<div class="b"></div>
+<div class="c"></div>
+<script>
+    var btn = document.getElementById("btn");
+    var box = document.getElementById("box");
+    var timer = null;
+    var i=0;
+     
+   
+		    btn.onclick =function(){
+		    	if(i%2==0){
+		    	     animate(box,1000);
+		        }else{
+		     	 	 animate(box,0); 
+	            }	
+	            i++;
+		    } 
+	     
+/*    Easing(1000);
+
+    function Easing(itarget) {
+
+         timer = setInterval(function() {
+             // 盒子本身的位置  +  步长 (不断变化的)
+             var step = (itarget - box.offsetLeft) / 10;   // 步长
+             console.log(step);
+
+             step=Math.ceil(step)// 步长取整  向前走就向上取整
+
+             console.log(step);
+
+             box.style.left = box.offsetLeft + step + "px";
+             console.log(box.style.left);
+             if(box.offsetLeft == itarget) // 判断结束条件
+             {
+                 clearInterval(timer);
+//                 alert("到目标了")
+             }
+         },30)
+
+    }*/
+
+
+
+
+        function animate(obj,target){  //  第一个参数 动谁   第二个参数  要到达的位置
+                  clearInterval(obj.timer);
+                  obj.timer = setInterval(function() {
+		                            // 计算步长   动画的原理   盒子本身的位置+步长
+		                  var step = (target - obj.offsetLeft) / 10;  // 步长
+		                  if(step>0){
+		                     step=Math.ceil(step); 
+		                  }else{
+		                  	 step = Math.floor(step);
+		                  } //  取整步长
+		                            // obj.style.left = 盒子本身的位置  +  步长
+		                  obj.style.left = obj.offsetLeft + step + "px";
+                          console.log(obj.offsetLeft)
+                          console.log(step)       
+		                  if(obj.offsetLeft == target){
+		                          clearInterval(obj.timer);
+		                  }
+                  },30)
+              }
+
+</script>
+</body>
+</html>

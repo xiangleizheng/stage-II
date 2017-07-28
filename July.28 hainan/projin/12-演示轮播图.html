@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图</title>
+</head>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+   #div1{
+   	  width:640px;
+   	  height:320px;
+	   border: 1px solid #000;
+      	overflow:hidden;
+	   position: relative;
+   	  
+   }
+   .div2{
+   	   width:3200px;
+   	   height:320px;
+
+       position:absolute;
+   }
+   .div1 .div2 img{
+   	   float:left;
+   }
+
+</style>
+<body>
+	<div id="div1" class="div1">
+      <div id="div2" class="div2">
+            <img src="images/1.jpg"/>
+            <img src="images/2.jpg"/>
+            <img src="images/3.jpg"/>
+            <img src="images/4.jpg"/>
+            <img src="images/5.jpg"/>
+      </div>
+	</div>
+	<button id="btn">GO</button>
+	<button id="btn1">NEXT</button>
+	<script>
+      var btn=document.getElementById("btn");
+      var btn1=document.getElementById("btn1");
+      var div1=document.getElementById("div1");
+	  var div2=document.getElementById("div2");
+      var img=div2.getElementsByTagName("img");
+
+      btn1.onclick = function () {
+          var speed = 40;
+          var timer = null;
+          //把最后一项添加到第一项前面
+          div2.insertBefore(img[img.length - 1], img[0])
+          div2.style.left = -640 + "px";
+          timer = setInterval(function () {
+              if (div2.offsetLeft < 0) {
+                  div2.style.left = div2.offsetLeft + speed + "px"
+              }
+              else {
+                  clearInterval(timer)
+              }
+          }, 30)
+
+      }
+
+
+	  btn.onclick = function () {
+
+            var speed = 40;
+			var timer = null;
+			
+			timer = setInterval(function () {
+				if(div2.offsetLeft > -640) {
+                    div2.style.left = div2.offsetLeft - speed + "px"
+                }
+                else{
+				    clearInterval(timer)
+					div2.style.left = 0;
+					div2.appendChild(img[0]);
+
+				}
+            },30)
+
+        }
+      
+
+	</script>
+</body>
+</html>

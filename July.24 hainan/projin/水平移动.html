@@ -34,22 +34,52 @@ btn1.onclick = function(){
 btn0.onclick = function(){
 
       levelmove();
-}   
+} 
+
 
     function levelmove(){
 
     	timer = setInterval(changeW,100);
+      // return timer;
     }
 
-    function changeW(){
-       
-           x = 20;
-           ball.style.transition = "all 0.3s";   		
-    	   var w = ball.style.left;
-    	   w = ball.offsetLeft+x+"px";
-    	   ball.style.left=w; 
+    function changeW(){      
+         x = 20;
+         ball.style.transition = "all 0.3s";   		
+
+         if(ball.offsetLeft>=1000){
+            clearInterval(timer);
+         }else{
+            var w = ball.style.left;
+            w = ball.offsetLeft+x+"px";
+            ball.style.left=w; 
+         }
             		  	 
     }
 </script>	
+
+<!--  1、不会停止：添加定时器
+
+2、速度取某些值的时候无法停止：停止条件设置有问题，不能用==
+
+3、到达位置后还会运动，点击一下就运动一下：设置定时器和运动的代码要放到if(){}else{}里面，也就是说需要把运动和停止隔开
+
+4、重复点击速度加快：每次运动之前没有清除定时器
+
+5、问题：到达某个特定位罝停符
+解决：做判断，符合条件时关掉定时器(存定时器timer)
+速度变慢(一般不动时间,而是改数字-速度)
+用变量存速度
+
+6、问题：取7时，offsetLeft没有等于300的时候,div停不下来
+解决:>=300 //停在 301
+
+7、问题：到300后点击按钮还继续走
+原因：点击按钮,执行函数,开定时器(执行当前函数一至少执行一次)
+解决:加else (没有到达目标之前才执行)
+
+8、问题：连续点击，速度变快
+原因：每点击一次就开一个定时器，点击几次就有几个定时器同时工作
+解决：保证每次只有一个定时器工作,先cearlnterval ()*/ -->
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>轮播图</title>
+	<title>轮播图 imperfections</title>
 	<style>
 	*{
 		margin:0;
@@ -87,16 +87,16 @@
     var  liArr = list.children;
     var  m=0,clock;
     // console.log(liArr)
-    move();
+    move(true);
     clickSpace.onmouseover = function(){
-    	clearInterval(clock);
+    	move(false);
     }
     clickSpace.onmouseout = function(){
-    	move();
+    	move(true);
     }
     for(var i = 0;i<spans.length ; i++){
            spans[i].onmouseover =function(){
-           	clearInterval(clock);
+           	move(false);
            } 
            spans[i].onclick = function(){
 
@@ -107,35 +107,36 @@
     } 
 
     
-function move(){
-    var clock = setInterval(function(){
-    	    m++;
-    	    if(m>=spans.length){
-	        	m=0;
-	        }
-            var listL = 0;
-            var a = liArr[0].offsetWidth
-            var timer =setInterval(function(){ 
+function move(flag){
+    if(flag){
+		    var clock = setInterval(function(){
+		    	    m++;
+		    	    if(m>=spans.length){
+			        	m=0;
+			        }
+		            var listL = 0;
+		            var a = liArr[0].offsetWidth
+		            var timer =setInterval(function(){ 
 
-		          if(listL>-a){
-		          	listL-=5;
-		          	list.style.marginLeft= listL+"px"; 
-		          }else{
-		          	clearInterval(timer);
-		          	list.insertBefore(liArr[0],liArr[liArr.length]);
-		          	list.style.marginLeft=0+"px";
-		          } 
+				          if(listL>-a){
+				          	listL-=5;
+				          	list.style.marginLeft= listL+"px"; 
+				          }else{
+				          	clearInterval(timer);
+				          	list.insertBefore(liArr[0],liArr[liArr.length]);
+				          	list.style.marginLeft=0+"px";
+				          } 
 
-	        },parseInt(2000/a)) 
+			        },parseInt(2000/a)) 
 
-	        for(var i = 0;i<spans.length;i++){
-	        	spans[i].className="";
-	        } 
-	        spans[m].className="beRed";
+			        for(var i = 0;i<spans.length;i++){
+			        	spans[i].className="";
+			        } 
+			        spans[m].className="beRed";
 
-            
-     },3000)
-    return clock;
+		            
+		     },3000)
+    }
 }    
 	</script>
 </body>
