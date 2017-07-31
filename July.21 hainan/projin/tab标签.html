@@ -55,24 +55,33 @@
 			var divs = document.getElementById('div').getElementsByTagName('div');
 			
 			for(var i =0;i<btns.length;i++){
+				var timer = null;
+				btns[i].onmouseout = function(){
+					clearTimeout(timer);
+				}
 				//点击获取当前button的索引值
 				//console.log(i)
-				btns[i].index = i;
+				// btns[i].index = i;
 				
-				btns[i].onclick = function () {
-					for(var j = 0;j<btns.length;j++){
-						
-						divs[j].className = "none"
-					}
-					divs[this.index].className = "block"
-					
-				}
-			}
+		    btns[i].onmouseover = fn(i);	
 
-			var arr = []
-			arr.index = 1 ;
+		    function fn(num) {
+				return function(){
+					clearTimeout(timer);
+					    timer = setTimeout(function(){	
+								for(var j = 0;j<btns.length;j++){
+									
+									divs[j].className = "none"
+								}
+								divs[num].className = "block"
+						},500)   
+				 }               				
+			}}
+
+
+
 			
 
-	</script
+	</script>
 </body>
 </html>

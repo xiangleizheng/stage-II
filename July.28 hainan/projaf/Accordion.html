@@ -11,9 +11,15 @@
 <body>
 <script>
 var arr = ["images/1.jpg","images/2.jpg","images/3.jpg","images/4.jpg","images/5.jpg","images/6.jpg"]
-lunbo(arr);
 
-function lunbo(imgArr)  {//imgArr为储存图片地址数组
+lunbo(arr,640,320,"200px","auto");
+
+
+
+
+
+//imgArr为储存图片地址数组  W为图片的宽的数值  H为图片的高数值  MTB、MLR为整体d的上下、左右margin值(要加px)
+function lunbo(imgArr,W,H,MTB,MLR)  {
   var div = document.createElement("div");
   document.body.appendChild(div);
   var imgs = document.getElementsByTagName("img");
@@ -28,12 +34,12 @@ function lunbo(imgArr)  {//imgArr为储存图片地址数组
   	img.src=imgArr[i];
   }
 
-  var w =640+20*imgArr.length;
-  viArea.style.cssText=" width:"+w+"px;height: 320px;position: relative;margin: 200px auto;overflow:hidden;box-shadow:0 15px 25px -3px rgba(0,0,0,0.8);background-color:rgba(0,0,0,0.7)"
+  var wid =W+20*imgArr.length;
+  viArea.style.cssText=" width:"+wid+"px;height:"+H+"px;position: relative;margin:"+MTB+" "+MLR+";overflow:hidden;box-shadow:0 15px 25px -3px rgba(0,0,0,0.8);background-color:rgba(0,0,0,0.7)"
  
 	  for(var i = 0 ;i<boxs.length;i++){
-		  	boxs[i].style.cssText="position:absolute;height:320px;width:640px;"
-		  	imgs[i].style.cssText="width:640px;height:320px;"
+		  	boxs[i].style.cssText="position:absolute;height:"+H+"px;width:"+W+"px;"
+		  	imgs[i].style.cssText="width:"+W+"px;height:"+H+"px;"
 		  	boxs[i].style.width=Math.ceil(viArea.offsetWidth/boxs.length)+"px";
 		  	boxs[i].style.overflow="hidden";
 		  	boxs[i].style.left=i*boxs[i].offsetWidth+"px";
@@ -59,7 +65,7 @@ function lunbo(imgArr)  {//imgArr为储存图片地址数组
 		    boxs[i].onmouseout=function(){
 			    	for(var j = 0 ; j<boxs.length;j++){
 			           	boxs[j].style.width=viArea.offsetWidth/boxs.length+0.5+"px";
-			  	        boxs[j].style.left=j*viArea.offsetWidth/boxs.length+"px";
+			  	        boxs[j].style.left=j*viArea.offsetWidth/boxs.length+0.5+"px";
 			  	        boxs[j].style.filter="grayscale(0)";   
 			    	}
 		    }
