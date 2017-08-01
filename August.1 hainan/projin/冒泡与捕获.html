@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>冒泡与捕获</title>
+	<style>
+    ul{cursor: pointer;}
+	</style>
+</head>
+<body>
+
+<ul id="color-list">
+    <li>red</li>
+    <li>yellow</li>
+    <li>blue</li>
+    <li>green</li>
+    <li>black</li>
+    <li>white</li>
+</ul>
+<script>
+(function(){
+    var color_list = document.getElementById('color-list');
+    color_list.addEventListener('click',showColor,false);
+    function showColor(e){
+        var x = e.target;
+        if(x.nodeName.toLowerCase() === 'li'){
+            alert('The color is ' + x.innerHTML);
+        }
+    }
+})();
+</script>	
+</body>
+</html>

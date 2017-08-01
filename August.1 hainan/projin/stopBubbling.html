@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>stopBubbling</title>
+	<style>
+     span{
+     	width: 0;
+     	height: 0;
+     	border-radius: 50%;
+     	position: absolute;
+     	display: block;
+     	background-color: rgba(255,0,0,0);
+     }
+	</style>
+</head>
+<body>
+<script>
+window.onload = function(){
+   
+   var circle = document.getElementById("circle");
+   var circleW = circle.offsetWidth;
+   var circleH = circle.offsetHeight;
+   var a = 1;
+     //阻止点击span这个事件冒泡
+      circle.onclick = function(ev){
+      	var e = ev||event;  // 兼容
+   	   e.stopPropagation();
+   	   e.cancelBubble=true; // 兼容
+      }
+
+      document.onclick = function(ev){    
+		   clearInterval(timer);
+		   var e = ev||event;
+		   var timer = setInterval(function(){
+		        a-=0.15;
+		        circleW += 3;
+		        circleH += 3;
+		        circle.style.transition="all 0.05s";
+		   		circle.style.width = circleW+"px";
+		   		circle.style.height = circleH+"px";
+		   		circle.style.left = e.offsetX - circleW/2 + "px";
+		   	    circle.style.top = e.offsetY - circleH/2 + "px";
+		   		circle.style.background = "rgba(255,0,0,"+a+")"
+
+		   		if(a<0){
+		   			a=1;
+		   			circleH=0;
+		   			circleW=0;
+		   			clearInterval(timer);
+		   		}
+		   		
+		   	},50)
+   }  
+
+
+
+}   
+
+</script>
+	<span id="circle"></span>
+</body>
+</html>
