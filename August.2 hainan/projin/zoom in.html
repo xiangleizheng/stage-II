@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Zoom in</title>
+	<style>
+	*{
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+    #box{
+         width: 350px;
+         height: 350px;
+         position: absolute;
+         left: 20px;
+         top: 20px;
+         border:1px solid #f3f3f3; 
+    } 
+    #bigBox{
+    	width: 230px;
+    	height: 230px;
+    	position: absolute;
+    	left: 375px;
+    	top: 20px;
+    	border:1px solid #f3f3f3; 
+    	overflow: hidden;
+    	display: none;
+    } 
+    #mask{
+    	width: 100px;
+    	height: 100px;
+    	cursor: move;
+    	background-color: rgba(0,255,0,0.2);
+    	position: absolute;
+    	top: 0;
+    	left:0;
+    	display: none;
+    }
+    #bigBox>img{
+    	position: absolute;
+    }
+	</style>
+</head>
+<body>
+
+<script>
+window.onload= function(){
+var box = document.getElementById('box');
+var bigBox = document.getElementById('bigBox');
+var mask = document.getElementById('mask');
+var bigPic = document.getElementsByTagName("img")[1];
+
+var boxL = box.offsetLeft;
+var boxT = box.offsetTop;
+
+box.onmouseover=function(){
+	mask.style.display="block";
+	bigBox.style.display="block";
+}
+box.onmouseout=function(){
+	mask.style.display="none";
+	bigBox.style.display="none";
+}
+//给盒子添加onmousemove事件。因为mask是在其中运动，只需获得盒子里面的鼠标坐标。
+
+box.onmousemove = function(ev) {
+    //1.移动mask
+	//获得鼠标的坐标
+	var  e = ev||event;
+	var ex = e.clientX;
+	var ey = e.clientY;
+    //计算mask的位置   鼠标的X/Y坐标 - 盒子的left/top值 - mask自身的宽/高的一半
+	mask.style.left = ex - boxL - (mask.offsetWidth)/2 +"px";
+	mask.style.top = ey - boxT - (mask.offsetHeight)/2 +"px";
+
+    //限制mask的位置 在盒子内部
+	if(mask.offsetTop < 0){mask.style.top=0;}
+	if(mask.offsetLeft < 0){mask.style.left=0;}
+	if(mask.offsetTop>box.offsetHeight-mask.offsetHeight){
+		mask.style.top = box.offsetHeight-mask.offsetHeight+"px";
+	}
+	if(mask.offsetLeft>box.offsetWidth-mask.offsetWidth){
+		mask.style.left = box.offsetWidth-mask.offsetWidth+"px";
+	}
+
+
+	//2.移动大图片
+	//
+	//计算大图片和mask的位移比例   (大图从右往左的最大位移值)/(mask从左往右的最大位移值)
+	var bx = (bigPic.offsetWidth-bigBox.offsetWidth)/(box.offsetWidth-mask.offsetWidth);
+	var by = (bigPic.offsetHeight-bigBox.offsetHeight)/(box.offsetHeight-mask.offsetHeight); 
+    // 小图片的left top值乘以位移比例 得到大图片的位移量
+    // 大图片与mask是反向的移动
+	bigPic.style.left = - mask.offsetLeft * bx + "px";
+	bigPic.style.top = -mask.offsetTop * by + "px";
+        	
+}
+}
+</script>
+
+	<div id="box">
+       <img src="images/001.jpg">
+       <div id="mask"></div>
+	</div>
+
+
+	<div id="bigBox">
+       <img src="images/0001.jpg">
+	</div>
+</body>
+</html>

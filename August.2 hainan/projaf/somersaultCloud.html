@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Somersault Cloud</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        ul {list-style:none;}
+        body {
+            background-color: #000;
+        }
+        .nav {
+            width: 800px;
+            height: 42px;
+            background:url("images/rss.png") no-repeat right center #fff;
+            margin: 100px auto;
+            border-radius: 5px;
+            position: relative; 
+        }
+        .cloud {
+            width: 83px;
+            height: 42px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: url(images/cloud.gif) no-repeat;
+        }
+        .nav ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .nav li {
+            float: left;
+            width: 83px;
+            height: 42px;
+            line-height: 42px;
+            text-align: center;
+            color: #000;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<script>
+window.onload=function(){
+   var nav = document.getElementsByTagName("div")[0];
+   var cloud = document.getElementsByTagName('span')[0];
+   var box = document.getElementsByTagName('ul')[0];
+   var lis = box.children;
+   var cur = 0; 
+   
+/*   box.onmousemove = function(ev){
+   	  var e = ev||event;
+   	  var ex = e.clientX;
+
+   	  animate(cloud,ex-nav.offsetLeft-cloud.offsetWidth/2);
+
+   	  if(cloud.offsetLeft<0){
+   	  	cloud.style.left=0;
+   	  }
+   	  if(cloud.offsetLeft>box.offsetWidth-cloud.offsetWidth){
+        cloud.style.left=box.offsetWidth-cloud.offsetWidth+"px";
+   	  }     
+   }*/
+
+
+ 
+
+   box.onmouseover = function(e){
+   	  var li = e.target;
+   	  var lix =  li.offsetLeft;
+   	  animate(cloud,lix);
+   	  nav.onmouseout = function(){ 	 
+   	       animate(cloud,cur); 	 
+      }  
+   }
+   
+   box.onclick = function(e){
+   	  var li = e.target;
+   	  var lix =  li.offsetLeft;
+      cloud.style.left=lix+"px";
+      cur = lix ;
+   }
+
+
+
+    function animate(obj,target){  //  第一个参数 动谁   第二个参数  要到达的位置
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function() {
+		                            // 计算步长   动画的原理   盒子本身的位置+步长
+		        var step = (target - obj.offsetLeft) / 10;  // 步长
+		        if(step>0){
+		            step=Math.ceil(step); 
+		        }else{
+		            step = Math.floor(step);
+		        } //  取整步长
+		        // obj.style.left = 盒子本身的位置  +  步长
+		        obj.style.left = obj.offsetLeft + step + "px";      
+		        if(obj.offsetLeft == target){
+		        clearInterval(obj.timer);
+		        }
+        },30)
+    }
+
+}
+
+</script>
+<div class="nav">
+    <span class="cloud"></span>
+    <ul>
+        <li>1111111</li>
+        <li>2222222</li>
+        <li>3333333</li>
+        <li>4444444</li>
+        <li>5555555</li>
+        <li>6666666</li>
+        <li>7777777</li>
+        <li>8888888</li>
+    </ul>
+</div>
+</body>
+</html>
