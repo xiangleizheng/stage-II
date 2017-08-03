@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>cityQuery</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				width: 500px;
+				margin: 40px auto;
+				border: 1px solid #CCCCCC;
+			}
+			.box>div{
+				padding: 20px 10px;
+				width: 480px;
+				border-bottom: 1px solid #CCCCCC;
+			}
+			.box>div:last-child{
+				border: none;
+			}
+			.box ul{
+				display: flex;
+				flex-flow: row wrap;
+			}
+			.box li{
+				width: 80px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				list-style: none;
+				font-size: 14px;
+				color: #333333;
+				cursor: pointer;
+			}
+			.box li:hover{
+				color: dodgerblue;
+			}
+			.checked{
+				color: dodgerblue !important;
+			}
+		</style>
+
+</head>
+<body>
+		<div class="box">
+
+			<div class="hot-city">
+				<ul id="hot"></ul>
+			</div>
+
+			<div class="name-index">
+				<ul id="ind"></ul>
+			</div>
+
+			<div class="find-city">
+				<ul id="find"></ul>
+			</div>
+
+		</div>
+</body>
+<script src="citydata.js" type="text/javascript" charset="utf-8"></script>
+<script src="hotcity.js" type="text/javascript" charset="utf-8"></script>
+</html>

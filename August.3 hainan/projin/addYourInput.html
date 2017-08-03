@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>addYourInput</title>
+	<style>
+	body{
+         text-align: center;
+	 }
+	 input{
+	 	width: 200px;
+	 	height:30px;
+	 }
+     .box{
+     	text-align: left;
+     	width: 300px;
+     	height: 295px;
+     	overflow: hidden;
+     	margin: 20px auto;
+     	border:1px solid #d3d3d3;
+     }
+     .box>li{
+     	/*list-style: none;*/
+     }
+	</style>
+</head>
+<body>
+	<input type="text" id="text"><hr/>
+	<span>Ctrl Enter:发表留言</span>&nbsp;&nbsp;
+	<span>Shift D:选择想要删除的行序,填入序号</span>&nbsp;&nbsp;
+	<span>也可以直接点击"删除"来删除</span>
+	<ul class="box" id="ul"></ul>
+
+<script>
+	var Text = document.getElementById('text');
+	var Ul = document.getElementById('ul');
+	
+	Text.onkeydown = function(ev) {		
+		var ev = ev || event;		
+		
+			if (ev.keyCode == 13 && ev.ctrlKey) {  // 判断是否同时按了 回车 和 Ctrl 键
+
+				    if ( this.value =='' ) {			
+			         alert("请输入！")        			
+		            }else{
+		                	var li = document.createElement('li');
+                            
+							li.innerHTML = this.value+"&nbsp&nbsp&nbsp<a href='javascript:;'>删除</a>";
+                            var a = li.getElementsByTagName("a")[0]; 
+                            a.onclick=function(){
+                                this.parentNode.parentNode.removeChild(this.parentNode);
+                            } 
+
+
+							this.value="";
+
+							if ( Ul.children[0] ) {           //将li添加到ul最前面
+								Ul.insertBefore( li, Ul.children[0] ); 
+							} else {
+								Ul.appendChild( li );
+							}
+
+			        }			
+		    }
+
+
+
+
+	}
+
+    document.onkeydown = function(ev){       
+        		    if(ev.keyCode == 68&& ev.shiftKey ){
+        		     Text.blur();	
+		    	     var str = prompt("请输入要删除的行","1");		    	
+                     var num = Number(str);
+                     var lis = Ul.children;
+                    if(!isNaN(num)&&num<=lis.length&&num>0&&parseInt(num)-num==0){
+                        Ul.removeChild(lis[num-1]);
+                    }else{
+                    	alert("请输入正确的数！");
+                    }		    	    
+            }
+    }
+</script>	
+</body>
+</html>
