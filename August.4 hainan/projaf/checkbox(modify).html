@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			input[type="checkbox"]{
+				width: 20px;
+				height: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<input type="checkbox" /><label>111</label>
+			<input type="checkbox" /><label>222</label>
+			<input type="checkbox" /><label>333</label>
+			<input type="checkbox" /><label>444</label>
+			<input type="checkbox" /><label>555</label>
+			<input type="checkbox" /><label>666</label>
+			<input type="checkbox" /><label>777</label>
+			<input type="checkbox" /><label>888</label>
+			<input type="checkbox" /><label>999</label>
+			<input type="checkbox" /><label>000</label>
+		</div>
+		<span id="max"></span>
+		
+		<script type="text/javascript">
+			
+			//3.十个复选框最多选中三个，当选中三个的时候，提示，最多只能选三个，其他复选框被禁止掉
+			fun();
+			
+			function fun(){
+				var inp = document.getElementsByTagName('input');
+				var sp = document.getElementById("max");
+				var num = 0;
+				
+				for (var i =0; i < inp.length; i++) {
+					//为每一个复选框添加事件，使用onchange事件
+					inp[i].onchange = function(){
+						//第一个if else 用来判断当前被勾选上的复选框
+						//如果当前复选框被选中
+						if (this.checked) {
+							//变量num增加 1
+							num ++;
+						} else{
+							//否则减 1
+							num --;
+						}
+						
+						//第二个if else 用来判断选中的复选框是否已经达到 3 个
+						//如果达到 3 个
+						if (num>=3) {
+							//遍历复选框
+							for (var j = 0; j < inp.length; j ++) {
+								//让所有没有被选中的复选框被禁止选择
+								if (!inp[j].checked) {
+									inp[j].disabled = true;
+								}
+							}
+							//同时让span标签给出提示
+							sp.innerHTML = "已经选到了最大数量！";
+						//如果被选中的复选框没有达到3个
+						} else{
+							//遍历复选框
+							for (var j = 0; j< inp.length; j ++) {
+								//让所有的复选框恢复可选
+								inp[j].disabled = false;
+							}
+							//span标签取消提示
+							sp.innerHTML = "";
+						}
+						
+					}
+				}
+				
+			}
+			
+		</script>
+	</body>
+</html>

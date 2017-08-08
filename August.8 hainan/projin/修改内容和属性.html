@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			
+			var atxt = $("input:text:lt(3)");
+			atxt.attr("placeholder","请输入");
+			
+			$("input:disabled").attr("value","此文本框不可操作！");
+			
+			$("input:button").click(function(){
+				if($(this).attr("value")=="显示"){
+					$("input:password").attr("type","text");
+					$(this).attr("value","隐藏");
+				}else{
+					$("input:text:last").attr("type","password");//:last选择最后一个匹配的元素
+					$(this).attr("value","显示");		
+				}
+			})
+			
+			
+		})
+	</script>
+	</head>
+	<body>
+		<input type="text"/><br />
+		<input type="text"/><br />
+		<input type="text"/><br />
+		<input type="text" disabled="disabled"/><br />
+		<input type="text" disabled="disabled"/><br />
+		<input type="text" disabled="disabled"/><br />
+		<input type="password"/>
+		<input type="button" value="显示" />
+	</body>
+</html>

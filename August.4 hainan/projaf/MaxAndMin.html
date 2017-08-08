@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MaxAndMin</title>
+</head>
+<body>
+<script>
+   var testarr = [1,2,454,874,44,51,5,1,2,0,21,5,54,6666,-234];
+   var teststr = "Oh My Lord And Master !"; 
+
+
+   function MaxAndMin(arr){
+   	var max = Math.max.apply(null,arr);
+   	var min = Math.min.apply(null,arr);
+   	console.log("最大值为："+max);
+   	console.log("最小值为："+min);
+   }
+
+  
+//翻转字符串中每个单词内的字母
+   function reverseStr(str){
+	    var arr =str.split(" "); 
+	    for(var i =0; i<arr.length;i++){
+	    	arr[i] = arr[i].split("").reverse().join("");
+	    }
+	    var string= arr.join(" ");
+	    console.log(string);
+   }
+
+
+
+   MaxAndMin(testarr);
+   reverseStr(teststr);
+
+</script>	
+</body>
+</html>

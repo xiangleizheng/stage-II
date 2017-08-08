@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				text-align: center;
+			}
+			input{
+				margin: 10px auto;
+				width: 20px;
+				height: 20px;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+		$(function(){
+			var inps = $("input:checkbox");
+			var btns = $("input:button");
+			var n = 0 , m = 0;
+
+//          inps.attr("defaultChecked",false);
+           
+	        console.log(inps)
+			console.log(btns)
+			btns.css({
+				"width":"100px",
+			})
+	        
+	        
+			btns.eq(0).click(function(){
+    	        inps.map(function(){            	
+			         this.checked=true;   //checked属性只在原生js中有
+		        })
+			})
+
+
+
+
+	        btns.eq(1).click(function(){
+                inps.map(function(){
+                	if(this.checked==true){
+                		this.checked=false;
+                	}else{
+                		this.checked=true;
+                	}
+                })
+	        })
+	
+	            
+			btns.eq(2).click(function(){
+	        	
+    	        inps.map(function(){            	
+			         this.checked=false; 
+		        })            
+			})
+		
+		})	
+		</script>
+	</head>
+	<body>
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<hr />
+		<input type="button" value="全选" />
+		<input type="button" value="反选" />
+		<input type="button" value="取消选择" />
+		
+	</body>
+</html>

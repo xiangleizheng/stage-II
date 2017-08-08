@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Checkbox</title>
+	<style>
+	input{
+		width: 50px;
+		height: 50px;
+	}
+	</style>
+</head>
+<body>
+<div id="ss">
+	<input type="checkbox" value="11" /> 			
+	<input type="checkbox" value="12" /> 			
+	<input type="checkbox" value="13" /> 			
+	<input type="checkbox" value="14" /> 			
+	<input type="checkbox" value="15" /> 			
+	<input type="checkbox" value="16" /> 			
+	<input type="checkbox" value="17" /> 			
+	<input type="checkbox" value="18" /> 			
+	<input type="checkbox" value="19" /> 			
+	<input type="checkbox" value="20" />
+</div>	
+	<span></span> 
+<script>
+    var ss = document.getElementById('ss'); 
+    var boxs = document.getElementsByTagName("input");
+    var span = document.getElementsByTagName('span')[0];
+    
+
+    
+    
+       ss.onclick=function(e){
+            var box = e.target;  
+               //获得选中个数
+               var n = 0; 
+               for(var i =0 ;i<boxs.length;i++){
+				    if(boxs[i].checked){
+				    	n++;
+				    }
+				}
+				console.log(n) 
+                //点击第三个后 禁止勾选其他
+				if(n>=3){                    
+                     // return false;                    
+                     for(var i = 0;i<boxs.length ;i++){
+                     	if(boxs[i].checked){
+                     		boxs[i].disabled=false;
+                     	}else{
+                     		boxs[i].disabled=true;
+                     	}
+                     } 
+                     span.innerHTML="不能再选咯！" 
+                   
+			    }else{  //三个选完后取消了其中的一项或几项时，所有的checkbox重新变为可选状态
+			    	for(var m =0;m<boxs.length;m++){
+			    		boxs[m].disabled=false;
+			    	}
+			    	span.innerHTML="";
+			    }    
+
+		       
+        }
+</script>				
+</body>
+</html>

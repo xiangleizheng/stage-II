@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 80%;
+				margin: 0 auto;
+			}
+			dl{
+				display: block;
+				float: left;
+				width: 240px;
+				margin: 100px 60px;
+				border-radius: 5px;
+				overflow: hidden;
+				border: 1px solid forestgreen;
+				cursor: pointer;
+			}
+			dt{
+				width: 100%;
+				height: 40px;
+				background-color: forestgreen;
+				color: #FFFFFF;
+				font-size: 20px;
+				line-height: 40px;
+				text-align: center;
+			}
+			dd{
+				width: 100%;
+				height: 30px;
+				line-height: 30px;
+				text-indent: 2em;
+				border-bottom: 1px solid #AAAAAA;
+			}
+			dd:last-child{
+				border: none;
+			}
+			table{
+				width: 80%;
+				border-collapse:collapse;
+				margin: 0 auto;
+			    text-align: center;
+			}
+			tr{
+				height: 40px;	
+			}
+			th{
+				background-color: forestgreen;
+				border-color: #fff;
+			}
+
+		</style>
+	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+	
+	$(function(){	
+		
+		$("dt").css("display","block");
+		$("dd").css("display","none");
+		$("dt").eq(0).nextAll().css("display","block");
+		
+		$("dt").map(function(){
+			$(this).click(function(){		
+//				$(this).parent().siblings().find("dd").css("display","none"); //可以直接选择到dd
+				$("dd").css("display","none");
+				$(this).siblings().css("display","block");
+			})						
+		})
+		
+		$("dd").map(function(){
+			$(this).click(function(){
+				 var firstNum =$(this).parent().index()+1;
+				 var secondNum = $(this).index();
+				alert("这是第"+firstNum+"个菜单的第"+ secondNum+"个子项!");
+			})  
+		})
+		
+		$("td").map(function(){ 
+			$(this).click(function(){
+				$(this).parent().siblings().css("background-color","#fff");
+				$(this).parent().css("background-color","rgba(77,210,4,0.4)");
+			})
+		})
+		
+		var n =0;
+		//第一个checkbox 控制后面的 checkbox
+		$("input").eq(0).click(function(){
+			$(this).parent().parent().siblings().css("background-color","#fff");
+			if(this.checked==true){
+				$("input:gt(0)").map(function(){            	
+			         this.checked=true;   //checked属性只在原生js中有
+		        })
+				n=7;
+			}else{
+				$("input:gt(0)").map(function(){            	
+			         this.checked=false;   
+		        })
+				n=0;
+			}
+		})
+		
+	    //后面的 checkbox 影响前面的 checkbox
+	   
+	
+		$("input:gt(0)").click(function(){
+			    		if(this.checked==false){ //只要后面有一个为false，第一个就为false
+		                   $("input")[0].checked=false;
+		                   n--;
+		                   console.log(n);
+			    		}else{
+			    			n++;
+			    			console.log(n);
+			    		}
+			    		if(n==$("input:gt(0)").length){
+			    			$("input")[0].checked=true;
+			    		}			    		
+		})
+		
+		$("table").mouseleave(function(){
+			$("tr:gt(0)").css("background-color","#fff");
+		})
+	    	  
+	})
+	</script>
+	</head>
+	<body>
+		<div>
+			<dl>
+				<dt>菜单1</dt>
+				<dd>子项</dd>
+				<dd>子项</dd>
+				<dd>子项</dd>
+				<dd>子项</dd>
+				<dd>子项</dd>
+				<dd>子项</dd>
+				<dd>子项</dd>
+			</dl>
+			<dl>
+				<dt>菜单2</dt>
+				<dd>子项</dd>
+				<dd>子项</dd>
+				<dd>子项</dd>
+				<dd>子项</dd>
+				<dd>子项</dd>
+				<dd>子项</dd>
+				<dd>子项</dd>
+			</dl>
+			<dl>
+				<dt>菜单3</dt>
+				<dd>子项</dd>
+				<dd>子项</dd>
+				<dd>子项</dd>
+				<dd>子项</dd>
+				<dd>子项</dd>
+				<dd>子项</dd>
+				<dd>子项</dd>
+			</dl>
+			<dl>
+				<dt>菜单4</dt>
+				<dd>子项</dd>
+				<dd>子项</dd>
+				<dd>子项</dd>
+				<dd>子项</dd>
+				<dd>子项</dd>
+				<dd>子项</dd>
+				<dd>子项</dd>
+			</dl>
+		</div>
+		<table border="1px" >
+			<tr>
+				<th><input type="checkbox"/></th>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>封地</th>
+			</tr>
+			<tr>
+				<td><input type="checkbox"/></td>
+				<td>安倍晴明</td>
+				<td>1427</td>
+				<td>黑夜山</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"/></td>
+				<td>八百比丘尼</td>
+				<td>1000</td>
+				<td>凤凰林</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"/></td>
+				<td>神乐</td>
+				<td>800</td>
+				<td>京都</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"/></td>
+				<td>源博雅</td>
+				<td>1312</td>
+				<td>枫叶林</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"/></td>
+				<td>酒吞童子</td>
+				<td>3201</td>
+				<td>白霜涧</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"/></td>
+				<td>烟烟罗</td>
+				<td>1200</td>
+				<td>虎跳峡</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"/></td>
+				<td>妖刀姬</td>
+				<td>1135</td>
+				<td>石卡雪山</td>
+			</tr>
+					
+		</table>
+	</body>
+</html

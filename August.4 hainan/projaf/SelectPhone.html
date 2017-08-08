@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SelectPractice</title>
+	<script src="data.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<select name="" id="brand"></select>
+	<select name="" id="type"></select>
+<script>
+    var brand = document.getElementById("brand");
+    var type = document.getElementById("type");
+    var brandList = obj.option;
+
+    
+    for(var i = 0 ;i<brandList.length ;i++){
+    	brand.add(new Option(brandList[i].text,brandList[i].value));
+    }
+    
+    brand.onchange = function(){
+      type.innerHTML="";
+      var n = brand.selectedIndex;
+      if(brandList[n].option){
+		      var typeList = brandList[n].option;
+		      for(var i =0 ;i <typeList.length;i++){
+		      	type.add(new Option(typeList[i].text,typeList[i].value));
+		      }
+      } 
+    }
+
+</script>	
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			li{
+				list-style: none;
+				width: 200px;
+				height: 40px;
+				background-color: #95DBF4;
+				margin: 20px auto;
+			}
+			
+		</style>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+		$(function(){
+			
+			
+			var drop = $(".drop");
+			var dropcontent = $('.drop>ul>li')
+			
+			drop.css("height",150).css("position","relative");
+			dropcontent.css({
+				"margin":"10px auto",
+				"background-color":"#E9AA94",
+				"position":"absolute",
+			});
+			dropcontent[1].css()
+			
+		})	
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li class="drop">
+				3
+				<ul>
+					<li>3.1</li>
+					<li>3.2</li>
+					<li>3.3</li>
+				</ul>
+			</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+			<li>10</li>
+			<li>11</li>
+		</ul>
+	</body>
+</html>

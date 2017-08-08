@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin:0;
+			    padding: 0;
+			}
+			body{
+				background-color: #272957;
+			}
+			.box{
+				position: relative;
+				width: 100px;
+				height: 100px;
+				background-color: #7686e3;
+				left:0;
+				top:0;
+			}
+			.ul{
+				width: 200px;
+				position: absolute;
+				left:30px;
+				top:200px;
+			}
+			li{
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				position: relative;
+				margin:10px auto;
+				list-style: none;
+				border:1px solid #d3d3d3;
+				cursor: pointer;
+			}
+			
+		</style>
+		<script src="js/jquery-3.2.1.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var btns =$("button");
+				var box =$(".box");
+				//获取当前宽高
+		        var boxW = box.width();
+		        var boxH = box.height();
+				//宽度增加100px
+				btns.eq(0).click(function(){
+					box.css("width",boxW+100);
+				})
+				//高度增加100px
+				btns.eq(1).click(function(){
+					box.css('height',boxH+100);
+				})
+				//宽高加100px,增加圆角
+				btns.eq(2).click(function(){
+					box.css('borderRadius',"50%").css('width',boxW+100);
+					box.css('height',boxH+100);
+				})
+				//left top 增加100px
+				btns.eq(3).click(function(){
+					box.css("left",100).css("top",100);				
+				})
+				
+				//按索引基偶数填色
+				var ev = $("li:even");
+				var od = $("li:odd");
+				btns.eq(4).click(function(){					
+					ev.css({
+						'backgroundColor':"#faa081",
+						'border':0
+				    })
+				    od.css({
+						'background-color':"#dedede",
+						"border":0
+				    })					
+				})
+				
+				
+				$(".ul>li").click(function(){
+					var n = $(this).index();
+					$(".ul>li:gt("+n+")").css("background-color","#f8455d");
+					$(".ul>li:lt("+n+")").css("background-color","#f8c737");
+//					$(".ul>li:eq("+n+")").css("background-color","#78eef7");
+                    $(this).css("background-color","#FFF696");
+				})
+
+				
+			})
+		</script>
+	</head>
+	<body>
+		
+		
+		<button>宽度增加100px</button>
+		<button>高度增加100px</button>
+		<button>宽高加100px，增加圆角</button>
+		<button>left top加100px</button>
+		<button>基偶填色去边框</button>
+		
+		<div class="box"></div>
+		
+		<ul class="ul">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>			
+		</ul>
+		
+	</body>
+</html>

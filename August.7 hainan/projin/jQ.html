@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 50px;
+				height: 50px;
+				background-color: #FB601B;
+				position: relative;
+			}
+			#little{
+				position: absolute;
+			}
+			.firstre{
+				width: 200px;
+				background-color: #05f450;
+				margin: 20px auto;
+				border:5px solid #00AAFF;
+			}
+			.second1{
+				border-radius: 50%;
+				width: 100px;
+				height: 100px;
+				background-color: #F04040;
+			}
+		</style>
+		<script src="js/jquery-3.2.1.js" type="text/javascript"></script>
+		
+		<script type="text/javascript">
+//			console.log($(document)[0])  //jQuery对象转化为DOM节点
+//			console.log($(document))     //DOM节点转化为jQuery对象
+//			console.log(document)        //普通的DOM节点
+//			$(function(){
+//				alert(" hey ! ")
+//			})
+
+		$(function(){            //类似于原生中的window.onload=function(){}
+				
+			var allbox = $('div');
+			var box1 = $('#first');
+			var box2 = $('.second');
+			
+			
+			box1.css({
+				"width":"500px",
+				"background-color":"#325544",
+				"opacity":0.2
+			});
+			
+			box2.css("width","130px").css("background","rgba(0,0,0,0.3)");
+			
+			box2.attr("class","second1");   //在上一个样式的基础上再添加了一个没有的border-radius样式
+			
+			
+			allbox.addClass("firstre");
+//			allbox.removeClass("firstre");
+//          //获取box1的内容宽
+//          console.log(box1.width());
+//          //获取box1的内容+padding宽
+//          console.log(box1.innerWidth());
+//          //获取box1的内容+padding+border宽
+//          console.log(box1.outerWidth(false));
+//          //获取box1的内容+padding+border+margin宽
+//          console.log(box1.outerWidth(true));
+
+            allbox.eq(2).html("<em>I’m Your Lord !</em>");
+            allbox.eq(3).text("your bullshit");
+            allbox.eq(4).offset({
+            	left:500,
+//          	top:0,
+            })
+            
+            var little = $("#little");
+            little.css({
+            	"width":"10px",
+            	"height":"10px",
+            	"border-radius":"50%",
+            	"background-color":"#faa081",
+            })
+
+		})
+		</script>
+	</head>
+	<body>
+      <div id="first"></div>
+      <div class="second"></div>
+      <div></div>
+      <div></div>
+      <div></div>   
+      <div>
+      	<div id="little"> </div>
+      </div>
+	</body>
+</html>

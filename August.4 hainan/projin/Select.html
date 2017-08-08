@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Select</title>
+</head>
+<body>
+	<select name="" id="sel">
+         <option value="1">1</option>
+         <option value="2">2</option>
+         <option value="3">3</option>
+         <option value="4">4</option>
+         <option value="5" selected="selected">5</option> <!--初始默认选择此项 -->
+	</select>
+<script>
+   var sel = document.getElementById("sel");
+   for(var i =6;i<16;i++){
+   	sel.add(new Option("new option"+i,i))     //前一个参数为标签内的字符串   后一个为value值
+   }
+
+
+
+</script>	
+</body>
+</html>
