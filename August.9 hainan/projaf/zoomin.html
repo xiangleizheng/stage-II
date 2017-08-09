@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+        	margin: 0;
+        	padding: 0;
+	        -webkit-user-select: none;
+	        -moz-user-select: none;
+	        -ms-user-select: none;
+	        user-select: none;
+        }
+        .box {
+            width: 350px;
+            height: 350px;
+            margin:100px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+        .big {
+            width: 230px;
+            height: 230px;
+            position: absolute;
+            top: 0;
+            left: 360px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            display: none;
+        }
+        .mask {
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 0, 0.4);
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: move;
+            display: none;
+        }
+        .small {
+            position: relative;
+        }
+    </style>
+<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function(){
+	var small = $(".small");
+	var big = $(".big");
+	var mask = $(".mask");
+	var sImg = $(".small>img");
+	var bImg = $(".big>img");
+    
+    small.on("mousemove",function(e){
+    	
+    	mask.css("display","block");
+    	big.css("display","block");
+    	
+    	var ex = e.clientX;
+    	var ey = e.clientY;
+        var sLeft = small.offset().left;
+        var sTop = small.offset().top;
+        var maskW = mask.width();
+        mask.css({
+        	left:ex-sLeft-maskW/2,
+        	top:ey-sTop-mask.height()/2
+        })
+        
+        if(mask.position().left<0){
+        	mask.css("left",0)
+        }
+        if(mask.position().top<0){
+        	mask.css("top",0)
+        }        
+        if(mask.position().left>small.width()-maskW){
+        	mask.css("left",small.width()-maskW);
+        }
+        if(mask.position().top>small.height()-mask.height()){
+        	mask.css("top",small.height()-mask.height());
+        } 
+        
+        bImg.css({
+        	"margin-left":-(mask.position().left)*(bImg.width()-big.width())/(small.width()-mask.width()),
+        	"margin-top":-(mask.position().top)*(bImg.width()-big.width())/(small.width()-mask.width())
+        })
+    })
+    
+        small.on("mouseleave",function(){
+        	mask.css("display","none");
+    	    big.css("display","none");
+		})
+})
+</script>
+</head>
+<body>
+<div class="box">
+    <!--小盒子-->
+    <div class="small">
+        <img src="images/001.jpg" alt=""/>
+        <div class="mask"></div>
+    </div>
+    <div class="big">
+        <img src="images/0001.jpg" alt=""/>
+    </div>
+</div>
+</body>
+</html>
