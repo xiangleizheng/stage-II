@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				-webkit-user-select: none;
+		        -moz-user-select: none;
+		        -ms-user-select: none;
+		        user-select: none;
+			}
+			table{
+				width: 70%;
+				border-collapse:collapse;
+				margin: 100px auto;
+			    text-align: center;
+			}
+			tr{
+				height: 40px;	
+			}
+			th{
+				background-color: forestgreen;
+				border-color: #fff;
+			}
+
+		</style>
+	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+	
+	$(function(){			
+		
+		$("td").map(function(){ 
+			$(this).on("click",function(){
+				$(this).parent().siblings().css("background-color","#fff");
+				$(this).parent().css("background-color","rgba(77,210,4,0.4)");
+			})
+		})
+		
+		var n =0;
+		//第一个checkbox 控制后面的 checkbox
+		$("input[type=checkbox]").eq(0).on("click",function(){
+			$(this).parent().parent().siblings().css("background-color","#fff");
+			if(this.checked==true){
+				$("input[type=checkbox]:gt(0)").map(function(){            	
+			         this.checked=true;   //checked属性只在原生js中有
+			         $(this).parent().siblings().find("input").attr("disabled","disabled");
+		        })
+				n=7;
+			}else{
+				$("input[type=checkbox]:gt(0)").map(function(){            	
+			         this.checked=false;
+			         $(this).parent().siblings().find("input").removeAttr("disabled");
+		        })
+				n=0;
+			}
+		})
+		
+	    //后面的 checkbox 影响前面的 checkbox
+	   
+	
+		$("input[type=checkbox]:gt(0)").on("click",function(){
+			    		if(this.checked==false){ //只要后面有一个为false，第一个就为false
+		                   $("input[type=checkbox]")[0].checked=false;
+		                   $(this).parent().siblings().find("input").removeAttr("disabled");
+		                   n--;
+//		                   console.log(n);
+			    		}else{
+			    			n++;
+			    			$(this).parent().siblings().find("input").attr("disabled","disabled");
+//			    			console.log(n);
+			    		}
+			    		if(n==$("input[type=checkbox]:gt(0)").length){
+			    			$("input[type=checkbox]")[0].checked=true;
+			    		}			    		
+		})
+		
+		$("table").on("mouseleave",function(){
+			$("tr:gt(0)").css("background-color","#fff");
+		})
+	    	  
+	})
+	</script>
+	</head>
+	<body>
+		<table border="1px" >
+			<tr>
+				<th><input type="checkbox"/></th>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>封地</th>
+			</tr>
+			<tr>
+				<td><input type="checkbox"/></td>
+				<td><input type="text" value="安倍晴明"/></td>
+				<td><input type="text" value="1427" /></td>
+				<td><input type="text" value="黑夜山" /></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"/></td>
+				<td><input type="text" value="八百比丘尼" /></td>
+				<td><input type="text" value="1000" /></td>
+				<td><input type="text" value="凤凰林" /></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"/></td>
+				<td><input type="text" value="神乐" /></td>
+				<td><input type="text" value="800" /></td>
+				<td><input type="text" value="京都" /></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"/></td>
+				<td><input type="text" value="源博雅" /></td>
+				<td><input type="text" value="1312" /></td>
+				<td><input type="text" value="枫叶林" /></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"/></td>
+				<td><input type="text" value="酒吞童子" /></td>
+				<td><input type="text" value="3201" /></td>
+				<td><input type="text" value="白霜涧" /></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"/></td>
+				<td><input type="text" value="烟烟罗" /></td>
+				<td><input type="text" value="1200" /></td>
+				<td><input type="text" value="虎跳峡" /></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"/></td>
+				<td><input type="text" value="妖刀姬" /></td>
+				<td><input type="text" value="1135" /></td>
+				<td><input type="text" value="石卡雪山" /></td>
+			</tr>
+					
+		</table>
+	</body>
+</html
