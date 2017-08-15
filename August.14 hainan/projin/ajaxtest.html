@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>同步get</title>
+		<script type="text/javascript">
+		
+        window.onload = function(){
+        	    var ul = document.createElement("ul");
+        	    ul.style.cssText="list-style:none";
+        		document.getElementsByTagName("body")[0].appendChild(ul);
+        		var btn = document.getElementsByTagName("button")[0];
+        	    var txt = null;
+        	    
+        	    btn.onclick=function(){
+        	    	Gettext();
+        	    }
+        	    
+	        	function Gettext(){
+	        		txt = new XMLHttpRequest;
+	        		txt.open('Get','forajaxtest.txt',false);
+	        		txt.send();
+	        		var data = txt.responseText;
+	        		var li = document.createElement("li");
+	        		li.innerHTML = data;
+	        		ul.appendChild(li);
+	        	}
+        }
+		</script>
+	</head>
+	<body>
+		<button>获取</button>
+	</body>
+</html>

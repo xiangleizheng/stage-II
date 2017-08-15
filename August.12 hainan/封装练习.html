@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<script>
+    window.onload=function(){
+    	//封装一个函数，参数为两个，一个是数字，一个是字符串，返回值为数字个字符串----------------------
+    	var aa = 9;
+    	var bb = "你好！";
+    	document.getElementById("test1").innerHTML="第一题的两个实参为："+aa+","+bb;
+    	
+    	Getyou(aa,bb);	
+
+    	
+    	function Getyou(a,b){
+    		var li = document.createElement("li");
+    		li.style.cssText="list-style:none"
+    		li.innerHTML = "得到的结果为 ："+a+"个"+b;
+    		document.getElementsByTagName("ul")[0].appendChild(li);
+    	}
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	//得到重复元素组成的数组------------------------------------------------------
+    	
+    	var a = [22,3,"江苏",3,3,45,4,"江苏","江苏",1,"a","a",3,3,24,"sibastin","吉林","s","d","a","sibastin","capital",3];
+    	document.getElementById("test2").innerHTML="第二题的实参为数组："+a;
+    	
+    	Getrepeat(a);    
+       
+		function Getrepeat(arr){
+			    var newarr=[];
+		    	for(var i =0;i<arr.length;i++){
+				 	for(var j = i+1;j<arr.length;j++){
+				 		if(arr[i] == arr[j]){
+				 			newarr.push(arr[j]) 
+				 			arr.splice(j,1)			 			
+				 			j--;
+				 		}
+				 	}
+			 	}
+		        console.log("所有重复的元素："+newarr);    
+		        var arr1 =[];    
+		        for(var i = 0 ;i<newarr.length;i++){ 
+				  	if(arr1.indexOf(newarr[i])==-1){
+				        arr1.push(newarr[i]);
+				    }
+		        }
+		        console.log("进一部去重后："+arr1);
+		        return arr1;
+		}
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	//封装一个函数，参数为数字和字母，显示数字的个数和字符的个数，无返回值----------------
+    	var str = "2r5ew7ah3sn34sjl5";
+    	document.getElementById("test3").innerHTML="第三题的实参为字符串："+str;
+    	
+    	
+    	Getdifnum(str);
+    	
+    	function Getdifnum(a){
+    		var arr = a.split("");
+    		var n=0,m=0;
+
+    		for(var i =0 ;i<arr.length ;i++){
+    			if(isNaN(parseInt(arr[i]))){
+    				n++;
+    			}else{
+    				m++;
+    			}   			
+    		}
+    		console.log("数字个数为："+m+"字母个数为："+n);
+    	}
+    	
+    	
+    	
+    	
+    	//封装一个函数，参数是一个数组，返回值为最大数和最小数的和---------------------------
+    	var arr4 = [4,5,684,221,3,2,5,1,30,5,4,-5,-9,4,21,3]
+    	document.getElementById("test4").innerHTML="第四题的实参为数组："+arr4;
+    	
+    	
+    	
+    	Getmaxaddmin(arr4);   	
+    	
+    	function Getmaxaddmin(c){
+    	    var s =	Math.max.apply(null,c)+Math.min.apply(null,c);
+    	    console.log("("+Math.max.apply(null,c)+")+("+Math.min.apply(null,c)+")="+s);
+    	    return s;
+    	}
+    
+    
+    
+    }
+	</script>
+	<body>
+		<div id="test1"></div>		
+		<ul></ul>
+		<div id="test2"></div>		
+		<div id="test3"></div>
+		<div id="test4"></div>
+	</body>
+</html>

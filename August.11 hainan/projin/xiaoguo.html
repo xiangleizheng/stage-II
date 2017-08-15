@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				background-color: indianred;
+				height: 300px;
+				width:300px;
+				display: none;
+				text-align: center;
+			}
+		</style>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$("input:button").eq(0).on('click',function(){
+			$("div[node-type='box']").slideDown(500,function(){
+				alert(222)
+			})
+		})
+	})
+	</script>
+	</head>
+	<body>
+		<input type="button" value="slideDown" />
+		<input type="button" value="slideUp" />
+		<div node-type="box"><img src="img/aixin.png"/></div>
+	</body>
+</html>

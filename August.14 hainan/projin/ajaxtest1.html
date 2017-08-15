@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>异步get</title>
+		<script type="text/javascript">
+		
+        window.onload = function(){
+        	    var ul = document.createElement("ul");
+        	    ul.style.cssText="list-style:none";
+        		document.getElementsByTagName("body")[0].appendChild(ul);
+        		var btn = document.getElementsByTagName("button")[0];
+        	    var txt = null;
+        	    
+        	    btn.onclick=function(){
+        	    	Gettext();
+        	    }
+        	    
+	        	function Gettext(){
+	        		txt = new XMLHttpRequest;
+	        		txt.open('Get','forajaxtest.txt',true);
+	        		txt.send();
+	        		
+	        		txt.onreadystatechange = function(){ //状态改变时触发事件
+		        			if(txt.readyState==4&&txt.status==200){
+				        		var data = txt.responseText;
+				        		var li = document.createElement("li");
+				        		li.innerHTML = data;
+				        		ul.appendChild(li);
+			        		}else{
+//			        			window.location = "error.html";
+			        		}
+	        		}
+	        		/*
+	        		 ----readyState(表示请求过程状态) 值   0~4
+	        		 4：请求完成
+	        		  
+	        		 ----status(整个数据传输状态)
+	        		 */
+	        		
+	        	}
+        }
+		</script>
+	</head>
+	<body>
+		<button>获取</button>
+	</body>
+</html>
