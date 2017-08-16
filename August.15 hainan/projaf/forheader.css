@@ -1,0 +1,92 @@
+
+div.header{
+	width: 100%;
+	margin-top: 0px;
+	background:transparent url(images/headerbg.png) repeat center center;
+	background-position: cover;
+	position: relative;
+}
+span.logo{
+	display:inline-block;
+	margin: 0 400px;
+}
+
+/*-----------------搜索框--------------------*/
+input.search{
+	position: absolute;
+	width: 250px;
+	height: 28px;
+	left: 600px;
+	top:20px;
+}
+
+/*-----------------换色按钮----------------*/
+div.checkb{
+    width: 15px;
+    height:15px;
+}
+div.changec{
+	position: absolute;
+	top:20px;
+	left:70%;
+}
+div.changec>div{
+	float:left;
+	margin-left: 5px;
+}
+
+div.one{
+	   background-color: rgb(61,91,155);
+	   background: transparent url(images/theme.gif) no-repeat;
+	   background-position-x: 0;
+	   background-position-y: 0;
+}
+div.two{
+	   background-color: rgb(186,58,217);
+	   background: transparent  url(images/theme.gif) no-repeat;
+	   background-position-x: -20px;
+	   background-position-y: -15px;
+}
+div.three{
+	   background-color: rgb(227,21,92);
+	   background: transparent  url(images/theme.gif) no-repeat;
+	   background-position-x: -40px;
+	   background-position-y: 0;
+}
+div.four{
+	   background-color: rgb(11,194,209);
+	   background: transparent  url(images/theme.gif) no-repeat;
+	   background-position-x: -60px;
+	   background-position-y: 0;
+}
+div.five{
+	   background-color: rgb(251,174,15);
+	   background: transparent  url(images/theme.gif) no-repeat;
+	   background-position-x: -80px;
+	   background-position-y: 0;
+}
+div.six{
+	   background-color: rgb(180,214,0);
+	   background: transparent url(images/theme.gif) no-repeat;
+	   background-position-x: -100px;
+	   background-position-y: 0;
+}
+
+/*------------------顶部导航----------------------*/
+.nav{
+	background-color:rgba(180,214,0,1);
+	width: 60%;
+	height: 40px;
+}
+.nav>ul>li{
+	float: left;
+	color:#fff;
+    margin-left: 50px;
+    font-weight: bolder;
+    font-size: 16px;
+	height: 40px;
+	line-height:33px;
+	text-align: center;
+	cursor: pointer;
+}
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		function Getdata(){
+			var MM = "I don't know any significance of it !";
+			var GG = "Give me five !";
+			$.ajax({
+				type:"get",
+				url:"forpassdata.php?key="+MM+"&key2="+GG,
+				async:true,
+				dataType:"text",
+				success:function(data){
+					$('div').html(data);
+					console.log(data)
+				}
+
+			});
+		}
+		
+	</script>	
+	</head>
+	<body>
+		<button onclick="Getdata()">获得</button>
+		<div></div>
+	</body>
+</html>

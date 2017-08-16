@@ -1,0 +1,99 @@
+div.con_right{
+	width: 72%;
+	position: absolute;
+	left:28%;
+	top:0;
+}
+div.right_top{
+	width: 85%;
+}
+div.show_pic{
+	display: inline-block;
+	width: 550px;
+	height: 321px;
+	position: relative;
+	top:0;
+	overflow:hidden;
+    }
+.pics{
+	height:321px;
+    overflow:hidden;
+    }
+.pic_nav{
+	position: absolute;
+	width: 100%;
+	top:270px;
+	height:51px;
+    font-size:12px;
+    }
+.pic_nav li{
+	float:left;
+	width: 109px;
+	margin-left:1px;
+	height: 51px;
+    cursor:pointer;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    color:rgba(255,255,255,0.8);
+    background-color:rgba(0,0,0,0.4);
+    box-sizing: border-box;
+    border-right: 2px solid transparent;
+    }
+.pic_nav li.first{
+	margin-left:0;
+	width: 110px;
+}
+/*----------------------小三角-----------------------------*/
+.curnav{
+	position:absolute;
+	bottom:0;
+	left: 55px;
+	width:5px;
+    height:3px;
+    background:transparent url(images/adindex.gif) no-repeat;
+    
+    }
+/*---------------------点击背景效果---------------------------*/    
+.pic_nav li.on{
+	background-color: rgba(180,214,0,0.9);
+}
+
+
+
+/*-----------------------右侧小图片---------------------------*/
+div.show_smallPic{
+	position: absolute;
+	top:0;
+	right:0;
+	display: inline-block;
+	width: 248px;
+	height:165px ;
+	background:transparent url(images/upload/20120216.jpg) no-repeat center center; 
+	background-size:cover;
+} 
+
+/*------------------------右侧信息通知-------------------------*/ 
+div.info{
+    position: absolute;
+    width: 248px;
+	top:174px;
+	right:0;
+	border: 1px solid #d3d3d3;
+	box-sizing: border-box;
+} 
+div.info>p{
+	width:239px;
+	height: 20px;
+	font-size: 16px;
+	font-weight: bolder;
+	line-height: 20px;
+	border-bottom: 1px solid #d3d3d3;
+	padding-left:8px ;
+}
+div.info>ul{
+	width: 100%;
+}
+div.info>ul>li{
+	padding-left:8px ;
+}     

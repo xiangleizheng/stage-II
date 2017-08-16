@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+
+		
+			function Getdate(){
+				$.ajax({
+					type:"get",
+					url:"forajax.php",
+					async:true,
+					success:function(data){
+						alert(data);
+					}
+				});
+			}
+			
+		
+
+	</script>	
+	</head>
+	<body>
+		<button onclick="Getdate()" >Getdate</button>
+	</body>
+</html>

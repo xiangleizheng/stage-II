@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('#toGet').click(function(){
+					var msg = "ajax";
+					/*$.ajax({
+						type:"get",
+						url:"php/data.php?data="+msg,
+						async:true,
+						success:function(data){
+							console.log(data)
+						}
+					});*/
+					
+					$.get({
+						url:"php/data.php?data="+msg,
+						success:function(data){
+							console.log(data)
+						}
+					})
+				})
+				/*$('#doPost').click(function(){
+					
+					$.ajax({
+						type:"post",
+						url:"php/data.php",
+						async:true,
+						data:{
+							msg:"ajax"
+						},
+						success:function(data){
+							console.log(data)
+						}
+					});
+				})*/
+				
+				$('#doPost').click(function(){
+					$.post({
+						url:"php/data.php",
+						data:{
+							msg:"ajax"
+						},
+						success:function(data){
+							console.log(data)
+						}
+					})
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<button id="toGet">get</button>
+		<button id="doPost">post</button>
+	</body>
+</html>

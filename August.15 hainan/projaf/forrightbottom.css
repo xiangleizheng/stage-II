@@ -1,0 +1,80 @@
+div.shoesNav{
+	margin-top: 20px;
+	width: 100%;
+	position: relative;
+
+}
+
+div.shoesNav>p{
+	font-weight: bolder;
+	width: 100%;
+	height: 30px;
+	border-bottom:1px solid #d3d3d3;
+}
+div.shoesNav>ul{
+	position: absolute;
+	width: 180px;
+	right: 0;
+	top:1px;
+}
+
+
+div.shoesNav>ul>li{
+	float: left;
+	width: 35px;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	color: #000000;
+	background-color: #d3d3d3;
+	margin-left: 10px;
+}
+
+
+/*---------------------------点击时的样式----------------------*/
+div.shoesNav>ul>li.pink{
+	color:#fff;
+	background-color: #fa5889;
+}
+/*---------------------------小三角形-------------------------*/
+div.chos{
+	position: absolute;
+	width: 5px;
+	height: 3px;
+	background: transparent url(images/chos.gif) no-repeat center center;
+	right:152.2px;
+}
+
+/*--------------------------鞋子图片显示--------------------------*/
+div.show_shoes{
+	position: relative;
+	margin-top: 15px;
+	width: 100%;
+	height: 240px;
+	overflow: hidden;
+}
+div.show_shoes>ul{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 3328px;
+}
+div.show_shoes>ul.name{
+	position: absolute;
+	top:188px;
+	left:0;
+	width: 3328px;
+}
+div.show_shoes>ul>li,li.name{
+	float: left;
+	margin-left: 5px;
+	margin-right: 20px;
+}
+div.show_shoes>ul>li.name{
+	width: 183px;
+	height: 35px;
+	line-height: 35px;
+	font-size: 18px;
+	text-align: center;
+	background-color:#d3d3d3 ;
+}

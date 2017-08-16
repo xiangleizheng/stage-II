@@ -3,23 +3,214 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<style>
-
-		</style>
+		<link rel="stylesheet" type="text/css" href="base.css"/>
+		<link rel="stylesheet" type="text/css" href="forheader.css"/>
+		<link rel="stylesheet" type="text/css" href="forsort.css"/>
+		<link rel="stylesheet" type="text/css" href="forshowpic.css"/>
+		<link rel="stylesheet" type="text/css" href="forrightbottom.css"/>
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="forshow_pic.js"></script>
+		<script type="text/javascript" src="forchangec.js"></script>
+		<script type="text/javascript" src="forshoes.js"></script>
 	</head>
 	<body>
-		<!--头部-->
-		<div class="header">   
-			<!--dg  rgb(234,234,234)-->
-			<span><img src="images/logo.gif"/></span>
-			<input type="text" id="" placeholder="请输入商品名称"/>
-			<input type="checkbox" style="background-color: rgb(61,91,155);"/>
-			<input type="checkbox" style="background-color: rgb(186,58,217);"/>
-			<input type="checkbox" style="background-color: rgb(227,21,92);"/>
-			<input type="checkbox" style="background-color: rgb(11,194,209);"/>
-			<input type="checkbox" style="background-color: rgb(251,174,15);"/>
-			<input type="checkbox" style="background-color: rgb(180,214,0);"/>
+		<!--------------头部------------------->
+		<div class="header center">   
+			
+				<span class="logo"><img src="images/logo.gif"/></span>
+				<input class="search" type="text" placeholder="请输入商品名称"/>
+				<!----------换色按钮---------------->
+				<div class="changec">
+					<div class="checkb one"></div>
+					<div class="checkb two"></div>
+					<div class="checkb three"></div>
+					<div class="checkb four"> </div>
+					<div class="checkb five"></div>
+					<div class="checkb six"></div>
+				</div>
+				<!-----------顶部导航---------------->
+				<div class="nav center" id="nav">
+					<ul>
+						<li>首页</li>
+						<li>品牌</li>
+						<li>男装</li>
+						<li>女装</li>
+						<li>鞋包配饰</li>
+					</ul>	
+				</div>
 			
 		</div>
+
+        <!---------------主体内容------------------>
+        <div class="container center">
+        	<!-----------左边内容------------->
+        	<div class="sort">
+        		<p class="tittle">商品分类</p>
+        		     		
+        		<p>推荐品牌</p>
+        		<div class="line center"></div>
+        		<div class="brand">
+        			<ul class="cl_one">
+        				<li>耐克</li>
+        				<li>达芙妮</li>
+        				<li>安踏</li>
+        				<li>骆驼</li>      				
+        			</ul>
+        			<ul class="cl_two">
+        				<li class="bg">阿迪达斯</li>
+        				<li>李宁</li>
+        				<li>奥康</li>
+        				<li>特步</li>      				
+        			</ul>
+        		</div>
+        		
+        		
+        		<p>女装</p>
+        		<div class="line center"></div>
+        		<div class="girls">
+        			<ul class="cl_one">
+        				<li>呢大衣</li>
+        				<li>羽绒</li>
+        				<li>羊绒衫</li>
+        				<li>连衣裙</li>      				
+        			</ul>
+        			<ul class="cl_two">
+        				<li>T-shirt</li>
+        				<li>衬衫</li>
+        				<li>针织</li>
+        				<li>皮外套</li>      				
+        			</ul>
+        		</div>
+        		
+        		
+        		<p>男装</p>
+        		<div class="line center"></div>
+        		<div class="boys">
+        			<ul class="cl_one">
+        				<li>夹克</li>
+        				<li>风衣</li>
+        				<li>羊绒衫</li>
+        				<li>西服</li>      				
+        			</ul>
+        			<ul class="cl_two">
+        				<li>T-shirt</li>
+        				<li>衬衫</li>
+        				<li>牛仔裤</li>
+        				<li>卫衣</li>      				
+        			</ul>
+        		</div>
+        		
+        		<p>鞋包配饰</p>
+        		<div class="line center"></div>
+        		<div class="bags">
+        			<ul class="cl_one">
+        				<li>围巾</li>
+        				<li>真皮包</li>
+        				<li>毛绒</li>
+        				<li>旅行箱</li>      				
+        			</ul>
+        			<ul class="cl_two">
+        				<li>帽子</li>
+        				<li>手表</li>
+        				<li>腰带</li>
+        				<li>墨镜</li>      				
+        			</ul>
+        		</div>
+        		
+        	      		
+        	</div>
+        	<!----------右边内容--------------->
+        	<div class="con_right">
+        		<!--------右边上部----------->
+        		<div class="right_top">
+        			    <!-----图片切换内容------>
+	        			<div class="show_pic">
+	        				<div class="pics">
+									<img src="images/ads/2.jpg" />
+									<img src="images/ads/1.jpg" />
+									<img src="images/ads/3.jpg" />
+									<img src="images/ads/4.jpg" />
+									<img src="images/ads/5.jpg" />
+							</div>
+							<ul class="pic_nav">	
+									<li class="on first">相约情人节<br/>全场119元起</li>
+									<li>新款上线<br/>全场357元起</li>
+									<li>愤怒的小鸟特卖<br/>全场89元起</li>
+									<li>女王节促销<br/>全场3.1折起</li>
+									<li>春季新品发布<br>全场4.1折起</li>
+							</ul>
+							<div class="curnav"></div>
+	        			</div>
+	        			
+	        			<!---------图片和信息通知----------->
+	        			<div class="show_smallPic"></div>
+	        			<div class="info">
+	        				<p>最新动态</p>
+	        				<ul>
+	        					<li>[活动] 伊伴春鞋迎春大促</li>
+	        					<li>[活动] 千百度冬靴新品火热让利</li>
+	        					<li>[活动] COEY秋冬新品全场2.3折起</li>
+	        					<li>[活动] 伊伴春鞋迎春大促</li>
+	        					<li>[活动] 伊伴春鞋迎春大促</li>	
+	        				</ul>
+	        			</div>
+        		</div>
+        		
+        		<!------------右边下部内容-------------->
+        		<div class="right_bottom">
+        			<!--------鞋子的导航------------->
+        			<div class="shoesNav">
+        				<p>品牌活动</p>
+        				<ul>
+        					<li class="pink">运动</li>
+        					<li>女鞋</li>
+        					<li>男鞋</li>
+        					<li>童鞋</li>
+        				</ul>
+        				<div class="chos"></div>
+        			</div>
+        			<!-------鞋子的图片显示------------>
+        			<div class="show_shoes">
+        				<ul>
+        					<li><img src="images/upload/20120217.jpg"/></li>
+        					<li><img src="images/upload/20120218.jpg"/></li>
+        					<li><img src="images/upload/20120219.png"/></li>
+        					<li><img src="images/upload/20120220.png"/></li>
+        					<li><img src="images/upload/20120217.jpg"/></li>
+        					<li><img src="images/upload/20120218.jpg"/></li>
+        					<li><img src="images/upload/20120219.png"/></li>
+        					<li><img src="images/upload/20120220.png"/></li>
+        					<li><img src="images/upload/20120217.jpg"/></li>
+        					<li><img src="images/upload/20120218.jpg"/></li>
+        					<li><img src="images/upload/20120219.png"/></li>
+        					<li><img src="images/upload/20120220.png"/></li>
+        					<li><img src="images/upload/20120217.jpg"/></li>
+        					<li><img src="images/upload/20120218.jpg"/></li>
+        					<li><img src="images/upload/20120219.png"/></li>
+        					<li><img src="images/upload/20120220.png"/></li>        					
+        				</ul>
+        				<ul class="name">
+        					<li class="name">耐克</li>
+        					<li class="name">阿迪</li>
+        					<li class="name">李宁</li>
+        					<li class="name">安踏</li>
+        					<li class="name">耐克</li>
+        					<li class="name">阿迪</li>
+        					<li class="name">李宁</li>
+        					<li class="name">安踏</li>
+        					<li class="name">耐克</li>
+        					<li class="name">阿迪</li>
+        					<li class="name">李宁</li>
+        					<li class="name">安踏</li>
+        					<li class="name">耐克</li>
+        					<li class="name">阿迪</li>
+        					<li class="name">李宁</li>
+        					<li class="name">安踏</li>        					
+        				</ul>
+        			</div>
+        			
+        		</div>
+        	</div>      	
+        </div>
 	</body>
 </html>

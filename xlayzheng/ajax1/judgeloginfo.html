@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.2.1.min.js" charset="UTF-8"></script>
+		<script type="text/javascript">
+		$(function(){
+		   var uname = $("#userName");
+		   var upwd = $("#userPwd");
+		   
+		   $("#btn").click(Judge);
+		   
+		   function Judge(){
+			   var name = uname.val();
+			   var pwd = upwd.val();
+			   $.ajax({
+			   	type:"get",
+			   	url:"forjudgeloginfo.php?name="+name+"&pwd="+pwd,
+			   	async:true,
+			   	dateType:"text",
+			   	success:function(data){
+			   		if(data=="ok"){
+			   			alert("欢迎你，"+name+"!")
+			   		}else{
+			   			alert("请仔细核对您的信息后重试")
+			   		}
+			   	}
+			   });
+		   }
+		   
+		})
+		</script>
+	</head>
+	
+	<body>
+	用户名<input id="userName" type="text" />
+	密码<input id="userPwd" type="password" />
+	<input id="btn" type="button" value="登入"/>
+	</body>
+</html>

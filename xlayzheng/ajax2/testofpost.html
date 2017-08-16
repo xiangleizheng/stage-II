@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<script src="js/jquery-3.2.1.min.js" charset="UTF-8"></script>
+	<script type="text/javascript">
+	$(function(){
+		$("button").on("click",postMsg);
+		
+		function postMsg(){
+				$.ajax({
+					type:"post",
+					url:"PHP/forpost.php",
+					async:true,
+					data:{
+						name:$("#name").val(),
+						pwd:$("#pwd").val(),
+						sex:$("#sex").val(),
+						judge:"ok!"
+					},
+					dataType:"text",
+					success:function(data){
+						var a =null;
+						if(data.split(" ")[2]=="male"){
+							a = "先生";
+						}else{
+							a = "女士";
+						}
+											
+						if(data.split(" ")[3]=="ok!"){
+							alert("欢迎您，"+data.split(" ")[0]+a+"!");
+							console.log(data);
+						}else{
+							alert("请侠客核对情报后重试！")
+						}
+						
+					}
+				});
+		}
+	
+	})
+	</script>
+	</head>
+	<body>
+		江湖人称<input id="name" type="text" />
+		通行证<input id="pwd" type="password"/>
+		<select id="sex">
+			<option value="male">male</option>
+			<option value="female">female</option>
+		</select>
+		<button>登录</button>
+	</body>
+</html>
