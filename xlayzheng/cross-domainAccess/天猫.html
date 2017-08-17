@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/fortianmao.css"/>
+		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		$(function(){
+			   //输入框获得焦点和被点击时，清空提示信息，并运行keyup事件
+				$(".txt").on('click',function(e){
+					event.stopPropagation();
+					$(this).attr("placeholder","");
+				    $(".txt").keyup(); 
+				})
+				
+				//输入框失去焦点时显示提示信息
+				$(".txt").on('blur',function(){
+					$(this).attr("placeholder","请输入商品名");
+				})
+			
+			
+			 //输入框内，每次鼠标弹起时，进行搜索，并返回联想商品，与数量
+				$('.txt').on('keyup',function(){					
+						$.ajax({
+							type:"get",
+							//天猫的数据地址
+							url:"https://suggest.taobao.com/sug?code=utf-8&q="+$('.txt').val()+"&_ksTS=1502958378801_4787&callback=jsonp4788&area=b2c&code=utf-8&k=1&bucketid=9&src=tmall_pc&isg=AsnJLVFs9O3EkIh2LbbvIw402PXjvr2QxO1ir2s-RbDvsunEtGbNGLfkgCD_",
+							//淘宝的数据地址
+	                        //url:"https://suggest.taobao.com/sug?code=utf-8&q=手机&_ksTS=1502958214110_1909&callback=jsonp1910&k=1&area=c2c&bucketid=1",
+							dataType:"jsonp",
+							jsonp:"callback",
+							async:true,
+							success:function(data){
+								var res = data.result;
+								$(".result").html("");	
+							    for(var i = 0 ; i<res.length; i++){
+			                       $(".result").append($("<li><a target='_blank'>"+res[i][0]+"</a><span>约"+res[i][1]+"件相关商品>><span></li>"));
+							    }
+						    }
+					    })
+			    })
+				
+			//商品搜索链接：
+			//https://list.tmall.com/search_product.htm?q=%E7%94%B5%E8%84%91&type=p&vmarket=&spm=875.7931836%2FB.a2227oh.d100&from=mallfp..pc_1_searchbutton
+			//点击下面的联想商品进入相应页面
+	  	    $(".result").on("click","li",function(e){
+					    event.stopPropagation();
+						$(this).children().attr('href',"https://list.tmall.com/search_product.htm?q="+$(this).children().first().html()+"&type=p&vmarket=&spm=875.7931836%2FB.a2227oh.d100&from=mallfp..pc_1_searchbutton");				
+						$(".txt").val( $(this).children().first().html());
+					    $(".result").html("");
+				})
+			//点击搜索，进入文本框对应商品的结果页面		
+			$(".search").on("click",function(){
+				        $(".result").html("");
+						$(this).attr('href',"https://list.tmall.com/search_product.htm?q="+$(".txt").val()+"&type=p&vmarket=&spm=875.7931836%2FB.a2227oh.d100&from=mallfp..pc_1_searchbutton");				
+			})
+			//点击文本框以外的地方时，取消联想
+			$(document).on("click",function(){
+				    $(".result").html("");
+				    $(".txt").val("");
+			})
+			
+			$(window).resize(function(){
+				
+			})
+		})
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<input type="text" class="txt" placeholder="请输入商品名" />
+			<a target="_blank" class="search">搜  索</a>
+			<ul class="result"></ul>
+		</div>
+	</body>
+</html>
