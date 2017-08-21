@@ -30,22 +30,63 @@ $(function(){
 				}
 		  }
 			
-		},2000)
+		},1000);
+		return i;
 	}
 	
 	
 	$(".visualArea").hover(function(){
 		clearInterval(timer);
 	},function(){
-		//移除时。获取当前有颜色的按钮索引，并将给i
+		//移除时。获取当前有颜色的按钮索引，并给i
 		for(var m =0 ; m<$("span").length;m++){
 			if($("span:eq("+m+")").attr('class')==="beRed"){
 				var i = m;
 			}
 		}
-		console.log(i);
+//		console.log(i);
 		move();
 	})
 	
+	$(".btn").on("click","span",function(){
+		(function(){
+			for(var m =0 ; m<$("span").length;m++){
+				if($("span:eq("+m+")").attr('class')==="beRed"){
+				var i = m;
+				}
+		    }
+		})()
+		
+		$(this).addClass("beRed");
+		$(this).siblings().removeClass("beRed");
+	
+
+		
+		if(i-$(this).index()>0){
+		    prepend(i-$(this).index());
+	   }else if(i-$(this).index()<0){
+	   	    append(i-$(this).index());
+	   }
+		
+		$("ul").animate({
+			'top':-$("li:eq(0)").height(),
+		});
+		
+		
+	})
+	
+		//将t项移动到ul前面，
+		function prepend(t){
+			for(var s = 4 ; s>=5-t ; s--){
+				$("ul").prepend($('<li>'+ $("li:eq(4)").html()+'</li>'));
+				$("li:eq(5)").css("display","none").remove();
+			}
+		}
+		function append(t){
+			for(var s = 4 ; s>=5+t ; s--){
+	   	   	$("ul").append($('<li>'+ $("li:eq(0)").html()+'</li>'));
+			$("li:eq(0)").css("display","none").remove();				
+			}	
+		}	
 	
 })

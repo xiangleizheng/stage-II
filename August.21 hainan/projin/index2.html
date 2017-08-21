@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>css3选择器</title>
+		<style type="text/css">
+			
+			ul{
+				border: 1px solid #BCBCBC;
+			}
+			
+			/*
+			 
+			兄弟选择器
+			1、选择指定标签后面所有的兄弟节点
+			p~ul{
+				background-color: red;
+			}
+			 属性选择器
+			2、选择属性以指定字符串开头的标签
+			li[index^="ab"]{
+				background-color: red;
+			}
+			
+			3、选择以指定字符串结尾的标签
+			li[class$="b"]{
+				background-color: red;
+			}
+			
+			4、选择属性中包含某个字符串的标签
+			li[class*="x1"]{
+				background-color: red;
+			}
+			
+			5、选择第一个指定的标签
+			p:first-of-type{
+				background-color: red;
+			}
+			
+			6、选择最后一个指定的标签
+			p:last-of-type{
+				background-color: red;
+			}
+			
+			7、选择在其父级下该类型唯一的一个子元素
+			   该子元素可以有其他类型不一样的兄弟元素
+			p:only-of-type{
+				background-color: yellow;
+			}
+			
+			8、选择其父级下的第n个标签,只在指定的子元素中查找
+			p:nth-of-type(1){
+				background-color: red;
+			}
+			
+			9、选择在其父级下的唯一的一个子元素
+			      选中的子元素完全唯一，其父级只有这一个子元素,只要有兄弟节点就不满足条件
+			h3:only-child{
+				background-color: red;
+			}
+			p:only-child{
+				background-color: red;
+			}
+			
+			10、选择其父级下的第n个子元素,从其父级的第一个子元素开始计数，一直数到第n个,如果找到的标签与指定的相同，那么会选中，否则没反应
+			p:nth-child(2){
+				background-color: red;
+			}
+			p:nth-of-type(3){
+				background-color: red;
+			}
+			
+			11、选择器父级下的倒数第n个子元素，从最后一个开始计数，一直数到第n个,如果找到的标签与指定的相同，那么会选中，否则没反应
+			p:nth-last-of-type(3){
+				background-color: red;
+			}
+			
+			
+			*/
+			
+			
+			
+			
+			
+		</style>
+	</head>
+	<body>
+		
+		<div>
+			<ul>
+				<li index="acc">html</li>
+				<li index="abcd">css</li>
+				<li index="acd">javaScript</li>
+				<li index="cba">json</li>
+				<li>
+					<p>这是第一个li内部的p标签</p>
+					<p>这是li内部的p标签</p>
+					<p>这是第三个li内部的p标签</p>
+				</li>
+			</ul>
+			<p>这是div下第一个p标签</p>
+			<ul>
+				<li class="box">唐梓恒</li>
+				<li class="box1">曹亚峰</li>
+				<li class="bb">邓坤</li>
+			</ul>
+			
+			<ul>
+				<li>abc</li>
+				<li>abc</li>
+				<li>abc</li>
+			</ul>
+			<ul>
+				<li>包晗</li>
+			</ul>
+			<p>这是div下第二个p标签</p>
+			<p>这是div下第三个p标签</p>
+			<h3>这是h3标签</h3>
+		</div>
+		
+	</body>
+</html>

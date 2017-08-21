@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>css3选择器</title>
+		<style type="text/css">
+			
+			ul{
+				border: 1px solid #BCBCBC;
+			}
+			/*
+			
+			12、last-child 选择最后一个子节点
+			p:last-child{
+				background-color: red;
+			}
+			
+			13、root根节点
+			:root{
+				background-color: #BCBCBC;
+			}
+			
+			14、empty选择空节点，如果有文本内容，即使是一个空格，也不算空标签
+			:empty{
+				background-color: red;
+			}
+			
+			15、target选择当前活动状态的a标签指向的目标
+			:target{
+				background-color: #AAAAAA;
+				color: #fff;
+			}
+			
+			16、enabled选择可操作的input标签
+			:enabled{
+				height: 40px;
+			}
+			
+			17、disabled选择不可操作的input标签
+			:disabled{
+				height: 50px;
+			}
+			
+			18、checked选择被选中的input标签
+			:checked{
+				width: 50px;
+				height: 50px;
+			}
+			
+			19、not()选择除了指定标签的其他所有标签
+			div:first-of-type :not(p){
+				background-color: red;
+			}
+			
+			20、选择指定标签里面被选中的文本内容
+			::selection{
+				color: #ffffff;
+				background-color: #BCBCBC;
+			}
+			
+			 */
+			
+		</style>
+	</head>
+	<body>
+		
+		<div>
+			<ul>
+				<li index="acc">html</li>
+				<li index="abcd">css</li>
+				<li index="acd">javaScript</li>
+				<li index="cba">json</li>
+				<li>
+					<p>这是第一个li内部的p标签</p>
+					<p>这是li内部的h2标签</p>
+					<p>这是第三个li内部的p标签</p>
+				</li>
+			</ul>
+			<p>这是div下第一个p标签</p>
+			<ul>
+				<li class="box">唐梓恒</li>
+				<li class="box1">曹亚峰</li>
+				<li class="bb">邓坤</li>
+			</ul>
+			
+			<ul>
+				<li>abc</li>
+				<li>abc</li>
+				<li>abc</li>
+			</ul>
+			<ul>
+				<li>包晗</li>
+			</ul>
+			<p>这是div下第二个p标签</p>
+			<p>这是div下第三个p标签</p>
+			<div>
+				<p>这是div下第二个p标签</p>
+				<p>这是div下第三个p标签</p>
+			</div>
+			<h3>这是h3标签</h3>
+		</div>
+		<div style="width: 500px;border: 1px solid #aaaaaa;">
+			<a href="#target">指向target的链接</a>
+			<a href="#target2">指向target2的链接</a>
+			<p id="target">链接指向的p标签</p>
+			<p id="target2">链接指向的p标签</p>
+		</div>
+		<div style="margin-top: 30px;">
+			<input type="text" placeholder="第一个input" />
+			<input type="text" placeholder="第二个input" />
+			<input type="text" placeholder="第三个input" disabled="disabled" />
+			<input type="checkbox" />
+			<input type="checkbox" />
+			<input type="checkbox" checked="checked" />
+			<input type="checkbox" checked="checked" />
+		</div>
+	</body>
+</html>

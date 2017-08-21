@@ -12,7 +12,7 @@ div.visualArea{
 	width: 640px;
 	height: 320px;
 	overflow: hidden;
-	margin: 200px auto;
+	margin: 100px auto;
 	box-shadow: 0 15px 25px -8px rgba(0,0,0,1);
 	
 }
