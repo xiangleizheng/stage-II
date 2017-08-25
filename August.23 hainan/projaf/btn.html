@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		.wrap{
+			width: 500px;
+			display: flex;
+			background-color: rgba(0,0,0,0.2);
+			margin: auto;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items:center ;
+		}
+			.rectangle{
+				width: 100px;
+				height: 50px;
+				border-radius:5px;
+				background:#0c5f05;
+				color:#fff;
+				line-height: 50px;
+				text-align: center;
+				cursor: pointer;
+			}
+			.rectangle:hover{
+				background: linear-gradient(to bottom,#138919,#0c5f05);
+			    font-weight: bolder;
+			}
+			.circle{
+				width:100px;
+				height: 100px;
+				border-radius:50%;
+				background:#0c5f05;
+				color:#fff;
+				line-height: 100px;
+				text-align: center;
+				cursor: pointer;
+			}
+			.circle:hover{
+				background:radial-gradient(170px at 0 0 ,#138919 10%,#0c5f05 40%,#062703 60%);
+			    font-weight: bolder;
+			}
+			.line{
+				width: 200px;
+				height: 50px;
+				border-radius:5px;				
+				background:pink;
+				color:#fff;
+				line-height: 50px;
+				text-align: center;
+				cursor: pointer;
+			}
+			.line:hover{
+				background: repeating-linear-gradient(45deg,white 0%,white 10%,#ebe536 10%,#ebe536 20%,pink 20%,pink 30%);	
+			    color:#666;
+			    font-weight: bolder;
+			}
+		</style>
+	</head>
+	<body>
+	  <div class="wrap">	
+		<div class="rectangle">保 存</div>
+		<div class="circle">保 存</div>
+		<div class="line">保 存</div>
+	  </div>	
+	</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			p{
+				width: 1100px;
+				font-size: 18px;
+				margin: 20px auto;
+				text-shadow:0 3px 15px aquamarine;
+				line-height: 10px;
+			}
+			div{
+				width: 1000px;
+				height: 200px;
+				padding: 50px;
+				margin: 0 auto;
+				background-color: aquamarine;
+			}
+			span{
+				float: left;
+				display: table;
+				width: 250px;
+				height: 200px;
+				background-color: rgba(120,120,0,0.5);
+				border:2px solid salmon;
+			}
+			span:nth-child(odd){
+				background-color: rgba(0,0,0,0.3);
+			} 
+			div.border-b span{
+				box-sizing: border-box;
+			}
+		</style>
+	</head>
+	<body>
+		<p>IE标准box-sizing: border-box; 将padding border 限制在规定的范围之内</p>
+		<p>如图外层div的width为1000px,刚好被四个宽为250px的span所占有   我们看到的边框是padding为50px</p>
+		<p>IE标准下加上border后span依然能保持宽度不变</p>
+		<div class="border-b">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		
+		<p>默认W3C标准box-sizing:content-box; 将padding border 加在规定的范围之外</p>
+		<p>此标准下span的宽度被影响，布局被破坏</p>
+		<div>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</body>
+</html>

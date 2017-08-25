@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>边框</title>
+		<style>
+			div.wrap{
+				margin: 0 auto;
+				width: 960px;				
+			}
+			div.item{
+				float: left;
+				margin: 20px 20px;
+				width: 200px;
+				height: 200px;
+				background-color: rgba(0,0,0,0.2);
+				display: flex;
+			}
+
+			div.radius{
+				margin: auto;
+			}
+			.item:nth-child(1) .radius{
+				width: 180px;
+				height: 180px;
+				border:1px solid black;
+				border-radius: 90px 90px 0 0 ;
+			} 
+			.item:nth-child(2) .radius{
+				width: 180px;
+				height: 90px;
+				border:1px solid black;
+				border-radius: 180px 180px 0 0 ;		
+			}
+			.item:nth-child(3) .radius{
+				width: 90px;
+				height: 90px;
+				border:1px solid black;
+				border-radius: 100% 0 0 0 ;		
+			}
+			.item:nth-child(4) .radius{
+				width: 180px;
+				height: 90px;
+				border:1px solid black;
+				border-radius: 90px/45px ;		
+			}
+			.item:nth-child(5) .radius{
+				width: 90px;
+				height: 180px;
+				border:1px solid black;
+				border-radius: 100% ;		
+			}			
+			.item:nth-child(6) .radius{
+				width: 45px;
+				height: 90px;
+				border:1px solid black;
+				border-radius:100% 0 0 0; 
+			}
+			.item:nth-child(7) .radius{
+				width:45px;
+				height: 180px;
+				border:1px solid black;
+				border-radius:100% 0 0 100%/50%; 
+			}
+			.item:nth-child(8) .radius{
+				width:45px;
+				height: 180px;
+				border:1px solid black;
+				border-radius:100% 0 0 100%/50%; 
+				transform: rotate(90deg);
+			}
+			.item:nth-child(9) .radius{
+				width:20px;
+				height: 20px;
+				border:70px solid black;
+				border-radius:100%
+			}
+			.item:nth-child(10) .radius{
+				width: 20px;
+				height: 20px;
+				border:70px solid black;
+				border-radius:45px; 
+			}		
+			.item:nth-child(11) .radius{
+				width: 40px;
+				height: 40px;
+				border:50px solid black;
+				border-radius: 50% 0 0 0 ; 
+			}
+			.item:nth-child(12) .radius{
+				width: 40px;
+				height: 40px;
+				border:50px solid black;
+				border-radius: 50% 0 ; 
+			}
+			.item:nth-child(13) .radius{
+				width: 0;
+				height: 0;
+				border:90px solid;
+				border-color:aquamarine bisque transparent khaki; 
+			}	
+			.item:nth-child(14) .radius{
+				width: 0;
+				height: 0;
+				border:90px solid;
+				border-color:aquamarine bisque transparent khaki; 
+				border-radius: 100%;
+			}
+			.item:nth-child(15) .radius{
+				width: 0;
+				height: 0;
+				border:90px solid;
+				border-color:transparent transparent khaki transparent; 
+				border-radius: 100%;
+			}
+			.item:nth-child(16) .radius{
+				width: 0;
+				height: 0;
+				border:90px solid;
+				border-color:aquamarine aquamarine bisque bisque; 
+				border-radius: 100%;
+				transform: rotate(-45deg);
+			}
+			/*太极图*/
+			.item:nth-child(17) .radius{
+				width: 0;
+				height: 0;
+				border:90px solid;
+				border-color:aquamarine aquamarine bisque bisque; 
+				border-radius: 100%;
+				transform: rotate(-45deg);
+				position: relative;
+			}
+			.item:nth-child(17) .radius .radiusone{
+				width: 10px;
+				height: 10px;
+				background-color:aquamarine ;
+				border:40px solid;
+				border-color:bisque bisque bisque bisque; 
+				border-radius: 100%;
+				transform: rotate(-180deg);
+				position: absolute;
+				left:-77px;
+				top:-77px;
+			}
+			.item:nth-child(17) .radius .radiustwo{
+				width: 10px;
+				height: 10px;
+				background-color:bisque ;
+				border:40px solid;
+				border-color:aquamarine aquamarine aquamarine aquamarine; 
+				border-radius: 100%;
+				transform: rotate(-180deg);
+				position: absolute;
+				left:-14px;
+				top:-14px;
+			}
+			.item:nth-child(18) .radius{
+				width: 160px;
+				height: 50px;
+				background-color:aquamarine ;
+				background: linear-gradient(to right,aquamarine ,rgba(255,20,20,0.2) );
+				border-radius: 8px;
+				position: relative;
+				box-shadow: 0 10px 15px -5px rgba(0,0,0,0.8);
+			}	
+			.item:nth-child(18) .radius .triangle{
+				width: 5px;
+				height: 0;
+				border: 8px solid ;
+				border-color: transparent aquamarine transparent transparent;				
+				position: absolute;
+				top:15px ;
+				left:-20px;
+			}
+			.item:nth-child(19) .radius{
+				width: 160px;
+				height: 50px;
+				background-color:aquamarine ;
+				background: linear-gradient(to right, rgba(255,20,20,0.2) , aquamarine);
+				box-shadow: 0 10px 15px -5px rgba(0,0,0,0.8);
+				border-radius: 8px;
+				position: relative;
+			}
+			.item:nth-child(19) .radius .triangle{
+				width: 0;
+				height: 0;
+				border: 10px solid ;
+				border-color: transparent aquamarine transparent transparent;				
+				position: absolute;
+				top:15px ;
+				left:144px;
+				transform: skew(35deg);	
+			}	
+			.item:nth-child(20) .radius{
+				width: 160px;
+				height: 50px;
+				background-color:aquamarine ;
+				background: linear-gradient(to right, rgba(255,20,20,0.2) , aquamarine);
+				box-shadow: 0 10px 15px -5px rgba(0,0,0,0.8);
+				border-radius: 8px;
+				position: relative;
+			}
+			.item:nth-child(20) .radius::after{
+				content: "";
+				display: block;
+				width: 20px;
+				height: 20px;
+				background-color: transparent;
+				border-style: solid;
+				border-width: 0 0 10px 2px;
+				border-radius: 0 0 100% 0 ;
+				border-color:aquamarine;
+				position: absolute;
+				top:10px;
+				left:158px;
+				z-index: 0;
+			}
+																																															
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="item"><div class="radius"></div></div>
+			<div class="item"><div class="radius"></div></div>
+			<div class="item"><div class="radius"></div></div>
+			<div class="item"><div class="radius"></div></div>
+			
+			<div class="item"><div class="radius"></div></div>
+			<div class="item"><div class="radius"></div></div>
+			<div class="item"><div class="radius"></div></div>
+			<div class="item"><div class="radius"></div></div>
+			
+			<div class="item"><div class="radius"></div></div>
+			<div class="item"><div class="radius"></div></div>
+			<div class="item"><div class="radius"></div></div>
+			<div class="item"><div class="radius"></div></div>
+			
+			<div class="item"><div class="radius"></div></div>
+			<div class="item"><div class="radius"></div></div>
+			<div class="item"><div class="radius"></div></div>
+			<div class="item"><div class="radius"></div></div>
+			<!--太极-->
+			<div class="item">
+				<div class="radius">
+					<div class="radiusone"></div>
+					<div class="radiustwo"></div>					
+				</div> 
+			</div>
+			
+			<!--对话框1-->
+			<div class="item">
+				<div class="radius">
+					<div class="triangle"></div>
+				</div>
+			</div>
+			<!--对话框2-->
+			<div class="item">
+				<div class="radius">
+					<div class="triangle"></div>
+				</div>
+			</div>
+			<!--对话框3-->
+			<div class="item"><div class="radius"></div></div>
+		</div>
+	</body>
+</html>

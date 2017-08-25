@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+
+			span{
+				display: block;
+				position: absolute;
+				top:650px;
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				border: 5px solid rgba(255,255,255,0.6);
+				background-color: rgba(0,0,0,0.2);
+				z-index: 100;
+				box-shadow: 0 8px 5px -3px rgba(0,0,0,0.7);
+			}
+			span:hover{
+				background-color: rgba(0,0,0,0.6);
+			}
+			div.bg{
+				width: 100%;
+				height: 840px;
+				overflow: hidden;
+				position: relative;
+			}
+			img{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				transition: all 2s;
+			}
+			img:nth-child(2){
+				transform: rotate(0deg) translate(0,0) scale(0.4,0.4);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="bg">
+			<img src="img/679451b439f04f3dba08818ba7f57c93.jpg"/>
+			<img src="img/a8b090253b634cc4865ac5c8d4ecaaf8.jpg"/>
+			<img src="img/ec6c266785b24156aa9315a3c3732e53.jpg"/>
+		</div>
+		
+			<span></span>
+			<span></span>
+			<span></span>
+	
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+		$(function(){
+			var btns = $("span");
+			var bgs = $("img");
+            for(var i = 0;i<btns.length;i++){
+               $("span:eq("+i+")").css("left",(i+1)*25+"%")
+            }
+            
+            
+			btns.eq(0).on("click",function(){
+				bgs.eq(0).siblings().css("z-index",0);
+				bgs.map(function(){this.style.transform="";});
+				bgs.eq(0).css({"z-index":10,"left":"100%"});
+				bgs[0].style.transform="translate(-100%,0)";
+			})
+			
+			btns.eq(1).on("click",function(){
+				bgs.map(function(){this.style.transform="";});
+				bgs.eq(1).siblings().css("z-index",0);
+				bgs.eq(1).css({"z-index":10,"top":"-100%"});
+				var curdeg =0;
+				var curdeg =curdeg+360;
+				bgs[1].style.transform="rotate("+curdeg+"deg) translate(0,100%) scale(1,1)";
+			})
+			
+			btns.eq(2).on("click",function(){
+				bgs.map(function(){this.style.transform="";});
+				bgs.eq(2).siblings().css("z-index",0);
+				getcur(10);
+				bgs.eq(2).css({
+					"z-index":10,
+					'top':'-100%',
+					'left':'-100%'
+				});
+				bgs[2].style.transform="scale(1,1) translate(100%,100%)";
+			})			
+			
+			function getcur(a){
+				for(var n = 0 ; n<bgs.length ; n++){
+					if(bgs.eq(n).css("z-index")==a){
+						bgs.eq(n).css({top:0,left:0,"z-index":9});
+						console.log(n);
+						return n ;
+					}
+				}
+			}
+			
+		})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>3D图片展示</title>
+<style type="text/css">
+	* { 
+		padding: 0;
+	    margin: 0; 
+	    }
+	body{
+		-webkit-perspective:800;
+	}
+	img{border:0;}
+	li{list-style:none;}
+	ul{
+		width:200px;
+		height:200px;
+		margin:100px auto;
+		position:relative;
+		transform-style:preserve-3d;
+		}    
+
+	li{
+		width:200px;
+		height:200px;
+		position:absolute;
+		text-align:center;
+		line-height:200px;
+		font-size:80px;
+		font-weight:bold;
+		color:#fff;
+		}
+	li:nth-child(1){
+		background-image:url(img/a1.jpg);
+		background-size:cover;
+		-webkit-transform:rotateX(90deg)   translateZ(100px);
+		}
+	li:nth-child(2){
+		background-image:url(img/a2.jpg);
+		background-size:cover;
+		-webkit-transform:rotateX(270deg)  translateZ(100px);
+		}
+	li:nth-child(3){
+		background-image:url(img/a3.jpg);
+		background-size:cover;
+		-webkit-transform:rotateY(90deg) translateZ(100px);
+		}
+	li:nth-child(4){
+		background-image:url(img/a4.jpg);
+		background-size:cover;
+		-webkit-transform:rotateY(270deg) translateZ(100px);
+		}
+	li:nth-child(5){
+		background-image:url(img/a2.jpg);
+		background-size:cover;
+		-webkit-transform:rotateY(180deg) rotateZ(180deg) translateZ(100px);
+		}
+	li:nth-child(6){
+		background-image:url(img/a1.jpg);
+		background-size:cover;
+		-webkit-transform: translateZ(100px) ;
+		}
+	.button{
+		width:200px
+		;margin:20px auto;
+		position:relative;
+		}
+	input{
+		width:50px;
+		height:30px;
+		position:absolute;
+		cursor:pointer;
+		}
+	input:nth-child(1){left:100px;top:0;}
+	input:nth-child(2){left:200px;top:50px;}
+	input:nth-child(3){left:0px;top:50px;}
+	input:nth-child(4){left:100px;top:100px;}
+	input:nth-child(5){left:100px;top:50px;}
+</style>
+</head>
+<body>
+    <ul id="ul">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+    <div class="button">
+        <input type="button" value="上">
+        <input type="button" value="右">
+        <input type="button" value="左">
+        <input type="button" value="下">
+        <input type="button" value="重置">
+    </div>
+<script src="js/jquery-3.2.1.min.js"></script>   
+<script type="text/javascript">
+$(function(){
+    var ul=document.getElementById('ul');
+    var inputs=document.getElementsByTagName('input');
+    var x=0,y=0;
+    
+    
+    for(var i=0;i<inputs.length;i++){
+        inputs[i].onclick=run;
+    }
+    function run(){
+        ul.style.transition='transform 3s';
+        if(inputs[0]==this){x+=90;}
+        if(inputs[1]==this){y+=90;}
+        if(inputs[2]==this){y-=90;}
+        if(inputs[3]==this){x-=90;}
+        //reset
+        if(inputs[4]==this){
+        	x=0;
+        	y=0; 
+        	ul.style.transition='transform 0.1s';
+        } 
+        ul.style.transform = "rotateX("+x+"deg) rotateY("+y+"deg)";
+    }  
+    
+    
+})    
+</script>
+</body>
+</html>

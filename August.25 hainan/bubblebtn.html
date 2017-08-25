@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		body{
+			background-color: rgba(0,0,0,0.1);
+		}
+/*			div.btn{
+				width:343px;
+				height:80px;
+				background-color:rgba(0,0,255,0.6);
+				display: flex;
+				border-radius: 10px;
+                           
+			}
+			div.left{
+				width:171px;
+				height:80px;
+				background: url(paopao.png) no-repeat left top;	
+				transition: all 2s;		
+			}
+			div.left:hover{
+				background: url(paopao.png) no-repeat left bottom;
+			}
+			div.right{
+				width:171px;
+				height:80px;
+				background: url(paopao.png) no-repeat right top;
+				transition: all 2s;
+                } 
+            div.right:hover{
+				background: url(paopao.png) no-repeat right bottom;
+                	
+            }  */
+           .btn{
+ 				width:343px;
+				height:80px;
+				border-radius:10px;
+				background:url(img/paopao.png) no-repeat left top,skyblue url(img/paopao.png) no-repeat right bottom;
+				transition: all 1s;          	
+           }  
+           .btn:hover{
+           	background-position: left bottom,right top;
+           }      			
+		</style>
+	</head>
+	<body>
+	   <div class="btn">
+<!--	   	    <div class="left"></div>
+	   	    <div class="right"></div>-->
+	   </div>
+	</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div.wrap{
+				margin: 0 auto;
+				width: 960px;				
+			}
+			div.item{
+				float: left;
+				margin: 20px 20px;
+				width: 200px;
+				height: 200px;
+				background:radial-gradient(90px at center center,white,rgba(0,0,0,0.2)) ;
+				display: flex;
+			}
+			div.tran{
+				width: 100px;
+				height:100px;
+				margin: auto;
+				background:linear-gradient(white 20%,black 20%,black 100%);
+			}
+			/*第一个*/
+			.item:nth-child(1) .tran{
+				transition: width 0.5s ease-in-out,
+				            height 1s ease-in-out;
+			}	
+			.item:nth-child(1) .tran:hover{
+                width:150px ;
+                height: 200px;
+                 				
+			}
+
+			.item:nth-child(2) .tran{
+				transition: width 0.5s ease-in-out ,
+				            height 0.5s ease-in-out ,
+				            border-radius 1s ease-in-out 0.5s;
+			}	
+			.item:nth-child(2) .tran:hover{
+				width: 100px;
+				height: 130px;
+                border-radius:50% 50% 50% 50%/60% 60% 40% 40% ;
+			}
+			
+			.item:nth-child(3) .tran{
+				transition:all 1s
+			}	
+			.item:nth-child(3) .tran:hover{
+                transform: rotate(90deg); 
+			}
+			
+			.item:nth-child(4) .tran{
+				transition:all 1s
+			}	
+			.item:nth-child(4) .tran:hover{
+                transform: scale(0.8,1.3); 
+			}
+			
+			.item:nth-child(5) .tran{
+				transition:all 1s
+			}	
+			.item:nth-child(5) .tran:hover{
+                transform: skew(30deg); 
+			}
+			
+			.item:nth-child(6) .tran{
+				transition:all 1s
+			}	
+			.item:nth-child(6) .tran:hover{
+                transform: translate(50px,-50px); 
+			}
+			
+			.item:nth-child(7) .tran{
+				transition:all 1s
+			}	
+			.item:nth-child(7) .tran:hover{
+                transform: rotateX(180deg); 
+			}
+
+			.item:nth-child(8) .tran{
+				background: linear-gradient(to right,white 20%,black 20%,black 100%);
+				transition:all 1s
+			}	
+			.item:nth-child(8) .tran:hover{
+                transform: rotateY(180deg); 
+			}
+
+			.item:nth-child(9) .tran{
+				transition:all 1s
+			}	
+			.item:nth-child(9) .tran:hover{
+                transform: rotateZ(180deg); 
+			}
+			
+			.item:nth-child(10){
+				-webkit-perspective: 300; 
+			}
+			.item:nth-child(10) .tran{
+				transition:all 1s;
+			}	
+			.item:nth-child(10) .tran:hover{
+                transform: translate3d(20px,20px,-200px);
+                transform-style: preserve-3d;
+			}
+			
+			.item:nth-child(11){
+				-webkit-perspective: 300;
+			}
+			.item:nth-child(11) .tran{
+				transition:all 1s;
+			}	
+			.item:nth-child(11) .tran:hover{
+                transform: scale3d(1.5,1.5,1.5); 
+                transform-style: preserve-3d;
+			}
+			
+			.item:nth-child(12){
+				-webkit-perspective: 150;
+			}
+			.item:nth-child(12) .tran{
+				transition:all 1s;
+			}	
+			.item:nth-child(12) .tran:hover{
+                transform: rotateX(30deg); 
+                transform-style: preserve-3d;
+			}
+			
+			.item:nth-child(13){
+				-webkit-perspective: 150;
+			}
+			.item:nth-child(13) .tran{
+				transition:all 1s;
+			}	
+			.item:nth-child(13) .tran:hover{
+                transform: rotateY(45deg);
+                transform-style: preserve-3d;
+				box-shadow: 0 10px 10px -5px rgba(0,0,0,0.7);
+			}
+			
+			.item:nth-child(14){
+				-webkit-perspective: 150;
+			}
+			.item:nth-child(14) .tran{
+				transition:all 1s;
+			}	
+			.item:nth-child(14) .tran:hover{
+                transform: rotateY(-45deg);
+                transform-style: preserve-3d;
+				box-shadow: 0 10px 10px -5px rgba(0,0,0,0.7);
+			}				
+			
+			.item:nth-child(15){
+				-webkit-perspective: 150;
+			}
+			.item:nth-child(15) .tran{
+				transition:all 1s;
+			}	
+			.item:nth-child(15) .tran:hover{
+                transform: rotate3d(9,5,1,45deg);
+                transform-style: preserve-3d;
+			}
+			
+			.item:nth-child(16){
+				-webkit-perspective: 150;
+			}
+			.item:nth-child(16) .tran{
+				transition:all 1s;
+			}	
+			.item:nth-child(16) .tran:hover{
+                transform: rotate3d(-9,-5,-1,45deg);
+                transform-style: preserve-3d;
+			}																																															
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="item"><div class="tran"></div></div>
+			<div class="item"><div class="tran"></div></div>
+			<div class="item"><div class="tran"></div></div>
+			<div class="item"><div class="tran"></div></div>
+			
+			<div class="item"><div class="tran"></div></div>
+			<div class="item"><div class="tran"></div></div>
+			<div class="item"><div class="tran"></div></div>
+			<div class="item"><div class="tran"></div></div>
+			
+			<div class="item"><div class="tran"></div></div>
+			<div class="item"><div class="tran"></div></div>
+			<div class="item"><div class="tran"></div></div>
+			<div class="item"><div class="tran"></div></div>
+			
+			
+			<div class="item"><div class="tran"></div></div>
+			<div class="item"><div class="tran"></div></div>
+			<div class="item"><div class="tran"></div></div>
+			<div class="item"><div class="tran"></div></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div.wrap{
+				margin: 0 auto;
+				width: 960px;				
+			}
+			div.item{
+				float: left;
+				margin: 20px 20px;
+				width: 200px;
+				height: 200px;
+				background-color: rgba(0,0,0,0.1);
+				display: flex;
+			}
+
+			div.grad{
+				width: 180px;
+				height: 50px;
+				margin: auto;
+				border-radius:10px ;
+			}		
+			.item:nth-child(1) .grad{
+				background:linear-gradient(0deg,aquamarine,rgba(255,255,0,1));
+			}
+			.item:nth-child(2) .grad{
+				background:linear-gradient(45deg,aquamarine,rgba(255,255,0,1));
+			}
+			.item:nth-child(3) .grad{
+				background:linear-gradient(180deg,aquamarine,rgba(255,255,0,1));
+			}
+			.item:nth-child(4) .grad{
+				background:linear-gradient(270deg,aquamarine,rgba(255,255,0,1));
+			}
+			.item:nth-child(5) .grad{
+				background:linear-gradient(to top left,aquamarine,rgba(255,255,0,1));
+			}
+			.item:nth-child(6) .grad{
+				background:linear-gradient(to bottom,aquamarine,rgba(255,255,0,1));
+			}
+			.item:nth-child(7) .grad{
+				background:linear-gradient(to left,orange 0%,aquamarine 30%,rgba(255,255,0,1) 90%);
+			}
+			.item:nth-child(8) .grad{
+				 background: linear-gradient(to right,red,orange,yellow,green,blue,indigo,violet);
+			}
+			.item:nth-child(9) .grad{
+				 background: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+			}
+			.item:nth-child(10) .grad{
+				 background: repeating-linear-gradient(pink, yellow 20%, aquamarine 40%);
+			}
+			.item:nth-child(11) .grad{
+				width: 180px;
+				height: 180px;
+				background: radial-gradient(aquamarine,rgba(255,255,0,1), grey);
+			}
+			.item:nth-child(12) .grad{
+				width: 180px;
+				height: 180px;
+				background: radial-gradient(rgba(255,255,0,1) 0%,#fff 25%,grey 80%);
+			}	
+			.item:nth-child(13) .grad{
+				width: 180px;
+				height: 180px;
+				background: radial-gradient(100px at 0 0,white,yellow,grey);
+			}
+			.item:nth-child(14) .grad{
+				width: 180px;
+				height: 180px;
+				background: radial-gradient(180px at 0 0,white,yellow,grey);
+			}		
+			.item:nth-child(15) .grad{
+				width: 180px;
+				height: 180px;
+				background: radial-gradient(120px at center center,white,yellow,grey);
+			}
+			.item:nth-child(16) .grad{
+				width: 180px;
+				height: 180px;
+				background-image: radial-gradient(70% 40%,white,yellow,grey);
+			}	
+			.item:nth-child(17) .grad{
+				width: 180px;
+				height: 180px;
+				background-image: repeating-linear-gradient(white 0%,white 10%,yellow 10%,yellow 20%,pink 20%,pink 30%);
+			}
+			.item:nth-child(18) .grad{
+				width: 180px;
+				height: 180px;
+				background-image: repeating-radial-gradient(white 0%,yellow 20%,pink 40%);
+			}																																												
+		</style>
+	</head>
+	<body>
+	<div class="wrap">	
+		<div class="item"><div class="grad"></div></div>
+		<div class="item"><div class="grad"></div></div>
+		<div class="item"><div class="grad"></div></div>
+		<div class="item"><div class="grad"></div></div>
+		
+		<div class="item"><div class="grad"></div></div>
+		<div class="item"><div class="grad"></div></div>
+		<div class="item"><div class="grad"></div></div>
+		<div class="item"><div class="grad"></div></div>
+		
+		<div class="item"><div class="grad"></div></div>
+		<div class="item"><div class="grad"></div></div>
+		<div class="item"><div class="grad"></div></div>
+		<div class="item"><div class="grad"></div></div>
+		
+		<div class="item"><div class="grad"></div></div>
+		<div class="item"><div class="grad"></div></div>
+		<div class="item"><div class="grad"></div></div>
+		<div class="item"><div class="grad"></div></div>
+		
+		<div class="item"><div class="grad"></div></div>
+		<div class="item"><div class="grad"></div></div>
+		
+		
+	</div>	
+	</body>
+</html>

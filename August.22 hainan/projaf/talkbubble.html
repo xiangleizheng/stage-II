@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div.wrap{
+				width: 390px;
+				height: 716px;
+				margin:0 auto;
+				background: transparent url(img/mobile.png) no-repeat;
+				position: relative;
+			}
+			div.role{
+				position: absolute;
+			}
+			div.A .head{
+				width: 35px;
+				height: 35px;
+				background: transparent url(img/3.png) no-repeat;
+				background-size: cover;
+			}
+			div.B .head{
+				width: 35px;
+				height: 35px;
+				background: transparent url(img/3-1.png)no-repeat;
+				background-size: cover;
+			}
+			
+			div.role:nth-child(1){
+				top: 190px;
+				left: 60px;
+			}
+			div.role:nth-child(2){
+				top: 250px;
+				left: 285px;
+			}
+			div.role:nth-child(3){
+				top: 310px;
+				left: 60px;
+			}
+			div.role:nth-child(4){
+				top: 395px;
+				left: 285px;
+			}
+			
+			div.B .word{
+				width: 160px;
+				height: 35px;
+				background-color:aquamarine ;
+				background: linear-gradient(to right, rgba(240,255,120,1) , aquamarine);
+				box-shadow: 0 10px 15px -5px rgba(0,0,0,0.8);
+				border-radius: 8px;
+				position: relative;
+				left:-175px;
+				top:-20px;
+			}
+			div.B .word::after{
+				content: "";
+				display: block;
+				width: 10px;
+				height: 10px;
+				background-color: transparent;
+				border-style: solid;
+				border-width: 0 0 10px 2px;
+				border-radius: 0 0 100% 0 ;
+				border-color:aquamarine;
+				position: absolute;
+				top:3px;
+				left:158px;
+				z-index: 0;
+			}
+			div.A .word{
+				width: 160px;
+				height: 35px;
+				background-color:aquamarine ;
+				background: linear-gradient(to right,aquamarine, rgba(255,200,200,1) );
+				box-shadow: 0 10px 15px -5px rgba(0,0,0,0.8);
+				border-radius: 8px;
+				position: relative;
+				left:50px;
+				top:-20px;
+			}
+			div.A .word::after{
+				content: "";
+				display: block;
+				width: 10px;
+				height: 10px;
+				background-color: transparent;
+				border-style: solid;
+				border-width:2px 0 0 10px;
+				border-radius:100% 0 0 0 ;
+				border-color:aquamarine;
+				transform: rotate(-90deg);
+				position: absolute;
+				top:3px;
+				left:-15px;
+				z-index: 0;
+			}			
+			span{
+				padding-left: 10px;
+				line-height: 35px;
+				font-size: 14px;
+				color: rgba(0,0,0,0.9);
+			}
+			.second .word span{
+				width: 160px;
+				line-height: 30px;
+			}					
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="role A first">
+				<div class="head"></div>
+				<div class="word" style="width: 50px;">
+					<span>在？</span>
+				</div>
+			</div>
+			<div class="role B first">
+				<div class="head"></div>
+				<div class="word">
+					<span>在的在的 有啥事啊...</span>
+				</div>
+			</div>
+			<div class="role A second">
+				<div class="head"></div>
+				<div class="word" style="height:60px;">
+					<span>把前几天学Ajax时你做 &nbsp;&nbsp;的笔记发给我一份.</span>
+				</div>
+			</div>
+			<div class="role B second">
+				<div class="head"></div>
+				<div class="word">
+					<span>okok 没问题的啦~</span>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

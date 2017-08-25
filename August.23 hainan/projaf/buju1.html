@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		    div{
+		    	line-height: 100px;
+				text-align: center;
+				color:white;
+				font-size: 25px;
+		    }
+			div.wraper{
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: center;
+			}
+			.head,.footer{
+				width: 80%;
+				height: 100px;
+			}
+			.head{background-color: #f1df4a;}
+			.footer{background-color: #f55b50;}			
+			.body{
+				width: 80%;
+				height: 640px;
+				display: flex;
+                flex-direction: row;
+            	overflow: scroll;
+				}
+			.left{
+				height: 900px;
+				width: 20%;
+				background-color: #fbb234;
+			}
+			.right{
+				height: 900px;
+				width:80%;
+				background-color: #f1c270;
+			}			
+		</style>
+	</head>
+	<body>
+		<div class="wraper">
+			<div class="head">头 部</div>
+			<div class="body">
+				<div class="left">侧 边 栏</div>
+				<div class="right">主 体</div>
+			</div>
+			<div class="footer">页 脚</div>
+		</div>	
+	</body>
+</html>

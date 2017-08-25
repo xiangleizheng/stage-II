@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div.wrap{
+				width: 300px;
+				height: 300px;
+				position: relative;
+			}
+			div.wrap div{
+				width: 300px;
+				height: 300px;
+				border-radius: 50%;
+				position: absolute;
+			}
+			.ball{
+				background-image: url(musict.jpg);
+			}
+			.cp{
+				background-image: url(musicb.jpg);
+				transition: all 2s;
+				transform-origin: 150px 300px;
+			}
+			.cp:hover{
+				transform: rotateX(-180deg);
+
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="ball"></div>
+			<div class="cp"></div>
+		</div>
+	</body>
+</html>

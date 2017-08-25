@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+
+			@keyframes animate_one{
+				from{
+					width: 50px;
+					height: 50px;
+					background-color: aquamarine;
+					}
+				to{
+					width: 200px;
+					height: 200px;
+					border-radius:50%;
+					background-color:aqua;
+				}
+			}
+			@keyframes animate_two{
+                0%{	width: 50px;height:50px;background-color: aquamarine;}
+                10%{width: 50px;height:50px;background-color:aqua;}
+                20%{width: 100px;height:100px;border-radius:20px;background-color:#00FFFF;}
+                30%{width: 150px;height:150px;border-radius: 50%;background-color:hotpink;}
+                40%{width: 200px;height:200px;background-color:gold;}
+ /*               50%{  background-color:hotpink;
+                      width: 0px;
+					  height: 0px;
+					  background-color:transparent;
+					  border-right: 60px solid transparent;
+					  border-top: 60px solid salmon;
+					  border-left: 60px solid salmon;
+					  border-bottom: 60px solid salmon;
+					  border-top-left-radius: 60px;
+					  border-top-right-radius: 60px;
+					  border-bottom-left-radius: 60px;
+					  border-bottom-right-radius: 60px;
+                }
+                60%{
+                	    width: 0;
+					    height: 0;
+					    border: 0;
+					    background-color:transparent;
+					    border-top: 50px solid transparent;
+					    border-left: 100px solid mediumspringgreen;
+					    border-bottom: 50px solid transparent;
+                }*/
+                70%{
+					    width: 150px;
+					    height: 100px;
+					    border: 0;
+					    -webkit-transform: skew(20deg);
+					    -moz-transform: skew(20deg);
+					    -o-transform: skew(20deg);
+					    background: greenyellow;	
+                }
+/*                80%{
+                	    border: 0;
+                	    background-color:transparent;
+                	    border-bottom: 100px solid mediumslateblue;
+					    border-left: 50px solid transparent;
+					    border-right: 50px solid transparent;
+					    height: 0;
+					    width: 100px;
+                }*/
+                90%{
+                	width: 126px;height:160px;border-radius: 50% 50% 50% 50%/60% 60% 40% 40%;
+                	border: 0;
+				    background:radial-gradient(at 63px 55px,white,#fee4c3 0%,#d19275 70%);
+                }
+                100%{
+                	width: 50px;height:50px;background-color: aquamarine;border: 0;
+                }
+			}	
+			.wrap{
+				width: 100%;
+				height: 100%;
+				display: flex;
+			}		
+			
+		    .wrap .changeable:nth-child(1){
+		    	width: 50px;
+		    	height: 50px;
+		    	background-color: aquamarine;
+		    	animation: animate_one 3s ease-in-out 0.1s 1 forwards;
+		    }
+		    
+		    .wrap .changeable:nth-child(2){
+		    	width: 50px;
+		    	height:50px;
+		    	background-color: aquamarine;
+		    	animation: animate_two 15s ease-in-out 0.1s ;
+		    }			
+		</style>
+	</head>
+	<body>
+	<div class="wrap">	
+		<div class="changeable"></div>
+		<div class="changeable"></div>
+	</div>
+	</body>
+</html>

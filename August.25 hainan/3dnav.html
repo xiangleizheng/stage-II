@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+            body{
+            	display: flex;
+            	flex-direction: row;
+            	justify-content: center;
+		    	-webkit-perspective:800;
+            	
+            }		
+		    div.wrap{
+		    	width: 400px;
+		    	height: 200px;
+		    	margin-top: 200px;
+		    	position: relative;
+		    	/*-webkit-perspective:800;*/
+		    	transition: all 0.5s;
+		    	transform-style: preserve-3d;
+		    	cursor: pointer;
+		    	transform: scale(0.8);
+		    	margin-right: -80px;
+		    }
+		    div.wrap:hover{
+		    	transform: rotateX(90deg) scale(0.95,1.1);
+		    	z-index: 10;
+		    }
+		    div.wrap:hover div.front{
+		    	background-color:#FA6666 ;
+		    }
+		    div.wrap:hover div.bottom{
+		    	box-shadow: 0 15px 20px -7px rgba(200,10,100,0.7);
+		    }		    
+		    div.wrap div{
+		    	position: absolute;
+		    	font-size:50px ;
+		    	line-height: 200px;
+		    	text-align: center;
+		    	color: #fff;
+		    }
+			div.front{
+				width: 400px;
+		    	height: 200px;
+				transform: translateZ(100px);
+				background-color: #FA8889;
+			}
+/*			div.last{
+		    	width: 400px;
+		    	height: 200px;				
+				background-color: #FA5666;;
+				transform: translateZ(-100px);
+			}
+			div.left{
+				width: 200px;
+				height: 200px;
+				background-color: #FA5666;
+				transform: rotateY(-90deg)translateZ(100px);
+			}
+			div.right{
+				width: 200px;
+				height: 200px;				
+				background-color: #FA5666;
+				transform: rotateY(90deg) translateZ(300px);
+			}			
+			div.top{
+		    	width: 400px;
+		    	height: 200px;				
+				background-color: #FA5889;
+				transform: rotateX(90deg) translateZ(100px);
+			}*/
+			div.bottom{
+		    	width: 400px;
+		    	height: 200px;				
+				background-color: #FA5666;
+				transform: rotateX(-90deg) translateZ(100px);
+			}			
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="front">nav content1</div>
+			<div class="last">2</div>
+			<div class="left">3333</div>
+			<div class="right">44444</div>
+			<div class="top">5</div>
+			<div class="bottom">new content1</div>
+		</div>
+	<!--	<div class="wrap">
+			<div class="front">nav content2</div>
+			<div class="last">2</div>
+			<div class="left">3333</div>
+			<div class="right">44444</div>
+			<div class="top">5</div>
+			<div class="bottom">new content2</div>
+		</div>
+		<div class="wrap">
+			<div class="front">nav content3</div>
+			<div class="last">2</div>
+			<div class="left">3333</div>
+			<div class="right">44444</div>
+			<div class="top">5</div>
+			<div class="bottom">new content3</div>
+		</div>		-->
+	</body>
+</html>

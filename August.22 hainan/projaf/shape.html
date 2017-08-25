@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>形状</title>
+		<style>
+			div.wrap{
+				margin: 0 auto;
+				width: 960px;				
+			}
+			div.item{
+				float: left;
+				margin: 20px 20px;
+				width: 200px;
+				height: 200px;
+				background-color: rgba(0,0,0,0.1);
+				display: flex;
+			}
+
+			div.shape{
+				margin: auto;
+			}
+			.item:nth-child(1) .shape{
+				width: 60px;
+				height: 60px;
+				background-color: transparent;
+				border:20px solid ;
+				border-color: #c0c5c3 aquamarine;
+				border-radius: 50%;
+				transform: rotate(-45deg);
+			}
+			.item:nth-child(2) .shape{
+				width: 60px;
+				height: 60px;
+				background-color: transparent;
+				border:20px solid ;
+				border-color: #c0c5c3 #c0c5c3 aquamarine aquamarine;
+				border-radius: 50%;
+				transform: rotate(-45deg);
+			}
+			/*第三个*/
+            .item:nth-child(3){
+            	position: relative;
+            }			
+			.item:nth-child(3) .shape{
+				width: 60px;
+				height: 60px;
+				background-color: transparent;
+				border:20px solid ;
+				border-color: #c0c5c3 #c0c5c3 aquamarine aquamarine;
+				border-radius: 50%;
+				transform: rotate(45deg);
+			}	
+			.item:nth-child(3) .shape::after{
+				position: absolute;
+				top:-20px;
+				left: -20px;
+				content: "";
+				display: table;
+				width: 60px;
+				height: 60px;
+				background-color: transparent;
+				border:20px solid ;
+				border-color: #c0c5c3 #c0c5c3 transparent transparent;
+				border-radius: 50%;
+				transform: rotate(-135deg);
+			}
+			/*第四个*/					
+			.item:nth-child(4) .shape{
+				width: 0;
+				height: 0;
+				border: 60px solid;
+				border-color:#c0c5c3 aquamarine;
+				border-radius: 50%;
+				transform: rotate(-45deg);
+			}	
+			/*第五个*/
+			.item:nth-child(5) .shape{
+				width: 0;
+				height: 0;
+				border: 60px solid;
+				border-color:#c0c5c3 #c0c5c3 aquamarine aquamarine;
+				border-radius: 50%;
+				transform: rotate(-45deg);
+			}
+			/*第六个*/
+            .item:nth-child(6){
+            	position: relative;
+            }			
+			.item:nth-child(6) .shape{
+				width: 0;
+				height: 0;
+				border: 60px solid;
+				border-color:#c0c5c3 aquamarine;
+				border-radius: 50%;
+				transform: rotate(-45deg);
+			}	
+			.item:nth-child(6) .shape::after{
+				position: absolute;
+				top:-60px;
+				left: -60px;
+				content: "";
+				display: table;
+				width: 0;
+				height: 0;
+				border: 60px solid;
+				border-color:#c0c5c3 #c0c5c3 #c0c5c3 transparent;
+				border-radius: 50%;
+				transform: rotate(-45deg);
+			}			
+			/*第七个*/
+			.item:nth-child(7){
+				position: relative;
+			}
+			.item:nth-child(7) .shape{
+				width: 60px;
+				height: 60px;
+				background-color:#c0c5c3;
+				border:20px solid ;
+				border-color: #c0c5c3 aquamarine;
+				border-radius: 50%;
+				transform: rotate(-45deg);
+			}
+			.item:nth-child(7) .shape::after{
+				content: "";
+				display: block;
+				width: 0;
+				height: 0;
+				border:10px solid ;
+				border-color: #c0c5c3 aquamarine;
+				border-radius: 50%;
+				position: absolute;
+				left: 20px;
+				top: 20px;
+			}
+			/*第八个*/
+			.item:nth-child(8){
+				position: relative;
+			}			
+			.item:nth-child(8) .shape{
+				width: 60px;
+				height: 60px;
+				background-color: #c0c5c3;
+				border:20px solid ;
+				border-color: #c0c5c3 #c0c5c3 aquamarine aquamarine;
+				border-radius: 50%;
+				transform: rotate(-45deg);
+			}
+			.item:nth-child(8) .shape::after{
+				content: "";
+				display: block;
+				width: 0;
+				height: 0;
+				border:10px solid ;
+				border-color: #c0c5c3 #c0c5c3 aquamarine aquamarine;
+				border-radius: 50%;
+				position: absolute;
+				left: 20px;
+				top: 20px;
+			}
+			/*第九个*/
+			.item:nth-child(9){
+				position: relative;
+			}
+			.item:nth-child(9) .shape{
+				width: 60px;
+				height: 60px;
+				background-color:#c0c5c3;
+				border:20px solid ;
+				border-color: #c0c5c3 aquamarine;
+				border-radius: 50%;
+				transform: rotate(-45deg);
+			}			
+			.item:nth-child(9) .shape::after{
+				content: "";
+				display: block;
+				width: 0;
+				height: 0;
+				border:10px solid ;
+				border-color: #c0c5c3 aquamarine;
+				border-radius: 50%;
+				position: absolute;
+				left: 20px;
+				top: 20px;
+			}
+			/*遮罩*/
+			.item:nth-child(9) .mask{
+				position: absolute;
+				top:50px;
+				left: 50px;
+				width: 60px;
+				height: 60px;
+				background-color:transparent;
+				border:20px solid ;
+				border-color: #c0c5c3 #c0c5c3 #c0c5c3 transparent;
+				border-radius: 50%;
+				transform: rotate(-90deg);
+			}			
+			.item:nth-child(9) .mask::after{
+				content: "";
+				display: block;
+				width: 0;
+				height: 0;
+				border:10px solid ;
+				border-color: #c0c5c3 #c0c5c3 #c0c5c3 transparent;
+				border-radius: 50%;
+				position: absolute;
+				left: 20px;
+				top: 20px;
+			}																								
+		</style>
+	</head>
+	<body>
+	    <div class="wrap">
+			<div class="item"><div class="shape"></div></div>
+			<div class="item"><div class="shape"></div></div>
+			<div class="item"><div class="shape"></div></div>
+			<div class="item"><div class="shape"></div></div>
+			
+			<div class="item"><div class="shape"></div></div>
+			<div class="item"><div class="shape"></div></div>
+			<div class="item"><div class="shape"></div></div>
+			<div class="item"><div class="shape"></div></div>
+			
+			<div class="item">
+				<div class="shape"></div>
+				<div class="mask"></div>
+			</div>
+	    </div>		
+	</body>
+</html>

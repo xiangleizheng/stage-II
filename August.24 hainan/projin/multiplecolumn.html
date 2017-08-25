@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div,h3{
+				margin: 0;
+				padding: 0;
+				text-indent: 20px;
+				word-break: break-all;
+				/*word-wrap: break-word;*/
+			}
+			.main{
+				width: 1000px;
+				
+				/*;列数*/
+				column-count: 3;
+				/*列宽*/
+				column-width: 300px;
+				/*列间隔*/
+				column-gap: 30px;
+				/*列间分隔线*/
+				column-rule: 5px dotted #666;
+			}
+			h3{
+				/*标题横跨列数*/
+				-webkit-column-span: all;
+				column-span:all;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<h3>台风入境</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut fuga provident praesentium dolorum incidunt et dolor consequatur id molestias aliquam unde veritatis harum aspernatur. Porro expedita culpa eligendi cumque sapiente.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores odit voluptas in placeat aperiam earum consequatur eius inventore error amet nemo mollitia impedit facere alias atque tempore voluptatibus dolorum! Sapiente.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores odit voluptas in placeat aperiam earum consequatur eius inventore error amet nemo mollitia impedit facere alias atque tempore voluptatibus dolorum! Sapiente.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores odit voluptas in placeat aperiam earum consequatur eius inventore error amet nemo mollitia impedit facere alias atque tempore voluptatibus dolorum! Sapiente.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores odit voluptas in placeat aperiam earum consequatur eius inventore error amet nemo mollitia impedit facere alias atque tempore voluptatibus dolorum! Sapiente.</p>
+		</div>
+	</body>
+</html>
