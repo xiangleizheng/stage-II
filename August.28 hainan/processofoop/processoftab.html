@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		    *{user-select: none;}
+			.wrap{
+				margin: 20px auto;
+				display: flex;
+				flex-wrap: wrap;
+				flex-direction: row;
+				width: 500px;
+			}
+			.wrap input{
+				width: 125px;
+				height: 40px;
+				background-color: #FB601B;
+				outline: none;
+				border: 0;
+				font-size: 18px;
+				cursor: pointer;
+			}
+			input.checked{
+				background-color: coral;
+			}
+			.wrap div{
+				width: 500px;
+				height: 320px;
+				background-color: coral;
+				color:#FFF696;
+				text-align: center;
+				line-height: 160px;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap first">
+            <input type="button" value="Halsey"/>			
+            <input type="button" value="Cara"/>			
+            <input type="button" value="kesha" class="checked"/>
+            <input type="button" value="Troye"/>
+            <div class="content">Closer</div>
+            <div class="content">Alessia</div>
+            <div class="content" style="display:block;">TIK TOK</div>
+            <div class="content">Fools</div>
+		</div>
+		
+		<div class="wrap second">
+            <input type="button" value="Halsey"/>			
+            <input type="button" value="Cara"/>			
+            <input type="button" value="kesha" class="checked"/>
+            <input type="button" value="Troye"/>
+            <div class="content">Closer</div>
+            <div class="content">Alessia</div>
+            <div class="content" style="display:block;">TIK TOK</div>
+            <div class="content">Fools</div>
+		</div>		
+	<script>
+	//原生js
+/*	window.onload=function(){
+		var wrap = document.getElementsByClassName("wrap")[0];
+		var btns = wrap.getElementsByTagName("input");
+		var cons = wrap.getElementsByClassName("content");
+		
+		for(var i = 0 ; i<btns.length;i++){
+			btns[i].index = i ;
+			btns[i].onclick = function(){
+				for(var j = 0 ; j<btns.length;j++){
+					btns[j].className="";
+					cons[j].style.display="none"
+				}
+				this.className="checked";
+				cons[this.index].style.display="block";
+			}
+		}
+	}*/
+	
+	
+		//先变型:
+        //尽量不要出现函数嵌套函数
+        //可以有全局变量
+        //把onload中不是赋值的语句放到单独函数中
+/*	window.onload=function(){
+		var wrap = document.getElementsByClassName("wrap")[0];
+		var btns = wrap.getElementsByTagName("input");
+		var cons = wrap.getElementsByClassName("content");
+	}
+	
+	function(){
+		for(var i = 0 ; i<btns.length;i++){
+			btns[i].index = i ;
+			btns[i].onclick =click;
+		}
+	}
+	
+	function click(){
+		for(var j = 0 ; j<btns.length;j++){
+			btns[j].className="";
+			cons[j].style.display="none"
+		}
+		this.className="checked";
+		cons[this.index].style.display="block";	
+	}*/	
+	
+	
+        //改成面向对象:
+        //全局变量就是属性
+        //函数就是方法
+        //Onload中创建对象
+	window.onload=function(){
+         var tab = new Tab("first");
+         var tab2 = new Tab("second") 
+         tab.activate();
+         tab2.activate();
+	}
+	
+	function Tab(uniqueclass){
+		this.wrap = document.getElementsByClassName(uniqueclass)[0];
+		this.btns = this.wrap.getElementsByTagName("input");
+		this.cons = this.wrap.getElementsByClassName("content");		
+	}
+	
+	Tab.prototype.activate = function(){
+		var t =this;
+		for(var i = 0 ; i<this.btns.length;i++){
+			this.btns[i].index = i ;
+			this.btns[i].onclick =function(){
+				t.click(this)
+			};
+		}
+	}
+	
+	Tab.prototype.click = function(obj){
+		for(var j = 0 ; j<this.btns.length;j++){
+			this.btns[j].className="";
+			this.cons[j].style.display="none"
+		}
+		obj.className="checked";
+		this.cons[obj.index].style.display="block";	
+	}        
+    </script>    
+	</body>
+</html>

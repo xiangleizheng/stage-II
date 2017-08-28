@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tab标签</title>
+		<style>
+		.sub{
+			width: 400px;
+			height: 400px;
+			position: relative;
+		}
+		.sub div{
+			width: 400px;
+			height: 400px;
+			border: 0;
+			position: absolute;
+			background-color: #dbfcfa;
+			
+		}
+        .active{background-color: aquamarine;}
+		button{
+			width: 100px;
+			height: 50px;
+			border: 0;
+			outline: none;
+			background-color: #dbfcfa;
+		}
+
+		
+
+	</style>
+</head>
+<body>
+	<div id="tab1">
+		<button>手机</button><button>数码</button><button>相机</button><button class="active">电脑</button>
+		<div class="sub" id="div">
+			<div >第一个</div>
+			<div >第二个</div>
+			<div >第三个</div>
+			<div >第四个</div>
+	
+		</div>
+	</div>	
+
+	<script>
+    window.onload=function(){
+    	
+    	var tab = new Tab("tab1");
+    	tab.init()
+    }	
+    
+    function Tab(id){
+    	this.btns = document.getElementById(id).getElementsByTagName('button');
+		this.divs = document.getElementById(id).getElementsByClassName('sub')[0].getElementsByTagName('div');
+	}	
+	
+	Tab.prototype.init = function (){
+		var t = this;
+		for(var i =0;i<this.btns.length;i++){
+			this.btns[i].index = i;
+		    this.btns[i].onclick = function(){
+		    	t.act(this)
+		    }
+        }
+	}		
+	
+    Tab.prototype.act = function(obj){
+			for(var j = 0;j<this.btns.length;j++){				
+				this.divs[j].style.display = "none";
+				this.btns[j].className="";
+			}
+//			console.log(obj.index)
+            obj.className="active"; 
+			this.divs[obj.index].style.display = "block"
+						  
+	}               				
+			
+		   
+    	
+    	
+    
+
+
+
+
+
+
+			
+
+	</script>
+</body>
+</html>

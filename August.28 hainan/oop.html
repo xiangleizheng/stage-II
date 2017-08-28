@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		
+		
+	<script>
+	window.onload=function(){
+		var sp = new SPAN();
+		
+		sp.css({
+			display:"block",
+			width:'100px',
+			height:"100px",
+			borderRadius:"50%",
+			background:"yellow"
+		}).appendTO(document.body);
+		
+	}
+	
+	//放在window.onload外面
+		function SPAN(){
+			this.SPAN=document.createElement("span");
+		}
+		
+        SPAN.prototype.appendTO=function(node){
+				node.appendChild(this.SPAN);
+				return this
+		}
+		SPAN.prototype.css=function(json){
+			for(var key in json){
+				this.SPAN.style[key]=json[key];
+			}
+            return	this		
+		}
+		
+			
+	
+	</script>	
+	</body>
+</html>

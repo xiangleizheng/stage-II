@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		    *{
+		    	margin: 0;
+		    	padding: 0;
+		        user-select: none;
+		    }
+		    body{
+		    	background-color: rgba(0,0,0,0.2);
+		    }
+			.wrap{
+				width: 400px;
+				height: 400px;
+				background:radial-gradient(rgba(255,255,30,0.6) 30%,rgba(0,255,120,0.6));
+				margin: 100px auto;
+				border:20px solid #fff;
+				border-radius: 50%;
+		        box-shadow: 0 4px 20px -3px rgba(0,0,0,0.9)inset,0 10px 20px -5px rgba(0,0,0,0.6); 
+				position: relative;
+			}
+			.wrap div{
+				position: absolute;
+				width: 400px;
+				height: 400px;
+			}
+			.border{
+		        box-sizing: border-box;
+		        border: 20px solid #fa5676;
+		        background-color: #fff;
+		        border-radius: 50%;
+		        box-shadow: 0 10px 20px -5px rgba(255,255,255,0.9) inset; 
+		        z-index: -1;
+			}
+			div.timepoint{
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				background: #FFFFFF;
+
+			}
+			.twelve{transform: translate(190px,0);}
+			.three{transform:translate(380px,200px);}
+			.six{transform:translate(190px,380px);}
+			.nine{transform:translate(0px,200px);}
+			
+			div.point{width: 30px;height: 30px;border-radius: 50%;background:radial-gradient(#fdeb72 50%,#c4af1e 60%);position: absolute;top:185px;left:185px}
+			div.hhand{
+				top:120px;
+				left:185px;
+				height: 160px;
+				width: 30px;
+				background-image:linear-gradient(to bottom,#444 20%,transparent 20%,transparent 25%,#444 25%,#444 30%,transparent 30%,transparent 35%,#444 35%,#444 60%,transparent 60%) ;
+				box-sizing: border-box;
+				border-radius: 50% 50% 50% 50%/10% 10% 0 0 ;
+				transform-origin: 50% 50%;
+			}
+			div.mhand{
+				top:80px;
+				left:190px;
+				height: 240px;
+				width: 20px;
+				background-image:linear-gradient(to bottom,#333 15%,transparent 15%,transparent 18%,#333 18%,#333 21%,transparent 21%,transparent 24%,#333 24%,#333 27%,transparent 27%,transparent 30%,#333 30%,#333 33%,transparent 33%,transparent 36%,#333 36%,#333 60%,transparent 60%) ;
+				box-sizing: border-box;
+				border-radius: 50% 50% 50% 50%/5% 5% 0 0;
+				transform-origin: 50% 50%;
+			}
+			
+			div.shand{
+				top:50px;
+				left:195px;
+				height: 300px;
+				width: 10px;
+				background-image:linear-gradient(to bottom,#222 60%,transparent 60%) ;
+				box-sizing: border-box;
+				border-radius: 50% 50% 50% 50%/5% 5% 0 0;
+				transform-origin: 50% 50%;
+			}
+			
+			.time{
+				margin: 20px auto;
+				width: 500px;
+				height: 50px;
+				display: flex;
+				flex-direction:row ;
+				justify-content: space-between;
+			}
+			.time input{
+				width: 80px;
+				height: 50px;
+				outline: none;
+				font-size: 18px;
+			}
+			.time span{
+				line-height: 50px;
+			}
+			.hour,.minute,.second{
+				text-indent: 30px;
+			}					
+		</style>
+	<script src="js/jquery-3.2.1.min.js"></script>	
+	<script src="js/forclock.js"></script>	
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="border"></div>
+<!--			<div class="timepoint one"></div>
+			<div class="timepoint two"></div>-->
+			<div class="timepoint three"></div>
+			<!--<div class="timepoint four"></div>
+			<div class="timepoint five"></div>-->
+			<div class="timepoint six"></div>
+			<!--<div class="timepoint seven"></div>
+			<div class="timepoint eight"></div>-->
+			<div class="timepoint nine"></div>
+		<!--	<div class="timepoint ten"></div>
+			<div class="timepoint eleven"></div>-->
+			<div class="timepoint twelve"></div>
+
+			
+			<div class="shand"></div>
+			<div class="mhand"></div>
+			<div class="hhand"></div>
+			<div class="point"></div>
+		</div>
+		<div class="time">
+			<input type="text" class="hour"/>
+			<span>时</span>
+			<input type="text" class="minute"/>
+			<span>分</span>
+			<input type="text" class="second"/>
+			<span>秒</span>
+			<input type="button" class="reset" value="重置"/>
+		</div>			
+		<div class="time">			
+			<span>当前时间:</span>
+			<span class="curtime"></span>
+			<input type="button" class="match" value="时间校准" />
+		</div>
+	</body>
+</html>
