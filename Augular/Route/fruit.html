@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style>
+		div.container table tr th{
+			color:#f34a56;
+		}
+		div.jumbotron{
+			background:rgba(0,0,0,0.1) url(img/huaban.png) no-repeat 50% 40%;
+		} 
+	</style>	
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<!--<script src="js/angular.js"></script>-->	
+	</head>
+	<body>
+		<div class="jumbotron text-center">
+		    <h1 style="color:#f34a56">ALL GOODS</h1>
+		    <p style="text-shadow: 1px 0 1px #f34a56;">FRESH - Goooooooooood for you ! <span class="glyphicon glyphicon-heart" style="font-size: 10px;"></span></p> 
+	    </div>	
+		
+		<div class="container">
+			
+			<table class="table table-bordered table-striped text-center">
+			   <tr>
+			       <th class="text-center">Goods</th>
+			       <th class="text-center">Price</th>
+			       <th class="text-center">Native Country</th>
+			       <th class="text-center">Picture</th>
+			   </tr>
+				
+			</table>
+			<button class="btn btn-block btn-danger" style="outline: none;">显示更多...</button>
+		</div>	
+		
+	<script>
+	$(function(){   
+			var morebtn = $(".btn:eq(0)");
+			var Address=["奥达曼 Uldaman","暴风祭坛 Altar of Storms","藏宝港湾  Booty Bay","尘风峡谷  Dustwind Gulch","达纳斯  Danath","国王之谷 Valley of Kings","黑石尖塔  Blackrock Spire","回音山  Echo Ridge","烈焰峰  Flame Crest","诺莫瑞根  Gnomeregan","燃烧平原  Burning Steppes","艾萨拉  Azshara","爱斯特纳  Astranaar","地狱之石  Fel Rock","迷雾之海  Veiled Sea","夏维安  Xavian","石爪峰  Stonetalon Peak","月神殿  Temple of the Moon","主宰之剑  Master’s Glaive"];
+			var m = Address.length;
+			var prolist=[
+			           {"name":"mango","price":"3$/kg","nativec":"新德里","picture":'img/1.jpg'},
+			           {"name":"guava","price":"1$/kg","nativec":"芬兰","picture":'img/2.jpg'},
+			           {"name":"durian","price":"20$/kg","nativec":"靖州","picture":'img/3.jpg'},
+			           {"name":"pitaya","price":"2.5$/kg","nativec":"新疆","picture":'img/4.jpg'}
+			                ]
+			addTot();
+			
+			function addTot(){  
+			   var targettable = $("table");
+			    for(var i =0 ; i<prolist.length;i++){
+			   	    targettable.append($("<tr><td></td><td></td><td></td><td></td></tr>"));
+			   	    var tds = $("tr:last-child td");
+			   	    
+			   	    tds.eq(0).html(prolist[i].name)
+			   	    tds.eq(1).html(prolist[i].price)
+			   	    tds.eq(2).html(prolist[i].nativec)
+			   	    tds.eq(3).html("<img src='"+prolist[i].picture+"' style='width:50px;height:25px'/>")
+			   	    
+			    }
+			} 
+			
+			morebtn.on("click",moreinfo)
+			
+			function moreinfo(){
+				    $("table tr:gt(0)").html("");
+			   	    var n =prolist.length;
+			   	    for(var i =0 ; i<4 ;i++){
+			   	    	var obj={"name":"mango"+(n+i+1),"price":parseInt(Math.random()*50)+"$/kg","nativec":Address[Math.floor(Math.random()*m)],"picture":'img/'+parseInt(Math.random()*10)+'.jpg'};
+			   	        prolist.push(obj);
+			   	    }
+			   	    addTot();
+			}
+			
+	})	 		
+	</script>		
+	</body>
+</html>

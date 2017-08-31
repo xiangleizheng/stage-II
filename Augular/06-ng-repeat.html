@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ng-repeat 指令</title>
+<script src="js/angular.js"></script>
+</head>
+
+<body ng-app="myApp">
+
+		<ul ng-controller="ListController">
+		  <!-- ng-repeat 会遍历数组中每一个元素，分别创建li -->
+		  <li ng-repeat="item in arr" data-id="{{item.id}}">
+		    <span>{{$first?'开始':''}}</span>
+		    <br/>
+		    <strong>{{item.name}}</strong>
+		    &nbsp;&nbsp;&nbsp;&nbsp;
+		    <span>{{item.age}}</span>
+		    <span>{{item.id}}</span>
+		    <br/>
+		    <span>{{$last?'没有了':''}}</span>
+		  </li>
+		</ul>
+
+
+  <script>
+    angular.module('myApp', []).controller('ListController', ['$scope', function($scope) {
+
+
+        $scope.arr = [];
+
+        for (var i = 1; i < 10; i++) {
+          $scope.arr[$scope.arr.length] = {
+            id: i,
+            name: '赵小黑的小' + i,
+            age: 20 + i
+          };
+        }
+
+
+      }]);
+  </script>
+</body>
+
+</html>

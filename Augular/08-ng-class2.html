@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ng-repeat 指令</title>
+  <style>
+	  *{
+	  	user-select:none;
+	  }
+    .aquamarine {
+      background-color: aquamarine;
+    }
+
+    .greenyellow {
+      background-color: greenyellow;
+    }
+     
+    .sky{
+    	background-color: #7EdEf4;
+    } 
+    #box {
+      height: 200px;
+      width: 200px;
+      transition:background-color 0.5s ease-in-out;
+    }
+  </style>
+</head>
+
+<body ng-app>
+	  <select ng-model="style" ng-init="style ='aquamarine'">  <!--select选择时，获得的值的value的值  不是内容-->
+	    <option value="aquamarine" >aquamarine</option>
+	    <option value="greenyellow">greenyellow</option>
+	    <option value="sky">sky</option>
+	  </select>
+	 
+
+	  
+    <div id="box" ng-class="style"></div>
+    <!--<div id="box" ng-class="{aquamarine:style=='aquamarine', greenyellow:style=='greenyellow',sky:style=='sky'}"></div>-->
+    <script src="js/angular.js"></script>
+</body>
+
+</html>
