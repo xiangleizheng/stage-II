@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>	
+	</head>
+	<body>
+		
+		<div class="container"  ng-app="xlayapp" ng-controller="myCtrl" >
+			<form action="" class="form-inline">
+				<div class="form-group">
+					<lable class="sr-only">邮箱</lable>
+					<input type="email" class="form-control" placeholder="输入邮箱" ng-model="user.Email" ng-bind="user.Email"/>
+				</div>
+				<div class="form-group">
+					<lable class="sr-only">密码</lable>
+					<input type="password" class="form-control" placeholder="输入密码" ng-model="user.Password" ng-bind="user.Password"/>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary" ng-click="showinfo();">登录</button>
+				</div>
+			</form>
+			
+		</div>	
+		
+	<script>
+		
+			var app = angular.module('xlayapp', []);
+			
+			app.controller('myCtrl', function($scope) {
+			    $scope.user={
+			    	Email:"",
+			    	Password:""
+			    }
+			   
+			   $scope.showinfo = function(){
+			   	    alert($scope.user.Email+"-"+$scope.user.Password);
+			   }
+			   
+			   $scope.$watch($scope.user.Password,function(old,newr,scope){
+			   	    alert(old+"-"+newr)
+			   })
+			   
+			})
+			
+	</script>		
+	</body>
+</html>
