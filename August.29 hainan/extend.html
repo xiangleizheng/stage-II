@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		function Createstage(sopa,name){
+            this.sopa = sopa;
+            this.name = name;
+		}
+		//在Createstage类的原型上定义一个says方法
+		Createstage.prototype.says=function(){
+			alert(this.name);
+		}
+		
+		//建一个Createc类，其中的sope,name属性继承于Createstage类
+		function Createc(sopa,name,sex){
+			Createstage.call(this,sopa,name);
+			this.sex=sex;
+		}
+		//并将Createstage类的所有在原型上的方法，继承到Createc类。
+		extend(Createc.prototype,Createstage.prototype);
+		
+		//定义一个用于拷贝继承的方法extend，将原型b中的属性全部拷贝到原型a中去
+		function extend(a,b){
+			for(var attr in b){
+				a[attr]=b[attr]
+			}
+		}
+		
+		//现在新建一个Createc对象mon,它可以调用原本在Createstage类原型里的says方法
+        var mon =new Createc("friends","monica","female");
+        console.log(mon);
+        mon.says();
+        
+	</script>	
+	</body>
+</html>

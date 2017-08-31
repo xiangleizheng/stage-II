@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />	
+	</head>
+<!-- --------------网格系统（Grid System）------------------------
+	
+     Bootstrap 提供了一套响应式、移动设备优先的流式网格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列。
+     
+		Bootstrap 网格系统（Grid System）的工作原理:
+		
+		通过一系列包含内容的  行  和 列  来创建页面布局。
+		
+		1.行必须放置在 .container class 内，以便获得适当的对齐（alignment）和内边距（padding）。
+		2.使用行来创建列的水平组。
+		3.内容应该放置在列内，且唯有列可以是行的直接子元素。
+		4.预定义的网格类，比如 .row 和 .col-xs-4，可用于快速创建网格布局。//LESS 混合类可用于更多语义布局。
+		5.列通过内边距（padding）来创建列内容之间的间隙。该内边距是通过 .rows 上的外边距（margin）取负，表示第一列和最后一列的行偏移。
+		6.网格系统是通过指定您想要横跨的十二个可用的列来创建的。例如，要创建三个相等的列，则使用三个 .col-xs-4。     
+     
+     
+   -------------------------媒体查询---------------------------------
+   
+     -->
+	<body>
+<!--	<div class="container">
+	    <div class="row" >
+	        <div class="col-xs-6 col-sm-3" style="background-color: #dedef8;">
+	                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+	        </div>
+	        <div class="col-xs-6 col-sm-3" style="background-color: #dedef8">
+		            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
+		            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
+		            enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+		            nisi ut aliquip ex ea commodo consequat.
+		            </p>
+		            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
+		            eiusmod tempor incididunt ut. 
+		            </p>
+	        </div>
+	 
+	        <div class="clearfix visible-xs"></div>
+	 
+	        <div class="col-xs-6 col-sm-3" style="background-color: #dedef8">
+		            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+		            laboris nisi ut aliquip ex ea commodo consequat. 
+		            </p>
+	        </div>
+	       
+	       <div class="col-xs-6 col-sm-3" style="background-color: #dedef8;">
+		            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
+		            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
+		            enim ad minim 
+		            </p>
+	        </div>
+	    </div>
+    </div>-->
+
+
+
+
+
+<!--偏移列   .col-xs-* 类不支持偏移     col-md-offset-*  这些类会把一个列的左外边距（margin）增加 * 列，其中 * 范围是从 1 到 11。-->
+<!--	<div class="container">
+	
+	   <h1>Hello, world!</h1>
+	
+	   <div class="row" >
+		      <div class="col-xs-6 col-md-offset-3" 
+		         style="background-color: #dedef8;box-shadow: 
+		         inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+		         <p>Lorem ipsum dolor sit amet, consectetur adipisicing 
+		            elit.
+		         </p>
+		      </div>
+	   </div>
+	</div>-->
+	
+	
+	
+	
+	
+<!--中屏和大屏设备的网格系统设置    Bootstrap 在中型设备中，会查找带有 md 的类，并使用它们。在大型设备中，会查找带有 lg 的类，并使用它们。-->
+
+<!--	<div class="container">
+	   <h1>Hello, world!</h1>
+	
+	   <div class="row">
+	
+	      <div class="col-md-6 col-lg-4"  style="background-color: #dedef8; 
+	         box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+	         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
+	            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
+	            enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+	            nisi ut aliquip ex ea commodo consequat. 
+	         </p>
+	
+	         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
+	            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa 
+	            quae ab illo inventore veritatis et quasi architecto beatae vitae 
+	            dicta sunt explicabo. 
+	         </p>
+	      </div>
+	
+	      <div class="col-md-6 col-lg-8" style="background-color: #dedef8;box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+	         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
+	            accusantium doloremque laudantium.
+	         </p>
+	
+	         <p> Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, 
+	            consectetur, adipisci velit, sed quia non numquam eius modi 
+	            tempora incidunt ut labore et dolore magnam aliquam quaerat 
+	            voluptatem. 
+	         </p>
+	   	</div>
+	  </div>
+	</div>-->
+
+
+
+
+
+
+<!--嵌套列    为了在内容中嵌套默认的网格，请添加一个新的 .row-->
+
+<!--    <div class="container">
+	    <h1>Hello, world!</h1>
+	    <div class="row">
+	    	
+	        <div class="col-md-3" style="background-color: #dedef8;box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+		            <h4>第一列</h4>
+		            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+	        </div>
+	        
+	        <div class="col-md-9" style="background-color: #dedef8;box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+		            <h4>第二列 - 分为四个盒子</h4>
+		            
+		            <div class="row">
+		                <div class="col-md-6" style="background-color: #B18904; box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+		                    <p>Consectetur art party Tonx culpa semiotics. Pinterestassumenda minim organic quis.</p>
+		                </div>
+		                <div class="col-md-6" style="background-color: #B18904; box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+		                    <p>sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim ad minim veniam, quis nostrud exercitationullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		                </div>
+		            </div>
+		            
+		            <div class="row">
+		                <div class="col-md-6" style="background-color: #B18904; box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+		                    <p>quis nostrud exercitation ullamco laboris nisi utaliquip ex ea commodo consequat.</p>
+		                </div>
+		                <div class="col-md-6" style="background-color: #B18904; box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+		                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim ad minim.</p>
+		                </div>
+		            </div>
+		            
+	        </div>
+	        
+	    </div>
+    </div>-->
+    
+    
+    
+    
+    
+<!--  -------------------列排序-----------------------------------
+	
+	可以很容易地以一种顺序编写列，然后以另一种顺序显示列。
+	您可以很轻易地改变带有 .col-md-push-* 和 .col-md-pull-* 类的内置网格列的顺序，其中 * 范围是从 1 到 11。-->
+    
+<!--    <div class="container">
+			    <h1>Hello, world!</h1>
+			    <div class="row">
+			        <p>排序前</p>
+			        <div class="col-md-4 " style="background-color: #dedef8; box-shadow: inset 1px -1px 1px #444">我在左边</div>
+			        <div class="col-md-8 " style="background-color: #dedef8; box-shadow: inset 1px -1px 1px #444">  我在右边</div>
+			    </div>
+			    <br>
+			    <div class="row">
+			        <p>排序后</p>
+			        <div class="col-md-4 col-md-push-8" style="background-color: #dedef8; box-shadow: inset 1px -1px 1px #444">我在左边</div>
+			        <div class="col-md-8 col-md-pull-4" style="background-color: #dedef8; box-shadow: inset 1px -1px 1px #444">我在右边</div>
+			    </div>
+    </div>-->
+    
+    
+	</body>
+</html>

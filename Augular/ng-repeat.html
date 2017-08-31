@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>	
+	</head>
+	<body>
+		<div class="jumbotron text-center">
+		    <h1>全部商品浏览</h1>
+		    <p>Goooooooooood for you !</p> 
+	    </div>	
+		
+		<div class="container"  ng-app="xlayapp" ng-controller="myCtrl" >
+			
+			<table class="table table-bordered table-striped text-center">
+			   <tr>
+			       <th class="text-center">Goods</th>
+			       <th class="text-center">Price</th>
+			       <th class="text-center">Native Country</th>
+			       <th class="text-center">Picture</th>
+			   </tr>
+				
+				<tr ng-repeat="pro in prolist">
+					<td>{{pro.name}}</td>
+					<td>{{pro.price}}</td>
+					<td>{{pro.native}}</td>
+					<td><img ng-src="{{pro.picture}}" style="width:60px;height:30px;"></td>
+				</tr>
+			</table>
+			<button class="btn btn-block btn-danger" style="outline: none;"  ng-click="addlist();">显示更多...</button>
+		</div>	
+		
+	<script>
+		
+			var app = angular.module('xlayapp', []);
+			
+			app.controller('myCtrl', function($scope) {
+				$scope.Address=["奥达曼 Uldaman","暴风祭坛 Altar of Storms","藏宝港湾  Booty Bay","尘风峡谷  Dustwind Gulch","达纳斯  Danath","国王之谷 Valley of Kings","黑石尖塔  Blackrock Spire","回音山  Echo Ridge","烈焰峰  Flame Crest","诺莫瑞根  Gnomeregan","燃烧平原  Burning Steppes","艾萨拉  Azshara","爱斯特纳  Astranaar","地狱之石  Fel Rock","迷雾之海  Veiled Sea","夏维安  Xavian","石爪峰  Stonetalon Peak","月神殿  Temple of the Moon","主宰之剑  Master’s Glaive"];
+				var m =$scope.Address.length;
+			    $scope.prolist=[
+			           {"name":"mango","price":"3$/kg","native":"新德里","picture":'img/1.jpg'},
+			           {"name":"guava","price":"1$/kg","native":"芬兰","picture":'img/2.jpg'},
+			           {"name":"durian","price":"20$/kg","native":"靖州","picture":'img/3.jpg'},
+			           {"name":"pitaya","price":"2.5$/kg","native":"新疆","picture":'img/4.jpg'}
+			    ]
+			   
+			   $scope.addlist = function(){
+			   	    var n = $scope.prolist.length;
+			   	    for(var i =0 ; i<4 ;i++){
+			   	    	var obj={"name":"mango"+(n+i+1),"price":parseInt(Math.random()*50)+"$/kg","native":$scope.Address[Math.floor(Math.random()*m)],"picture":'img/'+parseInt(Math.random()*10)+'.jpg'};
+			   	        $scope.prolist.push(obj);
+			   	    } 
+			   }
+			});
+			
+	</script>		
+	</body>
+</html>

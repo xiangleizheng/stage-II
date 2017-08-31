@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		*{
+			margin: 0;
+			padding: 0;
+			user-select:none;
+		}
+		.boxx{
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			background: repeating-linear-gradient(pink 5%,pink 10%,yellow 10%,yellow 15%,rgba(0,0,255,0.2) 15%,rgba(0,0,255,0.2) 20%);
+		}
+		.boxc{
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			background: radial-gradient(transparent,yellow);
+		}		
+		</style>
+
+	</head>
+	<body>
+		<div class="boxx"></div>
+		<div class="boxc"></div>
+	<script>
+/*		window.onload=function(){
+			var box = document.getElementsByClassName("box")[0];
+			
+			box.onmousedown = function(e){
+				var e = event||e;
+				var mtobL = e.clientX-box.offsetLeft; //鼠标到盒子左边的距离
+				var mtobT = e.clientY-box.offsetTop; //鼠标到盒子上边的距离
+				document.onmousemove = function(e){
+					var e = event||e;
+				    box.style.left = e.clientX-mtobL + "px";
+				    box.style.top = e.clientY-mtobT + "px";
+				    
+				    if(box.offsetLeft>=1545){box.style.left=1545+'px';}
+				    if(box.offsetLeft<=0){box.style.left=0}
+				    if(box.offsetTop<=0){box.style.top=0}
+				    if(box.offsetTop>=664){box.style.top=664+"px"}
+				}
+			}
+			
+			document.onmouseup = function(){
+	
+			}
+		}*/
+		
+		
+		window.onload=function(){
+            var box = new Drag("boxx");
+            var box2 = new DragChild("boxc");
+            box.init();
+            box2.init();
+		}	  
+		
+
+		function Drag(classs){
+	        this.box = document.getElementsByClassName(classs)[0];			
+		}
+
+		Drag.prototype.init = function(){
+			var This = this ;
+			this.box.onmousedown = function(e){
+				var e = event||e;
+				This.Mdown(e);
+			}
+		}
+		
+		Drag.prototype.Mdown = function(e){
+			    var t = this;
+				var e = event||e;
+				this.mtobL = e.clientX-this.box.offsetLeft; //鼠标到盒子左边的距离
+				this.mtobT = e.clientY-this.box.offsetTop; //鼠标到盒子上边的距离	
+                document.onmousemove =function(e){
+				    var e = event||e;
+                	t.Mmove(e);
+                }
+                document.onmouseup = function(){
+                	t.Mup();
+                }
+		}
+		
+		Drag.prototype.Mmove = function(e){
+					var e = event||e;
+				    this.box.style.left = e.clientX-this.mtobL + "px";
+				    this.box.style.top = e.clientY-this.mtobT + "px";
+				    
+				    //document.documentElement.clientWidth/Height  获取当前窗口宽/高
+				    if(this.box.offsetLeft < 0){
+				        this.box.style.left = 0;
+				    }else if(this.box.offsetLeft > document.documentElement.clientWidth-this.box.offsetWidth){
+				        this.box.style.left = document.documentElement.clientWidth-this.box.offsetWidth+"px";
+				    }
+				    if(this.box.offsetTop < 0){
+				        this.box.style.top = 0;
+					}else if(this.box.offsetTop > document.documentElement.clientHeight-this.box.offsetHeight){
+				        this.box.style.top   = document.documentElement.clientHeight-this.box.offsetHeight+"px";
+					}	
+					
+/*				    if(this.box.offsetLeft>=1545){this.box.style.left=1545+'px';}
+				    if(this.box.offsetLeft<=0){this.box.style.left=0}
+				    if(this.box.offsetTop<=0){this.box.style.top=0}
+				    if(this.box.offsetTop>=664){this.box.style.top=664+"px"}	*/		
+		}
+		
+        Drag.prototype.Mup = function(){
+        	document.onmousemove = null;
+        	document.onmouseup = null ;
+        }
+			
+			
+		function extend(a,b){
+			for(var attr in b){
+				a[attr]=b[attr]
+			}
+		}	
+				
+		function DragChild(classs){
+			Drag.call(this,classs);
+		}
+		
+		extend(DragChild.prototype,Drag.prototype);
+
+		DragChild.prototype.Mmove = function (e) {
+			var e = event||e;
+			this.box.style.left = e.clientX-this.mtobL + "px";
+			this.box.style.top = e.clientY-this.mtobT + "px";		
+		}
+			
+	</script>	
+	</body>
+</html>
