@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>H5新标签</title>
+	<style>
+	    *{margin: 0;padding: 0;}
+	    p{text-align: center;}
+	    h4{margin:5px 0;}
+		header,footer{
+			padding: 10px;
+			background-color: #F34A56;
+		}
+		section{
+			background-color: #f2f2f2;
+			margin: 10px 0;
+			padding: 10px;
+		}
+		section article{
+			position: relative;
+			text-indent: 20px;
+			padding: 20px;
+			width: 70%;
+		}
+		article aside{
+			position: absolute;
+			padding: 15px;
+			text-indent: 0;
+			top:20px;
+			right:-300px;
+			width: 20%;
+			color:#f2f2f2;
+			font-size: 13px;
+			border-radius: 5px;
+			background-color: #F04040;
+		}
+		nav{
+			background-color: #FA8880;
+			padding: 10px;
+		}
+		nav h4{text-align: center;}
+		nav ul{
+			list-style:none;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			background-color: #F64747;
+			border-radius: 15px;
+		}
+		nav ul li a{
+			color: #f2f2f2;
+			height: 30px;
+			line-height:30px ;
+		}
+		figure{background-color: #242424;color:#f2f2f2;padding: 10px;width: 100%;text-align: center;border-radius: 5px;}
+		address{text-align: center;}
+		label{background-color: #F34A56;border: 0;padding: 5px;}
+		label input{border: 0;}
+	</style>	
+	</head>
+	<body>
+		<header>
+			<p>头部内容</p>
+			<p><time>8:45</time>打卡</p>
+		</header>
+		<nav>
+			<h4>导航栏</h4>
+			<ul>
+				<li><a href="javascript:;">header</a></li>
+				<li><a href="javascript:;">nav</a></li>
+				<li><a href="javascript:;">hgroup</a></li>
+				<li><a href="javascript:;">section</a></li>
+				<li><a href="javascript:;">article</a></li>
+				<li><a href="javascript:;">aside</a></li>
+				<li><a href="javascript:;">footer</a></li>
+				<li><a href="javascript:;">address</a></li>
+			</ul>
+		</nav>
+		
+		<section>
+			<article>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur sunt assumenda omnis quod id officiis mollitia quo placeat atque natus illo eveniet recusandae aliquid quibusdam optio fuga iure ex expedita.
+			    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit corporis autem deserunt quasi quae sunt quibusdam id fugiat labore reprehenderit error odit voluptatum tempore nostrum facere. Ullam ex sapiente veniam.
+                
+                <figure>
+                	<img src="img/logo.png" alt="An awesome picture" width="153" height="28"/>
+                    <figcaption> Cloudmusic Logo</figcaption>
+                </figure>    
+				<aside>
+					<ul>
+						<li>Despacito蝉联榜首</li>
+						<li>Despacito蝉联榜首</li>
+						<li>Tyler强势回归</li>
+						<li>Tyler强势回归</li>
+						<li>Tyler强势回归</li>
+						<li>gaga轻电子 <em>The cure</em> 不一样的体验</li>
+						<li>Simon被评最合格的导师</li>
+						<li>Simon被评最合格的导师</li>
+					</ul>
+			    </aside>
+			</article>
+		</section>
+
+
+        <section>
+			<label>Browserslist :<input list="browsers" name="myBrowser" /></label>
+			<datalist id="browsers">
+				<option value="Chrome">
+				<option value="Firefox">
+				<option value="Internet Explorer">
+				<option value="Opera">
+				<option value="Safari">
+				<option value="Microsoft Edge">
+			</datalist>        
+        
+        	<h4>details元素被用作发现小部件，用户可以从其中检索附加信息。</h4>
+			<details>
+				<summary>Some details</summary>
+				<p>More info about the details.</p>
+				<p>More info about the details.</p>
+				<p>More info about the details.</p>
+				<p>More info about the details.</p>
+				<p>More info about the details.</p>
+			</details>
+
+        	<h4>dialog元素表示一个对话框或其他交互式组件</h4>
+			<dialog id="favDialog">
+				
+				<form method="dialog">
+					<section>
+						<p><label for="favAnimal">Favorite animal:</label>
+							<select id="favAnimal">
+								<option></option>
+								<option>Brine shrimp</option>
+								<option>Red panda</option>
+								<option>Spider monkey</option>
+							</select>
+						</p>
+					</section>
+					
+					<menu>
+						<button id="cancel" type="reset">Cancel</button>
+						<button type="submit">Confirm</button>
+					</menu>
+				</form>
+				
+			</dialog>
+			
+			<menu>
+				<button id="updateDetails">Update details</button>
+			</menu>
+
+
+        	<h4>进度条</h4>
+			<progress max="1000" value="500">
+			</progress>
+
+
+
+            <h4>表单元素</h4>
+			<form action="http://www.baidu.com" method="get">
+				用户: <input type="text" name="usr_name" />
+				密码: <keygen name="security" />
+				<input type="submit" />
+			</form>
+        </section>
+        
+		<footer>
+			<p>底部内容</p>
+		    <p>build at <time datetime="2017-09-04">2017.9.4</time> by xlay</p>
+		    <p><address>Meilun Stree</address></p>
+		
+		</footer>
+		
+		
+		<script>
+			(function(){
+				
+				var updateButton = document.getElementById('updateDetails');
+				var cancelButton = document.getElementById('cancel');
+				var favDialog = document.getElementById('favDialog');
+			
+				// Update button opens a modal dialog
+				updateButton.addEventListener('click', function() {
+				    favDialog.showModal();
+				});
+			
+				// Form cancel button closes the dialog box
+				cancelButton.addEventListener('click', function() {
+				    favDialog.close();
+				});
+				
+			
+			})();
+		</script>
+	</body>
+</html>

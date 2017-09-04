@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>网易云音乐</title>
+    <link rel="shortcut icon" href="//s1.music.126.net/music.ico?v1">
+	<link rel="stylesheet" type="text/css" href="css/forheader.css"/>
+	<link rel="stylesheet" href="css/forfooter.css" />
+	<link rel="stylesheet" href="css/forhome.css" />
+	
+	
+	<script src="js/jquery-3.2.1.min.js"></script>
+    
+    
+<script src="js/angular.js"></script>
+<script src="js/angular-route.js"></script>
+</head>
+
+
+    <body ng-app='xlayapp'  data-spy="scroll">
+    	
+        <header ng-include="'../Cloudmusic/header.html'"></header>
+        <div ng-view ></div>
+        <footer ng-include="'../Cloudmusic/footer.html'"></footer>
+        
+
+        
+        <script>
+            angular.module('xlayapp',['ngRoute']).config(['$routeProvider', function($routeProvider){
+                $routeProvider
+                .when('/',{templateUrl:'../Cloudmusic/home.html'})
+                .when('/mymusic',{templateUrl:'../Cloudmusic/mymusic.html'})
+                .when('/friends',{templateUrl:'../Cloudmusic/friends.html'})
+                .when('/market',{template:'这是market页面'})
+                .when('/musician',{template:'这是musician页面'})
+                .when('/download',{template:'这是download页面'})
+//              .otherwise({redirectTo:'/'});
+            }]);
+        </script>
+     
+     
+    </body>
+</html>

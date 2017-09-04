@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />	
+	<script src="js/angular.js"></script>	
+	</head>
+	<body ng-app="myapp" ng-controller="myCon">
+		<div class="col-sm-2 ">
+			<ul class="nav nav-pills nav-stacked" ng-repeat="i in arr track by $index">
+				<li ng-click="fn('div'+i)"><a href="">{{i}}</a></li>
+			</ul>
+		</div>
+		<div class="col-sm-10" >
+		    <div ng-repeat="i in arr track by $index" ng-attr-id="div{{i}}" style="height: 500px;border: 1px;">{{i}}</div>
+	    </div>
+	</body>
+	<script>
+		var app = angular.module("myapp",[]);
+		app.controller("myCon",["$scope","$location","$anchorScroll",function($scope,$location,$anchorScroll){
+			$scope.arr=[1,2,3,4,5,6,7]
+			
+			$scope.fn = function(a){
+				$location.hash(a)
+				$anchorScroll
+			}
+		}])
+	</script>
+</html>

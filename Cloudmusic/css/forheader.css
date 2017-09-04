@@ -1,0 +1,217 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+div.nav{
+	background-color: #242424;
+	width:100%;height: 60px;
+	display: flex;
+	flex-direction:row;
+	justify-content: center;
+	align-items: center;
+	border-bottom: 5px solid #c20c0c;
+}
+
+/*------------------logo--------------------------*/
+div div.logo{
+	width: 120px;
+	height: 22px;
+	background:transparent url(../img/logo.png) no-repeat;
+	background-size: contain;
+}
+
+/*------------------子页面进入-----------------------*/
+div.nav div.choose{
+	position: relative;
+}
+div.nav div.choose ul{
+	list-style: none;
+	padding:0 18px;
+	height: 64px;
+	font-size: 11px;
+}
+div.nav div.choose ul li{
+	float: left;
+}
+div.nav div.choose ul li a:hover{
+	background-color: #000;
+	color:#fff;
+}
+div.nav div.choose ul li a.active{
+	background-color: #000;
+	color:#fff;	
+}
+div.nav div.choose ul li a{
+	
+	height: 62px;
+	line-height:64px;
+	padding:0 15px 0 15px;
+	display: block;
+	text-decoration: none;
+	color: #e8e8e8;
+}
+div.nav div.choose ul li:last-child{
+	position: relative;
+}
+div.nav div.choose ul li sup{
+    position: absolute;
+    top:22px;
+    right: -10px;
+}
+div.nav div.choose ul li sup img{
+	width: 20px;
+	height: 10px;
+}
+/*-----小三角----*/
+div.nav div.choose div.triangle{
+	position: absolute;
+	bottom: 2px;
+	width:12px ;
+	height:6px ;
+	background: transparent url(../img/up.png) no-repeat;
+	left: 48px;
+	transition: all 0.5s ease-in-out;
+} 
+/*---------------------搜索框-------------------*/
+div.nav div.search{
+	position: relative;
+	padding-left: 40px;
+	width: 140px;
+	height: 26px;
+}
+div.nav div.search img{
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	top: 4px;
+	left: 45px;
+}
+
+div.nav div.search input{
+	width: 100%;
+	height: 100%;
+	outline: none;
+	border:0;
+	border-radius:25px;
+	text-indent: 30px;
+	font-size: 11px;
+}
+/*-----------------------视频投稿--------------------*/
+
+div.nav div.video{
+	position: relative;
+	padding-left: 10px;
+	width: 60px;
+	height: 26px;
+	cursor: pointer;
+}
+div.nav div.video img{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+div.nav div.video img.se{
+	display: none;
+}
+div.nav div.video span{
+	position: absolute;
+	line-height: 26px;
+	color: #d1cfcf;
+	font-size: 8px;
+	right:-3px;
+}
+
+div.nav div.video:hover img.se{
+	display:block;
+}
+div.nav div.video:hover span{
+	color:#fff;
+}
+/*---------------------登录---------------------------*/
+div.nav div.login{
+	position: relative;
+	width: 60px;
+	height: 25px;
+	padding-left:23px;	
+}
+
+div.nav div.login p{
+    width: 100%;
+    height: 100%;
+	line-height: 25px;
+	font-size: 8px;
+	color: #D1CFCF;
+	cursor: pointer;
+}
+div.nav div.login p:hover{
+	color:#fff;
+}
+div.nav div.login p:hover+ul.dropdown{
+	display: block;
+}
+/*----------------下拉内容---------------*/
+/*-----小三角----*/
+div.nav div.login ul.dropdown:before{
+	content: "";
+	display: table;
+	width: 0;
+	height: 0;
+	border:6px solid transparent;
+	border-bottom:6px solid #2a2a2a ;
+	position: relative;
+	top: 0px;
+	left: 59px;
+}
+div.nav div.login ul.dropdown:hover{
+	display: block;
+}
+div.nav div.login ul.dropdown{
+	display: none;
+	position: absolute;
+	left:-30px;
+	top:0;
+	padding-top:15px;
+	border-radius: 5px;
+	box-shadow: 0 5px 15px -1px #313131;
+	height:162px;
+	}
+
+div.nav div.login ul.dropdown,div.nav div.login ul.dropdown li{
+	width: 130px;
+	font-size: 8px;
+	color: #D1CFCF;
+	list-style: none;
+}
+div.nav div.login ul.dropdown li{
+	position: relative;
+	height: 30px;
+	border: 0;
+	background-color:#2a2a2a ;
+	border-bottom: 1px solid #141414;
+	box-sizing: border-box;
+}
+div.nav div.login ul.dropdown li:hover{
+	background-color:#3a3a3a;
+}
+
+div.nav div.login ul.dropdown li:first-child{
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+div.nav div.login ul.dropdown li:last-child{
+	border-bottom:0;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+div.nav div.login ul.dropdown li p{
+	height: 30px;
+	line-height:30px ;
+	text-indent: 38px;
+}
+div.nav div.login ul.dropdown li img{
+	position: absolute;
+	top:8px;
+	left: 12px;
+	width: 15px;
+	height: 14px;
+}

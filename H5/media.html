@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<video controls="controls">
+			<source src="img/lei.mp4" type="video/mp4"></source>
+		</video>
+		<button>开始播放</button>
+		<button>暂停播放</button>
+		<script type="text/javascript">
+			var start = document.querySelectorAll("button")[0];
+			var stop = document.querySelectorAll("button")[1];
+			var vi = document.querySelector("video");
+			
+			start.addEventListener('click',function(){
+				vi.play();
+			})
+			stop.addEventListener('click',function(){
+				vi.pause();
+			})			
+		</script>
+	</body>
+</html>

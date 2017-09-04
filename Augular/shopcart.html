@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>无标题文档</title>
+<style>
+	div.container div table tr td{
+		border-color:#f34a56;
+	}
+	div.container div table thead{
+		background-color:#f34a56 ;
+	}
+	div.container div table thead th{
+		text-align: center;
+		border-color:#f34a56;
+		color:#fff;
+	}
+</style>	
+<link rel="stylesheet" href="css/bootstrap.min.css" />	
+<script src="js/angular.js"></script>
+</head>
+
+<body>
+<div class="container col-sm-10 col-sm-offset-1" style="margin-top: 10px;">
+	
+	<div ng-app="myApp" ng-controller="myCon" class="col-sm-3"  style="background-color:#f34a56 ;">
+		<form role="form" class="form-inline" style="margin-top: 20px;">
+			<div class="form-group">
+			    <label for="price">价格：
+			    <input type="text" ng-model="banner.price" class="form-control" id="price" style="width: 80%;">
+		        </label>
+			</div>
+			<div class="form-group">
+			    <label for="num">数量：
+			    <input type="text" ng-model="banner.num" class="form-control" id="num" style="width: 80%;">
+		        </label>
+			</div>		
+		    <p ng-model="sum">总价：{{sum()|currency:"￥"}} </p>
+		    <p ng-model="fee">运费：{{banner.fee|currency:"￥"}} </p>
+		    <p ng-model="total">合计：{{sum()+banner.fee|currency:"￥"}} </p>
+	    </form>
+	</div>
+	
+	<div class="col-sm-9">
+		<table class="table table-bordered table-responsive text-center">
+			<thead>
+				<th>NO：</th>
+				<th>/kg</th>
+				<th>Num</th>
+			</thead>
+			<tr>
+				<td>A01223</td>
+				<td>2</td>
+				<td>3</td>
+			</tr>
+		</table>
+	</div>
+
+</div>
+<script>
+    var app = angular.module("myApp",[])
+
+    app.controller("myCon",["$scope",function ($scope) {
+        $scope.banner = {
+            price : 5,
+            num : 1 ,
+            fee : 10,
+            sum : 10
+        }
+        $scope.sum = function () {
+            $scope.banner.sum = $scope.banner.price*$scope.banner.num
+            return $scope.banner.sum
+        }
+
+//--------------------------监测数据变化
+
+        $scope.$watch("banner.sum",function (newVal,oldVal) {
+            newVal>50? $scope.banner.fee = 0 : $scope.banner.fee = 10
+        })
+
+    }])
+
+</script>
+</body>
+</html>

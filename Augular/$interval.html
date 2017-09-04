@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />	
+	<script src="js/angular.js"></script>	
+	</head>
+	<body ng-app="myApp">
+		<div ng-controller="myCon" class="col-xs-10 col-sm-6 col-md-6 col-lg-4 col-xs-offset-1 col-sm-offset-3 col-md-offset-3 col-lg-offset-4 text-center">
+			<img class="img-thumbnail" ng-src="images/{{img}}.jpg">
+
+			<div class="row btn-group">
+				<button class="btn btn-danger" ng-click="fnstart()">Start</button>
+			    <button class="btn btn-danger" ng-click="fn()" ng-model="img">Next</button>
+				<button class="btn btn-danger" ng-click="fnstop()">Stop</button>
+			</div>
+		</div>
+	</body>
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller("myCon",["$scope","$interval","$rootScope",function($scope,$interval,$rootScope){
+			$scope.img = 1;
+//---------------------------next
+			$scope.fn=function(){
+				if($scope.img>4){
+					$scope.img=1;
+				}else{
+					$scope.img++;
+				}
+			}
+			
+//-------------------------开始定时器
+            $scope.fnstart = function () {
+                $rootScope.timer = $interval(function () {
+                    if( $scope.img > 4){
+                        $scope.img = 1
+                    }else{
+                        $scope.img ++;
+                    }
+
+                },2000)
+            }
+//--------------------------关闭定时器            
+            $scope.fnstop = function () {
+                $interval.cancel($rootScope.timer)
+            }
+
+        }])
+	</script>
+</html>
