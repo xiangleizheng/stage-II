@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		    body{background-color: #242424;}
+			div{display: flex;flex-direction: column;justify-content: flex-start;width: 40%;margin: 10px auto;}
+		    div input,textarea{border:0;outline: none;background-color: transparent;color:#F0F0F0;}
+		    div input:first-child{
+		    	height: 70px;
+		    	text-align: center;
+		    	font-size:60px;
+		    	border-bottom: 2px solid #fff;
+		    	
+		    }
+		    
+		    div input:nth-child(2){height: 40px;padding-top:10px;}
+		    div input:nth-child(3){height: 40px;padding-bottom:10px;}
+		    div textarea{border:1px solid #F0F0F0;text-indent: 20px;padding: 10px;}
+		</style>
+	</head>
+	<body>
+		<div>
+			<input type="text" placeholder="name"/>
+			<input type="tel" name="tel" placeholder="tel"/>
+			<input type="email" placeholder="e-mail"/>
+			<textarea name="" rows="3" cols="50" placeholder="Introduce Yourself" id="text"></textarea>
+        </div> 
+        
+    <script>
+    	window.onload=function(){
+    		var inp = document.querySelectorAll("input");
+    		var text = document.querySelector("#text");
+    		
+    		if(localStorage.getItem("name")){
+    			inp[0].value=localStorage.getItem("name");
+    		}
+    		if(localStorage.getItem("tel")){
+    			inp[1].value=localStorage.getItem("tel");
+    		}
+    		if(localStorage.getItem("email")){
+    			inp[2].value=localStorage.getItem("email");
+    		}    	
+    		if(localStorage.getItem("introduce")){
+    			text.value=localStorage.getItem("introduce");
+    		}    		
+    		
+    		window.onunload=function(){
+    			if(inp[0].value){
+    				localStorage.setItem("name",inp[0].value)
+    			}
+    			if(inp[1].value){
+    				localStorage.setItem("tel",inp[1].value)
+    			}
+    			if(inp[2].value){
+    				localStorage.setItem("email",inp[2].value)
+    			}
+    			if(text.value){
+    				localStorage.setItem("introduce",text.value)
+    			}    			
+    		}
+    		
+    		
+    	}
+    </script>    
+	</body>
+</html>

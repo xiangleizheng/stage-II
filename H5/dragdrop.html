@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style>
+		#boxcontent{
+			widows: 100%;
+			height: 100px;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+		#boxcontent div{
+			width: 153px;
+			height: 100px;
+			background-color: #242424;
+		}
+	</style>	
+	</head>
+	<body>
+		<div id="boxcontent">
+			<div id="box1"></div>
+			<div id="box2"></div>
+			<div id="box3"></div>
+			<div id="box4"></div>
+			<div id="box5"></div>
+			<div id="box6"></div>
+		</div>
+		<img src="img/logo.png" id="img"/>
+		
+	<script>
+	  var img = document.querySelector("#img");
+	  var box1 = document.querySelector("#box1")
+	  var box2 = document.querySelector("#box2")
+	  var box3 = document.querySelector("#box3")
+	  var box4 = document.querySelector("#box4")
+	  var box5 = document.querySelector("#box5")
+	  var box6 = document.querySelector("#box6")
+	  
+	  box1.ondragover=function(e){e.preventDefault();}
+	  box2.ondragover=function(e){e.preventDefault();}
+	  box3.ondragover=function(e){e.preventDefault();}
+	  box4.ondragover=function(e){e.preventDefault();}
+	  box5.ondragover=function(e){e.preventDefault();}
+	  box6.ondragover=function(e){e.preventDefault();}
+	  
+	  img.ondragstart=function(e){
+	  	e.dataTransfer.setData("id","img");
+	  }
+	  
+	  
+	  function putinto(e){
+	     var img = document.getElementById(e.dataTransfer.getData("id"));
+	     e.target.appendChild(img);
+	  }
+	  
+
+	  box1.ondrop=putinto;
+	  box2.ondrop=putinto;
+	  box3.ondrop=putinto;
+	  box4.ondrop=putinto;
+	  box5.ondrop=putinto;
+	  box6.ondrop=putinto;
+	</script>	
+	</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>03柱状图案例</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+    </style>
+    <script src="bower_components/konva/konva.js"></script>
+</head>
+<body>
+<div id="container">
+</div>
+
+<script>
+    //创建舞台
+    var stage = new Konva.Stage({
+        container: 'container',
+        width: window.innerWidth,//全屏
+        height: window.innerHeight
+    });
+
+    //创建层
+    var layer = new Konva.Layer();
+    stage.add(layer);
+
+    //中心点坐标
+    var cenX = stage.width() / 2;
+    var cenY = stage.height() / 2;
+
+    var x0 = 1/8 * stage.width();
+    var y0 = 3/4 * stage.height();
+
+    var bottomLine = new Konva.Line({
+        points: [x0,y0,7/8*stage.width(),y0],
+        stroke: 'lightgreen',
+        strokeWidth: 1,
+        opacity: .9,
+        lineCap: 'round'
+    });
+
+
+    var data = [
+        { name: '前端', value: '.8', color: 'green'},
+        { name: 'PHP', value: '.3', color: 'blue'},
+        { name: 'Java', value: '.7', color: 'red'},
+        { name: 'UI', value: '.9', color: 'orange'},
+        { name: 'IOS', value: '.4', color: 'purple'},
+        { name: 'Android', value: '.9', color: 'pink'}
+    ];
+
+    var rectW =  6/8*stage.width() / data.length;
+    var maxH = 1/2 * stage.height();
+
+    var rectGroup = new Konva.Group({
+        x: x0,
+        y: y0
+    });
+    var topTextGroup = new Konva.Group({
+        x: x0,
+        y: y0
+    });
+    data.forEach(function(item, index) {
+        var rectData = new Konva.Rect({
+            x: rectW*(index + 1/4),
+            y: -data[index].value * maxH,
+            cornerRadius: 5,
+            width: 1/2 * rectW,
+            height: data[index].value * maxH,
+            fill: data[index].color,
+            opacity: .6,
+            shadowBlur: 20,
+            shadowColor: data[index].color,
+            shadowOpacity: .3,
+            shadowOffsetX: 3,
+            shadowOffsetY: 3,
+        });
+        // layer.add( rectData );
+        rectGroup.add( rectData );
+
+        var text = new Konva.Text({
+            x: x0 + rectW * (index + .25),
+            y: y0 + 5,
+            rotation: 30,
+            text: data[index].name,
+            fill: data[index].color,
+            fontSize: 30,
+        });
+        layer.add(text);
+
+        var topText = new Konva.Text({
+            x: rectW * index,
+            y: -data[index].value * maxH - 14,
+            fontSize: 14,
+            text: data[index].value*100 + '%',
+            width: rectW,
+            align: 'center'
+        });
+        topTextGroup.add( topText );
+        // layer.add( topText );
+    });
+
+    layer.add( topTextGroup );
+    layer.add( rectGroup );
+    layer.add(bottomLine);
+
+    layer.draw();
+
+    stage.on('contentClick', function(){
+        // console.log('click');
+        rectGroup.getChildren().each(function(item, index){
+            var oldY = item.y();
+            var oldHeight = item.height();
+            var oldCornerRadius = item.cornerRadius();
+            item.y(0);
+            item.height(0);
+            item.cornerRadius(0);
+            item.to({
+                y: oldY,
+                height: oldHeight,
+                cornerRadius: oldCornerRadius,
+                duration: 1,
+                easing: Konva.Easings.StrongEaseIn
+            });
+        });
+
+        topTextGroup.getChildren().each(function(el, index) {
+            var oldY = el.y();
+            el.y(-14);
+            el.to({
+                y: oldY,
+                duration: 1,
+                easing: Konva.Easings.StrongEaseIn
+            });
+        });
+    })
+
+
+</script>
+</body>
+</html>

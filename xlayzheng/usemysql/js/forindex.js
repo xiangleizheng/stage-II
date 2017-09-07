@@ -16,7 +16,7 @@
 					//第二步，使用ajax将数据传给后台程序
 					$.ajax({
 						type:"post",
-						url:"php/login-register.php",
+						url:"../php/login-register.php",
 						data:{
 							username:usernameVal,
 							userpwd:userpwdVal,
@@ -53,7 +53,7 @@
 					//第二步，使用ajax将数据传给后台程序
 					$.ajax({
 						type:"post",
-						url:"php/login-register.php",
+						url:"../php/login-register.php",
 						data:{
 							username:usernameVal,
 							userpwd:userpwdVal,

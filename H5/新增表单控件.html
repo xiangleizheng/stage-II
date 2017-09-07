@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+<body>
+<!--button
+	submit
+	test
+	checkbox
+	radio
+	password
+
+-->
+<form>
+	<input type="tel" />
+	<input type="submit" />
+</form>
+<form>
+	<input type="email" />
+	<input type="submit" />
+</form>
+<form>
+	<input type="search" />
+	<input type="submit" />
+</form>
+<form>
+	<input type="url" />
+	<input type="submit" />
+</form>
+<!--滑动条-->
+<form>
+	<input type="range" step="1" min="0" max="10" value="2" />
+	<input type="submit" />
+</form>
+<form>
+	<input type="color"/>
+	<input type="submit" />
+</form>
+<form>
+	<input type="file"/>
+	<input type="submit" />
+</form>
+<form>
+	<input type="datetime"/>
+	<input type="submit" />
+</form>
+<h3>datetime</h3>
+<form>
+	<input type="datetime-local"/>
+	<input type="submit" />
+</form>
+
+<form>
+	<input type="time"/>
+	<input type="submit" />
+</form>
+
+<form>
+	<input type="week"/>
+	<input type="submit" />
+</form>
+<form>
+	<input type="month"/>
+	<input type="submit" />
+</form>
+
+
+<h4>placeholder</h4>
+<form>
+	<input type="text" placeholder="请输入4-16个字符" />
+	<input type="submit" />
+</form>
+<form>
+	<input type="text" placeholder="请输入4-16个字符" name="user" autocomplete="off" />
+	<input type="submit" />
+</form>
+
+<h4>autocomplete</h4>
+<!--
+input 的属性autocomplete 默认为on
+其含义代表是否让浏览器自动记录之前输入的值
+很多时候，需要对客户的资料进行保密，防止浏览器软件或者恶意插件获取到
+可以在input中加入autocomplete="off" 来关闭记录
+系统需要保密的情况下可以使用此参数
+
+
+
+给文本控件添加autofocus属性，在页面加载后会自动获取焦点，便于输入。
+-->
+<h3>autofocus自动获取焦点</h3>
+<form>
+	<input type="text" placeholder="请输入4-16个字符" name="user" autocomplete="off" />
+	<input type="password" placeholder="请输入4-16个字符" name="password" autocomplete="off" autofocus />
+	<input type="submit" />
+</form>
+
+
+<!--
+required 属性规定必需在提交之前填写输入字段。
+如果使用该属性，则字段是必填（或必选）的。
+
+-->
+<form>
+	<input type="text" placeholder="请输入4-16个字符" name="user" autocomplete="off" required />
+	<input type="password" id="pas" placeholder="请输入4-16个字符" name="password" autocomplete="off" required />
+	<input type="button" class="btn" >
+</form>
+
+
+<script>
+	/*h5新增选择器 querySelector*/
+
+/*	var btn = document.querySelector(".btn")
+	var pass = document.querySelector("#pas")
+    console.log(btn);
+    console.log(pass);
+
+
+*/
+/*	var formAll = document.querySelectorAll("form")
+    console.log(formAll);
+    console.log(formAll.length);
+
+    */
+</script>
+
+</body>
+</html>

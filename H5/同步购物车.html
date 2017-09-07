@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="checkbox" value="balabala"> 1
+<input type="checkbox" value="1">2
+<input type="checkbox" value="2">3
+<input type="checkbox" value="3">4
+<input type="checkbox" value="4">5
+<input type="checkbox" value="5">6
+
+
+
+<script>
+    window.onload = function () {
+        var box = document.querySelectorAll("input")
+        //选中就存储
+        for(var i =0;i<box.length;i++){
+            box[i].onclick = function () {
+                if(this.checked){
+                    localStorage.setItem('n',this.value)
+                }
+                else {
+                    localStorage.setItem('on',this.value)
+                }
+
+            }
+        }
+        //每存储一次，（点击一次），就执行存储storage事件
+        window.addEventListener('storage',function (e) {
+            //key 和之前设置的setItem的"n' 比较
+            if(e.key == "n"){
+
+                for(var i =0;i<box.length;i++){
+
+                    if(e.newValue == box[i].value){
+                        box[i].checked = true;
+                    }
+                }
+            }
+
+            else if(e.key == "on"){
+                for(var i =0;i<box.length;i++){
+                    if(e.newValue == box[i].value){
+                        box[i].checked = false;
+                    }
+                }
+            }
+
+        })
+
+
+
+    }
+
+
+
+</script>
+</body>
+</html>

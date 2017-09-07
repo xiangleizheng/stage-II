@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="200px" height="200px" style="border: 1px solid #D3D3D3;"></canvas>
+		
+		
+	<script>
+	
+	 var canv = document.querySelector("#myCanvas");
+	 var ctx = canv.getContext("2d");
+	 
+		ctx.beginPath();
+        ctx.moveTo(100,100);  //***********规定圆心***********
+//      ctx.arcTo(150,150,100,150,50)  //  arcTo(x1,y1,x2,y2,r)
+        ctx.arc(100,100,50,0,Math.PI/2);   
+        ctx.fillStyle="yellow";
+        ctx.fill();
+        ctx.closePath();
+
+
+		ctx.beginPath();
+        ctx.moveTo(100,100)
+        ctx.arc(100,100,50,(Math.PI/2),(Math.PI*2/3))
+        ctx.fillStyle="yellowgreen";
+        ctx.fill();  	
+		ctx.closePath();
+		
+		ctx.beginPath();
+        ctx.moveTo(100,100)
+        ctx.arc(100,100,50,(Math.PI*2/3),Math.PI)
+        ctx.fillStyle="#0FB7E8";
+        ctx.fill();  	
+		ctx.closePath();
+		
+		ctx.beginPath();
+        ctx.moveTo(100,100)
+        ctx.arc(100,100,50,Math.PI,(Math.PI*10/9))
+        ctx.fillStyle="aqua";
+        ctx.fill();  	
+		ctx.closePath();
+		
+		ctx.beginPath();
+        ctx.moveTo(100,100)
+        ctx.arc(100,100,50,(Math.PI*10/9),(Math.PI*5/3))
+        ctx.fillStyle="salmon";
+        ctx.fill();  	
+		ctx.closePath();
+		
+		ctx.beginPath();
+        ctx.moveTo(100,100)
+        ctx.arc(100,100,50,(Math.PI*5/3),Math.PI*2)
+        ctx.fillStyle="lightblue";
+        ctx.fill();  	
+		ctx.closePath();		
+	</script>	
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #F0F0F0;
+        }
+    </style>
+    <script src="bower_components/konva/konva.js"></script>
+</head>
+<div id="container" style="border : 1px solid red">
+
+</div>
+
+<script>
+
+    //创建舞台
+    var stage = new Konva.Stage({
+        container: 'container',
+        width: window.innerWidth,
+        height: window.innerHeight
+    })
+    //layer 创建一个层
+    var layer = new Konva.Layer();
+
+
+    //画个圆
+    var rect = new Konva.Rect({
+        x:300,
+        y:300,
+        width: 200,
+        height: 500,
+        rotation: 40,
+        fill: 'red',//填充
+        stroke: 'black',//实线
+        strokeWidth: 4//宽度
+    });
+
+
+    layer.add(rect);
+
+
+    stage.add(layer);
+
+</script>
+
+<body>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas1" width="800" height="600"></canvas>
+	<script>
+		(function(){
+			var canvas = document.querySelector('#canvas1')
+			canvas.style.border ="1px solid #d3d3d3";
+			var ctx = canvas.getContext('2d')	
+			
+			
+	        var data = [{
+	            "value": .1,
+	            "color": "aqua",
+	            "title": "one"
+	        },{
+	            "value": .2,
+	            "color": "#Fa4040",
+	            "title": "two"
+	        },{
+	            "value": .2,
+	            "color": "yellowgreen",
+	            "title": "three"
+	        },{
+	            "value": .2,
+	            "color": "#ccc",
+	            "title": "four"
+	        },{
+	            "value": .3,
+	            "color": "#A0DDA0",
+	            "title": "five"
+	        }];
+			var x = 400;
+	        var y = 250;
+	        var r = 200;
+	        var textx=0,texty=0,textX=0,textY=0,cendeg=0;
+			var startdeg=0;
+			
+			for(var i=0 ;i<data.length;i++){
+				ctx.beginPath()
+				ctx.moveTo(x,y)
+			    ctx.fillStyle=data[i].color;
+			    var d = data[i].value*360;
+			    var enddeg = startdeg + d ; 
+			    ctx.arc(x,y,r,(startdeg*Math.PI/180),(enddeg*Math.PI/180));
+			  
+			    ctx.font="20px Arial";
+			    ctx.textAlign="center";
+			    
+			    textdeg=360-(enddeg-(d/2));
+			    textx=Math.abs(Math.cos(textdeg*Math.PI /180)*(r*1.25));
+			    texty=Math.abs(Math.sin(textdeg*Math.PI /180)*(r*1.25));
+			    		    
+			   
+			    
+			    if(textdeg<90||textdeg>270){
+			    	textX=x+textx;
+			    }else{textX=x-textx;}
+			    
+			    if(textdeg<180){
+			    	textY=y-texty;
+			    }else{textY=y+texty;}
+
+			    
+	            ctx.fillText(data[i].title,textX,textY);
+	            
+			    ctx.fill();
+			    startdeg+=d;
+			    ctx.closePath();
+			}
+	    })()
+	</script>	
+	</body>
+</html>

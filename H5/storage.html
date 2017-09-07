@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>保存到本地</button>
+		<button>本地获取</button>
+		<button>删本地除</button>
+		<input type="text" id="text"/>
+		
+	<script>
+		var btns = document.querySelectorAll("button");
+		var inp = document.querySelector("#text");
+		
+		btns[0].addEventListener("click",function(){
+			localStorage.setItem("name",inp.value);
+			inp.value="";
+		})
+		btns[1].addEventListener("click",function(){
+			alert(localStorage.getItem("name"))
+		})		
+		btns[2].addEventListener("click",function(){
+			localStorage.removeItem("name");
+//			localStorage.clear();//清楚所有本地存储内容
+		})	
+		
+		/*
+		
+		
+		    sessionStorage：仅在当前浏览器窗口关闭前有效，自然也就不可能持久保持；
+		    localStorage：始终有效，窗口或浏览器关闭也一直保存，因此用作持久数据；
+		    cookie只在设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭。
+		
+		  数据有效期不同，sessionStorage：仅在当前浏览器窗口关闭前有效，自然也就不可能持久保持；
+		 localStorage：始终有效，窗口或浏览器关闭也一直保存，因此用作持久数据；
+		 cookie只在设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭。
+		
+		 cookie数据不能超过4k，同时因为每次http请求都会携带cookie，所以cookie只适合保存很小的数据, 如会话标识。
+		 sessionStorage和localStorage 虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大。
+		*/		
+		
+		//sessionStorage  关闭浏览器后存储内容清除
+	</script>	
+	</body>
+</html>

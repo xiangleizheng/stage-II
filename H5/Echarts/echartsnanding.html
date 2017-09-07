@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="js/echarts.min.js"></script>
+       
+       <!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>-->
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+	backgroundColor: '#2c343c',//背景色
+
+/*	visualMap: {   //添加明度变化,
+        show: false,
+        min: 80,
+        max: 600,
+        inRange: {
+            colorLightness: [0, 1]
+        }
+    },*/
+	
+    series : [
+        {
+            name: '访问来源',
+            type: 'pie',
+            radius: '55%',
+            roseType: 'angle', //添加后就会用半径大小来表示数据
+                
+            data:[
+                {value:205, name:parseFloat((205*100)/1554).toFixed(2)+"%"/*,itemStyle:{normal: {color: '#c23531'}}*/},//在对象中可以单独加入itemStyle.normal.color设置单独块的属性
+                {value:274, name:parseFloat((274*100)/1554).toFixed(2)+"%"},
+                {value:340, name:parseFloat((340*100)/1554).toFixed(2)+"%"},
+                {value:335, name:parseFloat((335*100)/1554).toFixed(2)+"%"},
+                {value:400, name:parseFloat((400*100)/1554).toFixed(2)+"%"}
+            ],
+            
+/*            label: {//字体颜色
+                normal: {
+                    textStyle: {
+                        color: 'rgba(255, 255, 255, 0.3)'
+                    }
+                }
+            },
+            labelLine: {//线条颜色
+                normal: {
+                    lineStyle: {
+                        color: 'rgba(255, 255, 255, 0.3)'
+                    }
+                }
+            },*/            
+            
+/*              
+            itemStyle: {              //itemStyle都会有normal和emphasis两个选项
+                normal: {
+//              	color: '#c23531', //设置扇形颜色，不写为默认的几个彩色
+                    shadowBlur: 200,  //加阴影样式
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+                emphasis: {           //设置hover时对应块的阴影     与normal同时只能使用一个
+			        shadowBlur: 200,
+			        shadowColor: 'rgba(0, 0, 0, 0.9)'
+			    }
+            }*/
+           
+        }
+    ]
+};;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>	
+	</head>
+	<body>
+		<canvas id="myCanvas" width="800px" height="500px" style="border: 1px solid #D3D3D3;"></canvas>
+	
+	<script>
+        var canv = document.querySelector("#myCanvas");
+        var ctx = canv.getContext("2d");
+        var movex = 5;
+        var H = canv.height;
+        var W = canv.width;
+        for(var i = 1 ; i<W/movex ;i++){
+        	ctx.moveTo(movex*i,0);
+        	ctx.lineTo(movex*i,H);
+         	ctx.moveTo(0,movex*i);
+        	ctx.lineTo(W,movex*i);           	
+        }
+		ctx.stroke();       //stroke()方法为用实线连接两点
+	</script>
+	</body>
+</html>

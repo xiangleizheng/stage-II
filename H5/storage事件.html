@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>storage 存储事件</title>
+</head>
+<body>
+<input type="button" value="存储数据">
+<input type="button" value="获取数据">
+<input type="button" value="删除">
+<input type="text">
+
+
+<script>
+    /*localStorage 和 sessionStorage */
+    /*
+     * 客户端存储数据的两个对象为：
+     localStorage - 没有时间限制的数据存储
+     sessionStorage - 数据存储(会话层)
+     *
+     * 保存数据：localStorage.setItem(key,value);
+     读取数据：localStorage.getItem(key);
+     删除单个数据：localStorage.removeItem(key);
+     删除所有数据：localStorage.clear();
+
+
+     * */
+
+    window.onload = function () {
+
+        var btn = document.querySelectorAll('input');
+        btn[0].addEventListener('click',function () {
+            localStorage.setItem('name',btn[3].value)
+        })
+
+
+        btn[1].addEventListener('click',function () {
+            alert(localStorage.getItem('name'))
+        })
+
+        btn[2].addEventListener('click',function () {
+            localStorage.removeItem('name')
+            localStorage.clear()
+            /*  sessionStorage.clear();*/
+        })
+
+
+        //storage 存储事件 ，当数据有修改或删除的情况下。就触发
+        window.addEventListener('storage',function (e) {
+            //当前页面事件不会触发
+
+            console.log(e.key);
+            console.log(e.newValue);
+            console.log(e.oldValue);
+
+        })
+
+    }
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+<body>
+
+<form action="" name="">
+    <input type="text" id="test" required pattern="[A-Za-z]{3}">
+    <input type="submit" id="btn" >
+</form>
+
+
+
+
+
+    <script>
+        var oTest = document.querySelector("#test")
+        var oBtn = document.querySelector("#btn")
+        oTest.addEventListener('invalid',fn)
+        function fn() {
+            alert(this.validity.patternMismatch)
+        }
+
+
+
+        //invalid 事件:为无效值时触发的事件
+        //required属性：验证是否为空
+        //pattern属性 ：匹配正则
+        //validity属性：
+        //validity.valid:返回false
+        //valueMissing   当输入值为空的时候返回true
+        //typeMismatch   当输入类型和要求的类型不一致的时候返回true
+        //patternMismatch 当用户输入的内容和预期的正则要求不匹配 返回true   pattern 属性适用于下面的 input 类型：text、search、url、tel、email 和 password。
+        //customError  不符合在定义验证的时候返回true
+
+
+
+
+
+
+	</script>
+</body>
+</html>

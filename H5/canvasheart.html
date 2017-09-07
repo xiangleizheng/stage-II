@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>	
+	</head>
+	<body>
+		<canvas id="myCanvas" width="300px" height="300px" style="border: 1px solid #D3D3D3;"></canvas>
+		<p>用drawImage（）方法把上边这个渲染过来</p>
+		<canvas id="myCanvas1" width="400px" height="400px" style="border: 1px solid #D3D3D3;">
+			
+		</canvas>
+	
+	<script>
+        var canv = document.querySelector("#myCanvas");
+        var canv1 = document.querySelector("#myCanvas1");
+        
+		
+        var ctx = canv.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(100,100,50,0,2*Math.PI);
+        ctx.fillStyle="red"
+        ctx.fill();
+        ctx.strokeStyle="red"
+		ctx.stroke();       //stroke()方法为用实线连接两点
+		ctx.closePath();
+		
+		ctx.beginPath();
+        ctx.arc(180,100,50,0,2*Math.PI);
+        ctx.fillStyle="red"
+        ctx.fill();
+        ctx.strokeStyle="red"
+		ctx.stroke();       //stroke()方法为用实线连接两点
+		ctx.closePath();
+		
+		ctx.beginPath();
+        ctx.moveTo(60,130)
+        ctx.lineTo(220,130)
+        ctx.lineTo(145,220)
+        ctx.lineTo(60,130)
+        ctx.fillStyle="red"
+        ctx.fill();
+        ctx.strokeStyle="red"
+		ctx.stroke();       //stroke()方法为用实线连接两点		
+		ctx.closePath();
+		
+		ctx.beginPath();
+        ctx.moveTo(0,0)
+        ctx.lineTo(50,0)
+        ctx.arcTo(50,50,0,50,50)  //  arcTo(x1,y1,x2,y2,r)
+        ctx.lineTo(0,0)
+        ctx.fillStyle="red"
+        ctx.fill();
+        ctx.strokeStyle="red"
+		ctx.stroke();       //stroke()方法为用实线连接两点		
+		ctx.closePath();		
+		
+		
+		var ctx1 = canv1.getContext("2d");
+		ctx1.drawImage(canv,10,10); //把canv,渲染到cav1里面
+	</script>
+	</body>
+</html>
