@@ -1,0 +1,442 @@
+            @font-face {
+              font-family: 'iconfont';
+              src: url('../fonts/iconfont.eot');
+              src: url('../fonts/iconfont.eot?#iefix') format('embedded-opentype'),
+              url('../fonts/iconfont.woff') format('woff'),
+              url('../fonts/iconfont.ttf') format('truetype'),
+              url('../fonts/iconfont.svg#iconfont') format('svg');
+            }           
+            .iconfont{
+              font-family:"iconfont" !important;
+              font-size:16px;font-style:normal;
+              -webkit-font-smoothing: antialiased;
+              -webkit-text-stroke-width: 0.2px;
+              -moz-osx-font-smoothing: grayscale;
+            } 
+div.showrole{
+    position: relative;
+    width: 100%;
+    height: 60%;
+    div.bgsky{
+        width: 100%;
+        img{
+            -webkit-filter: grayscale(50%) contrast(120%);
+            filter: grayscale(30%) contrast(120%);
+            width: 100%;
+        }
+    }
+    div.introduce{
+        z-index:2;
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top:10%;
+        p:first-child{
+            height: 50px;
+            margin-bottom: 10px;
+            color: #ffcb60;
+            font-size: 50px;
+            line-height: 50px;
+            font-weight: bold;
+            background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(253,217,119,1)), to(rgba(131,98,7,1)));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;  
+        } 
+        p:nth-child(2){
+            color:#feebb7;
+            text-shadow: 0 0 5px #fdcf51;
+        }
+         button:nth-child(5):hover{background-color:rgba(0,0,0,0.5);color: #f5d185;}
+         span:nth-child(3):hover{background-color:rgba(0,0,0,0.5);color: #f5d185;}
+         span:nth-child(3):hover a{color: #f5d185;}
+         span:nth-child(3),button:nth-child(5){
+             outline: none;
+            margin-top:20px;
+            margin-right: 10px;
+            cursor: pointer;
+            display: inline-block;
+            *display: inline;
+            width: 155px;
+            height: 36px;
+            border: 2px solid #bd9440;
+            text-align: center;
+            line-height: 36px;
+            background-color: rgba(0,0,0,0.2);
+            font-size: 14px;
+            font-weight: bold;
+            color: #c89b3c;
+            -moz-border-image: -moz-linear-gradient(top, #6b5024 0%, #c09438 100%);
+            -webkit-border-image: -webkit-linear-gradient(top, #6b5024 0%, #c09438 100%);
+            border-image: linear-gradient(to bottom, #6b5024 0%, #c09438 100%);
+            border-image-slice: 1;
+            a{text-decoration: none;color: #c89b3c;}   
+        }
+        strong{
+            font-size:16px;
+            background-image: linear-gradient(to right, #f42a4b 0%,#f42a4b 13%,#f764f5 25%,#f764f5 35%,#64f779 50%,#fc57b4 70%,#3ac1ed 97%,#3ac1ed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(255,255,255,0.5); 
+        }
+        div.model-header{
+            h4.model-title{
+             font-weight: bold;
+             text-shadow: 0 0 30px #f59c32;   
+            }
+        }
+        div.modal-body{
+            #carousel-example-generic{
+                    div.carousel-caption{
+                        h3{
+                            background:linear-gradient(to right,transparent 30%,#46042d,transparent 70%);
+                            text-shadow: 0 0 15px rgba(0,0,0,0.8);
+                        }
+                        p{
+                            background:linear-gradient(to right,transparent 10%,rgba(144,39,71,0.6),transparent 90%);
+                            
+                        }
+                    } 
+                                 
+            }
+            
+
+        }
+    }    
+    
+    
+    
+    
+    div.stage{
+        box-sizing: border-box;
+        position: absolute;
+        top:80px;
+        left: 5%;
+        width: 90%;
+        height: 70%;
+        display: flex;
+        flex:1;
+        flex-direction: row;
+        justify-content: center;
+        
+        div.janna:hover div.highlightjanna_top{
+//          display: block;
+            opacity: 1;
+            animation: particlemove 5s linear infinite;
+        }
+        div.janna{
+            position: relative;
+            width: 16%;
+            height: 100%;
+            div.highlightjanna_top{
+//              display: none;
+                opacity: 0;    
+                width: 100%;
+                height: 100%;
+                background: transparent url(../img/particles-janna.png) no-repeat;
+                background-position-x:center;
+                transition: all 2s ease;
+                overflow: hidden; 
+                img{width: 100%;filter: blur(10px);}
+            }
+            div.ele{
+                cursor: pointer;
+                position: absolute;
+                top:40%;
+                left:50%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: column;
+                justify-content:space-between;
+                align-items:center ;
+                div{
+                    width: 230px;
+                    height: 215px;
+                    background:url(../img/rolejanna.png) no-repeat center 28px,
+                               url(../img/border1.png) no-repeat 1px 0;
+                }
+                span:hover{
+                    background-color: transparent;
+                    box-shadow: 0 0 10px rgba(124,49,152,0.1) inset,0 0 25px rgba(124,49,152,0.9);
+                    text-shadow: 0 0 20px rgba(225,225,225,1);
+                    }
+                span{
+                    outline:1px solid #472bba;
+                    outline-offset:2px; 
+                    display: block;
+                    margin-top: 20px;
+                    line-height: 30px;
+                    height: 40px;
+                    padding: 6px;
+                    max-width: 70%;
+                    border: 1px solid #472bba;
+                    border-image: linear-gradient(180deg,#472bba 0,#7c3198 1);
+                    background-color: rgba(71,43,186,0.2) ;
+                    color: #cbcdfd;
+                    cursor: pointer;
+                    transition: all .2s ease-in-out;
+                    a{text-decoration: none;color: #cbcdfd;}
+                }
+            }
+        }
+        
+        div.jinx:hover div.highlightjinx_top{
+//          display: block;
+            opacity: 1;
+            animation: particlemove 5s linear infinite;
+        }
+        div.jinx{
+            position: relative;
+            width: 16%;
+            height: 100%;
+            div.highlightjinx_top{
+//              display: none;
+                opacity: 0;
+                width: 100%;
+                height: 100%;
+                background: transparent url(../img/particles-jinx.png) no-repeat;
+                background-position-x:center;
+                transition: all 2s ease;
+                overflow: hidden; 
+                img{width: 100%;filter: blur(10px);}
+            }
+            div.ele{
+                cursor: pointer;
+                position: absolute;
+                top:40%;
+                left:50%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: column;
+                justify-content:space-between;
+                align-items:center ;
+                div{
+                    width: 230px;
+                    height: 215px;
+                    background:url(../img/rolejinx.png) no-repeat center 28px,
+                               url(../img/border1.png) no-repeat 1px 0;
+                }
+                span:hover{
+                    background-color: transparent;
+                    box-shadow: 0 0 10px rgba(124,49,152,0.1) inset,0 0 25px rgba(124,49,152,0.9);
+                    text-shadow: 0 0 20px rgba(225,225,225,1);
+                    }
+                span{
+                    outline:1px solid #472bba;
+                    outline-offset:2px;        
+                    display: block;
+                    margin-top: 20px;
+                    line-height: 30px;
+                    height: 40px;
+                    padding: 6px;
+                    max-width: 70%;
+                    border: 1px solid #472bba;
+                    border-image: linear-gradient(180deg,#472bba 0,#7c3198 1);
+                    background-color: rgba(71,43,186,0.2) ;
+                    color: #cbcdfd;
+                    cursor: pointer;
+                    transition: all .2s ease-in-out;
+                    a{text-decoration: none;color: #cbcdfd;}
+                }
+            }            
+        } 
+        
+        div.lulu:hover div.highlightlulu_top{
+//          display: block;
+            opacity: 1;; 
+            animation: particlemove 5s linear infinite;
+        }
+        div.lulu{
+            position: relative;            
+            width: 16%;
+            height: 100%;
+            div.highlightlulu_top{
+//              display: none;
+                opacity: 0;
+                width: 100%;
+                height: 100%;
+                background: transparent url(../img/particles-lulu.png) no-repeat;
+                background-position-x:center;
+                transition: all 2s ease;
+                overflow: hidden; 
+                img{width: 100%}
+            }
+            div.ele{
+                cursor: pointer;
+                position: absolute;
+                top:40%;
+                left:50%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: column;
+                justify-content:space-between;
+                align-items:center ;
+                div{
+                    width: 230px;
+                    height: 215px;
+                    background:url(../img/rolelulu.png) no-repeat center 28px,
+                               url(../img/border1.png) no-repeat 1px 0;
+                }
+                span:hover{
+                    background-color: transparent;
+                    box-shadow: 0 0 10px rgba(124,49,152,0.1) inset,0 0 25px rgba(124,49,152,0.9);
+                    text-shadow: 0 0 20px rgba(225,225,225,1);
+                    }
+                span{
+                    outline:1px solid #472bba;
+                    outline-offset:2px; 
+                    display: block;
+                    margin-top: 20px;
+                    line-height: 30px;
+                    height: 40px;
+                    padding: 6px;
+                    max-width: 70%;
+                    border: 1px solid #472bba;
+                    border-image: linear-gradient(180deg,#472bba 0,#7c3198 1);
+                    background-color: rgba(71,43,186,0.2) ;
+                    color: #cbcdfd;
+                    cursor: pointer;
+                    transition: all .2s ease-in-out;
+                    a{text-decoration: none;color: #cbcdfd;}
+                }
+            }            
+        } 
+        
+        div.lux:hover div.highlightlux_top{
+//          display: block;
+            opacity:1;
+            animation: particlemove 5s linear infinite;
+        }
+        div.lux{
+            position: relative;            
+            width: 16%;
+            height: 100%;
+            div.highlightlux_top{
+//              display: none;
+                opacity:0;
+                width: 100%;
+                height: 100%;
+                background: transparent url(../img/particles-lux.png) no-repeat;
+                background-position-x:center;
+                transition: all 2s ease;
+                overflow: hidden; 
+                img{width: 100%;filter: blur(10px);}
+            }
+            div.ele{
+                cursor: pointer;
+                position: absolute;
+                top:40%;
+                left:50%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: column;
+                justify-content:space-between;
+                align-items:center ;
+                div{
+                    width: 230px;
+                    height: 215px;
+                    background:url(../img/rolelux.png) no-repeat center 28px,
+                               url(../img/border1.png) no-repeat 1px 0;
+                }
+                span:hover{
+                    background-color: transparent;
+                    box-shadow: 0 0 10px rgba(124,49,152,0.1) inset,0 0 25px rgba(124,49,152,0.9);
+                    text-shadow: 0 0 20px rgba(225,225,225,1);
+                    }
+                span{
+                    outline:1px solid #472bba;
+                    outline-offset:2px;
+                    display: block;
+                    margin-top: 20px;
+                    line-height: 30px;
+                    height: 40px;
+                    padding: 6px;
+                    max-width: 70%;
+                    border: 1px solid #472bba;
+                    border-image: linear-gradient(180deg,#472bba 0,#7c3198 1);
+                    background-color: rgba(71,43,186,0.2) ;
+                    color: #cbcdfd;
+                    cursor: pointer;
+                    transition: all .2s ease-in-out;
+                    a{text-decoration: none;color: #cbcdfd;}
+                }
+            }            
+        }                       
+        
+        div.poppy:hover div.highlightpoppy_top{
+//          display: block;
+            opacity:1;
+            animation: particlemove 5s linear infinite;
+        }
+        div.poppy{
+            position: relative;            
+            width: 16%;
+            height: 100%;
+            div.highlightpoppy_top{
+//              display: none;
+                opacity:0;
+                width: 100%;
+                height: 100%;
+                background: transparent url(../img/particles-poppy.png) no-repeat;
+                background-position-x:center;
+                transition: all 2s ease;
+                overflow: hidden; 
+                img{width:100%;filter: blur(10px);}
+            }
+            div.ele{
+                cursor: pointer;
+                position: absolute;
+                top:40%;
+                left:50%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: column;
+                justify-content:space-between;
+                align-items:center ;
+                div{
+                    width: 230px;
+                    height: 215px;
+                    background:url(../img/rolepoppy.png) no-repeat center 28px,
+                               url(../img/border1.png) no-repeat 1px 0;
+                }
+                span:hover{
+                    background-color: transparent;
+                    box-shadow: 0 0 10px rgba(124,49,152,0.1) inset,0 0 25px rgba(124,49,152,0.9);
+                    text-shadow: 0 0 20px rgba(225,225,225,1);
+                    }
+                span{
+                    outline:1px solid #472bba;
+                    outline-offset:2px;
+                    display: block;
+                    margin-top: 20px;
+                    line-height: 30px;
+                    height: 40px;
+                    padding: 6px;
+                    max-width: 70%;
+                    border: 1px solid #472bba;
+                    border-image: linear-gradient(180deg,#472bba 0,#7c3198 1);
+                    background-color: rgba(71,43,186,0.2) ;
+                    color: #cbcdfd;
+                    cursor: pointer;
+                    transition: all .2s ease-in-out;
+                    a{text-decoration: none;color: #cbcdfd;}
+                }
+            }            
+        }  
+        
+    }
+}
+
+
+//------------------背景运动-------------
+@keyframes particlemove{
+     0%{background-position-y:0px;opacity: 0.1;}
+     5%{opacity: 0.4;}
+     30%{opacity: 1;}
+     40%{opacity: 0.6;}
+     50%{opacity: 1;}
+     60%{opacity: 0.8;}
+     70%{opacity: 1;}
+     70%{opacity: 0.8;}
+     90%{opacity: 1;}
+     100%{background-position-y:100%;opacity: 0.1;}
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<script src="js/angular.js"></script>	
+	</head>
+	<body ng-app="myApp" ng-controller="myCon" >
+	<div class="container">
+			<table class="table table-bordered" style="margin-bottom: 0;">
+	            <thead class="label-success">
+	            	<th class="text-center">序号</th>
+	            	<th class="text-center">城市</th>
+	            	<th class="text-center">污染指数</th>
+	            	<th class="text-center">月均气温</th>
+	            	<th class="text-center">操作</th>
+	            </thead>
+	            <tr ng-repeat="item in data|filter:x" class="text-center">
+	            	<td>{{item.id}}</td>
+	            	<td>{{item.city}}</td>
+	            	<td>{{item.pollution}}</td>
+	            	<td>{{item.temperature}}</td>
+	            	<td>
+	            		<button class="btn btn-success" ng-click="upd($index)">修改</button>
+	            		<button class="btn btn-warning" ng-click="del($index)">删除</button>
+	            	</td>
+	            </tr>
+			</table>
+	        <button class="btn btn-success btn-block" ng-click="add()">添加数据</button>
+			
+			<div ng-show="additem">
+				<!-- ng-submit可以直接提交表单数据 -->
+				<form action="" name="formone" ng-submit="addinto()" role="form" class="form-inline">
+				   <div class="form-group">
+				        <input type="text" placeholder="城市" ng-model="city" required class="form-control col-lg-4" />
+				   </div>
+				   <div class="form-group">
+				        <input type="text" placeholder="污染指数" ng-model="pollution" required class="form-control" />
+				   </div>
+				   <div class="form-group">
+				        <input type="text" placeholder="月均气温" ng-model="temperature" required class="form-control" />
+				   </div>
+				   <div class="form-group">
+				        <input type="submit" ng-disabled=formone.$invaild value="添加"  class="btn btn-default"/>
+				   </div>
+				</form>
+			</div>
+			
+			<div ng-show="modifyitem">
+				<!-- ng-submit可以直接提交表单数据 -->
+				<form action="" name="formtwo" ng-submit="modify()" role="form" class="form-inline">
+				   <div class="form-group">
+				        <input type="text" placeholder="城市" ng-model="tempCity" required class="form-control" />
+				   </div>
+				   <div class="form-group">
+				        <input type="text" placeholder="污染指数" ng-model="tempPollution" required class="form-control" />
+				   </div>
+				   <div class="form-group">
+				        <input type="text" placeholder="月均气温" ng-model="tempTemperature" required class="form-control" />
+				   </div>
+				   <div class="form-group">
+				        <input type="submit" ng-disabled=formtwo.$invaild value="修改信息"  class="btn btn-default"/>
+				   </div>
+				</form>
+			</div>			
+			
+	</div>
+	
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller("myCon",["$scope",function($scope){
+			$scope.data=[
+			   {"id":1,"city":'吉林',"pollution":30,"temperature":20+"°C"},
+			   {"id":2,"city":'江苏',"pollution":50,"temperature":29+"°C"},
+			   {"id":3,"city":'桂林',"pollution":30,"temperature":25+"°C"},
+			   {"id":4,"city":'三亚',"pollution":10,"temperature":30+"°C"},
+			]
+			/*删除数据*/
+			$scope.del=function($index){
+				if($scope.data.length>0){
+					if(confirm("是否删除"+$scope.data[$index].city+"的相关信息？")){
+				        $scope.data.splice($index,1);
+				        for(var i = 0 ;i<$scope.data.length;i++){
+							$scope.data[i].id=i+1;
+						}
+				    }
+				}
+			}
+			
+			/*显示隐藏添加数据的输入框*/
+			$scope.additem=false;
+
+			
+			$scope.add=function(){
+				$scope.additem=true;
+			}
+			/*添加提交*/
+			var reg=/^[1-9]\d*$/;
+			$scope.addinto=function(){
+				if(reg.test($scope.temperature)&&reg.test($scope.pollution)){
+					$scope.data.push({"id":$scope.data.length+1,"city":$scope.city,"pollution":$scope.pollution,"temperature":$scope.temperature+"°C"})
+				    $scope.city="";
+				    $scope.pollution="";
+				    $scope.temperature="";
+				    $scope.additem=false;
+			   }else{alert("请您确定污染指数、温度是数值！")}
+			}
+			
+			/*显示隐藏修改数据的输入框*/
+			$scope.modifyitem=false;
+			var n;
+			/*点击修改按钮时*/
+			$scope.upd=function($index){
+			    $scope.modifyitem=true;
+			    $scope.tempCity=$scope.data[$index].city;
+			    $scope.tempPollution=$scope.data[$index].pollution;
+			    $scope.tempTemperature=$scope.data[$index].temperature;
+			    n = $index
+			}
+			/*修改提交*/
+			$scope.modify=function(){
+				$scope.data[n].city = $scope.tempCity;
+	            $scope.data[n].pollution = $scope.tempPollution;
+	            $scope.data[n].temperature = $scope.tempTemperature;
+	            $scope.modifyitem = false;
+			}
+		}])
+	</script>	
+	</body>
+</html>

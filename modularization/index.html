@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style>
+		#mm{width: 100px;height: 100px;background-color: #000000;}
+	</style>	
+	<script src="sea/sea.js"></script>	
+	</head>
+	<body>
+		<div id="mm"></div>
+		
+	<script>
+	    var mm = document.getElementById("mm"); 
+	    
+	    seajs.config({
+	    	/*给路径起名，简化书写*/
+	    	alias:{
+	    		f1:"./js/fn1",
+	    		f2:"./js/fn2"
+	    	}
+	    })
+	    
+		seajs.use("f2",function(ex){
+			ex.fadeout(mm);
+		})
+		seajs.use("f1",function(ex){
+			ex.fadein(mm);
+		})		
+	</script>
+	</body>
+</html>

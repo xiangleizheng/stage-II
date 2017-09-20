@@ -1,0 +1,98 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  padding: 0; }
+
+.main {
+  width: 100%;
+  height: auto; }
+
+.main div {
+  width: 100%; }
+
+#float01 {
+  height: 930px;
+  background: #004; }
+
+#float02 {
+  height: 900px;
+  background: #00f; }
+
+#float03 {
+  height: 980px;
+  background: #0ff; }
+
+#float04 {
+  height: 930px;
+  background: #0ad; }
+
+#float05 {
+  height: 960px;
+  background: #0d0; }
+
+#float06 {
+  height: 970px;
+  background: #0f0; }
+
+#float07 {
+  height: 900px;
+  background: #dd4; }
+
+div.floatCtro {
+  width: 60px;
+  height: 350px;
+  position: fixed;
+  left: 25px;
+  top: 10%;
+  z-index: 100; }
+
+div.floatCtro p {
+  width: 60px;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  font-family: '微软雅黑';
+  font-size: 14px;
+  color: #676767;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  background: #fff; }
+
+div.floatCtro a {
+  display: inline-block;
+  display: none;
+  width: 60px;
+  height: 60px;
+  margin: 10px 0 0 0;
+  background: #fff;
+  color: #000;
+  vertical-align: middle;
+  cursor: pointer; }
+
+div.floatCtro a span {
+  display: block;
+  width: 28px;
+  height: 44px;
+  line-height: 22px;
+  font-family: '微软雅黑';
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  margin: 8px 16px;
+  _margin: -10px 0 0 16px; }
+
+div.floatCtro a:hover {
+  background: #000;
+  color: #fff;
+  zoom: 1; }
+
+div.floatCtro p:hover {
+  background: #c40000;
+  color: #fff; }
+
+div.floatCtro p.cur {
+  background: #c40000;
+  color: #fff; }
+
+/*# sourceMappingURL=forvideo.css.map */

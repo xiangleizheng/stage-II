@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style>
+	    body{background-color: rgba(0,0,0,0.8);}
+		.loginbox{
+			width: 400px;
+			height: 300px;
+			background-color: #242424;
+			margin: 70px auto;
+			border: 2px solid transparent;
+			box-sizing: border-box;
+			padding: 25px;
+			border-radius: 10px;
+			box-shadow: 0 0 35px -10px #00FFFF;
+			transition: all 3s;
+		}
+		.loginbox:hover{border: 2px solid #00FFFF;box-shadow: 0 0 10px -1px #00FFFF;}
+		.loginbox:hover label{color: #fff;}
+		.loginbox:hover .btn input{box-shadow: 0 0 10px -1px #00FFFF;/*border: 1px solid #00FFFF;*/color: #fff;background-color: rgba(0,0,0,0.1);}
+		.loginbox:hover input[type="text"]{box-shadow: 0 0 10px -1px #00FFFF;border: 1px solid transparent;color: #fff;background-color: rgba(0,0,0,0.1);}
+		.loginbox:hover input[type="password"]{box-shadow: 0 0 10px -1px #00FFFF;border: 1px solid transparent;color: #fff;background-color: rgba(0,0,0,0.1);}
+		
+		input[type="text"],input[type="password"]{
+			width: 350px;
+			height: 50px;
+			border:1px solid transparent;
+			margin-top: 20px;
+			text-align: center;
+			border-radius: 25px;
+			font-size: 18px;
+			outline: none;
+			text-shadow: 0 3px 20px #00FFFF;
+			background-color: #242424;
+			transition: all 0.5s;
+			cursor: pointer;
+		}
+		div.loginbox input[type="text"]:focus{box-shadow: 0 1px 25px -1px #00FFFF;border:1px solid #00FFFF;}
+		div.loginbox input[type="password"]:focus{box-shadow: 0 1px 25px -1px #00FFFF;border:1px solid #00FFFF;}
+		
+		.btn{
+
+			margin-top: 10px;
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+		}
+		input[type="button"]{
+			background-color: #242424;
+			color:rgba(255,255,255,0.4);
+			height: 70px;
+			width: 70px;
+			border:1px solid transparent;
+			border-radius: 50%;
+			outline: none;
+			text-shadow: 0 3px 15px #00FFFF;
+			transition: all 0.3s;
+			cursor: pointer;
+		}
+		
+		div.loginbox .btn input[type="button"]:hover{
+			font-weight: bolder;
+			font-size: 15px;
+			border:1.5px solid #00FFFF;
+			box-shadow: 0 1px 25px 1px #00FFFF;
+		}
+		input[type="checkbox"]{
+			margin-top:15px ;
+			cursor: pointer;
+		}
+		
+		div.loginbox label{color:rgba(255,255,255,0.4);font-size: 13px;cursor: pointer;}	
+		
+	</style>
+	</head>
+	<body>
+		<div class="loginbox">
+			<input type="text" placeholder="用户名">
+			<input type="password" placeholder="密码">
+			<input type="checkbox" checked="" name="remb"/><label for="remb">记住密码</label>
+			<div class="btn">
+				<input type="button" value="登录">
+				<input type="button" value="注册">
+				<input type="button" value="清除缓存">
+			</div>
+        </div>
+
+
+<script>
+
+    window.onload = function () {
+        var txt = document.querySelectorAll('input[type="text"]');
+        var pwd = document.querySelectorAll('input[type="password"]');
+        var btn = document.querySelectorAll('input[type="button"]');
+        var chek = document.querySelectorAll('input[type="checkbox"]');
+       
+       chek[0].checked=false;
+       if(localStorage.getItem('name')&&localStorage.getItem('pwd')){
+       	txt[0].value=localStorage.getItem("name");
+       	remmbpwd();
+       }
+       
+       
+       //注册
+        btn[1].addEventListener('click',function () {
+            localStorage.setItem('name',txt[0].value);
+            localStorage.setItem('pwd',pwd[0].value);
+       	    txt[0].value=localStorage.getItem("name");
+            remmbpwd();
+            alert("您已注册成功！");
+        })
+
+        //登录
+        btn[0].addEventListener('click',function () {
+        	if(localStorage.getItem('name')&&localStorage.getItem('pwd')){
+		            if(localStorage.getItem('name')==txt[0].value){
+			               if(localStorage.getItem('pwd')==pwd[0].value){
+			               	alert(txt[0].value+"您已登陆成功！")
+			               	}else{alert("抱歉，您输入的密码有误！")}
+		            }else{
+			               if(localStorage.getItem('pwd')==pwd[0].value){
+			               	alert("抱歉，您输入的用户名有误！")
+			               	}else{alert("您输入的信息有统统有误！")}            	
+		            }
+	        }else{
+	        	alert("登录前,请先行注册吧！")
+	        }
+	        
+            if(pwd[0].value&&chek[0].checked==true){
+ 
+            }else{pwd[0].value=""}
+	        
+        })
+
+        btn[2].addEventListener('click',function () {
+        	txt[0].value="";
+        	pwd[0].value="";
+        	chek[0].checked=false;
+            localStorage.clear()
+        })
+        
+        function remmbpwd(){
+        	if(chek[0].checked==true){
+        	pwd[0].value=localStorage.getItem('pwd');
+            }else{pwd[0].value=""}
+        }
+
+        //storage 存储事件 ，当数据有修改或删除的情况下。就触发
+        window.addEventListener('storage',function (e) {
+        //当前页面事件不会触发
+
+            console.log(e.key);
+            console.log(e.newValue);
+            console.log(e.oldValue);
+
+        })
+
+    }
+
+
+    </script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style>
+	<style>
+	    #boxcontent{}
+		#boxcontent div{
+			width: 153px;
+			height: 100px;
+			margin: 5px 0;
+			background-color: #242424;
+		}
+	</style>
+	<script src="sea/sea.js"></script>
+	</head>
+	<body>
+		<div id="boxcontent">
+			<div id="box1"></div>
+			<div id="box2"></div>
+			<div id="box3"></div>
+			<div id="box4"></div>
+			<div id="box5"></div>
+			<div id="box6"></div>
+		</div>
+		<img src="img/logo.png" id="img"/>
+		
+	<script>
+		seajs.use("./js/drag",function(ex){
+			ex.DRAG();
+		})
+	
+	</script>
+	</body>
+</html>

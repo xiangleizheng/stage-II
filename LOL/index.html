@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+		<title>英雄联盟全新官方网站-腾讯游戏</title>
+		<style>
+	        *{
+		    margin: 0;
+		    padding: 0;
+		    -webkit-user-select: none;
+		    -ms-user-select: none;
+		    -moz-user-select: none;
+		    user-select: none;
+		    }
+	        body{
+	            font-family: "微软雅黑","iconfont" !important;/****引用矢量图标重要样式****/
+	        }
+	        
+	        .icon {/****通用样式****/
+	            width: 5em; height: 5em;  
+	            vertical-align: -0.15em;
+	            fill: currentColor;
+	            overflow: hidden;
+	        }
+	        
+	        .row:before{content: "";}
+	        .row:after{content: "";display: table;clear: both;}
+	        body{
+	        	display: flex;
+	        	flex-direction: column;
+	        	justify-content: flex-start;
+	        }
+	        div.modal-backdrop{
+	        	z-index: 0;
+	        }
+	        ui-view{z-index: 10;}  
+	    </style>
+	    <!--iconfont-->
+	    <script src="//at.alicdn.com/t/font_412443_k7icsval9ki96bt9.js"></script>
+		<!--媒体查询-->
+		<link rel="stylesheet" media="screen and (max-width:768px)" href="css/topsm.css">
+	    <link rel="stylesheet" media="screen and (min-width:768px) and (max-width:1024px)" href="css/topmd.css">
+	    <link rel="stylesheet" media=" screen and (min-width:1024px)" href="css/toplg.css">
+	    <link rel="stylesheet" media=" screen and (min-width:1024px)" href="css/footerlg.css">
+	    
+	    <!--css-->
+	    <link rel="stylesheet" href="css/bootstrap.min.css" />
+	    <link rel="stylesheet" href="css/showrole.css" />
+	    <link rel="stylesheet" type="text/css" href="css/forvideo.css"/>
+	    <!--js-->
+	    <script src="js/jquery-3.2.1.min.js"></script>
+	    <script src="js/bootstrap.min.js"></script>
+	    <script src="js/angular.js"></script>
+        <script src="js/angular-ui-router.js"></script>
+	    <script src="js/forvideo.js"></script>
+	</head>
+	<body ng-app='myApp'>
+        <header ng-include="'header.html'"></header>
+        <ui-view style="margin-top:-300px;margin-bottom:-1px;"></ui-view>
+	    <footer ng-include="'footer.html'"></footer> 
+	
+	<script type="text/javascript">
+            angular.module('myApp',['ui.router']).config(function($stateProvider,$urlRouterProvider){
+			 	 $urlRouterProvider.otherwise('/showrole')
+			 	  $stateProvider
+			 	  .state({
+			 	  	 name:'showrole',
+			 	  	 url:"/showrole",
+			 	  	 templateUrl:"./views/showrole.html"
+			 	  })
+			 	   .state({
+			 	  	 name:'video',
+			 	  	 url:"/video",
+			 	  	 templateUrl:"./views/videocenter.html"
+			 	  })
+            });
+	</script>
+	</body>
+</html>

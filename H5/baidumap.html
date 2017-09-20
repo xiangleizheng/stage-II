@@ -5,23 +5,25 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />    
         <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=134db1b9cf1f1f2b4427210932b34dcb"></script>    
     </head>    
-    <body style="margin:50px 10px;">    
+    <body style="margin:0;">    
         <div id="status" style="text-align: center"></div>    
-        <div style="width:600px;height:480px;border:1px solid gray;margin:30px auto" id="container"></div>    
+        <div style="width:100%;height:880px;border:1px solid gray;box-sizing: border-box;margin:30px auto" id="container"></div>    
     </body>    
 </html>    
     
 <script type="text/javascript">    
-    //默认地理位置设置为上海市浦东新区  
-    var x=121.48789949,y=31.24916171;     
-    window.onload = function() {    
+    //默认地理位置设置为海口
+    var x=110.35009949,y=20.02006171; 
+    
+ window.onload = function() {     
+    	
         if(navigator.geolocation) {    
             navigator.geolocation.getCurrentPosition(showPosition);  
             document.getElementById("status").innerHTML = "HTML5 Geolocation is supported in your browser.";    
                 // 百度地图API功能    
                 var map = new BMap.Map("container");    
-                var point = new BMap.Point(x,y);    
-                map.centerAndZoom(point,12);    
+                var point = new BMap.Point(x,y);
+                map.centerAndZoom(point,11);    
     
                 var geolocation = new BMap.Geolocation();    
                 geolocation.getCurrentPosition(function(r){    
@@ -34,10 +36,15 @@
                         alert('failed'+this.getStatus());    
                     }            
                 },{enableHighAccuracy: true})    
-            return;  
-        }    
+            return ;  
+        }
+        
+        
         alert("你的浏览器不支持获取地理位置！");  
-    };    
+    }; 
+    
+    
+    
     function showPosition(position){  
       x=position.coords.latitude;   
       y=position.coords.longitude;    
