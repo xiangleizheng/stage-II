@@ -1,3 +1,22 @@
+<script>
+	$(function(){
+		$(".search").on("click",function(){
+			$(".search .inp").css({
+				'display':'flex',
+				'z-index':20,
+				
+			})
+		})
+		
+		$(".out").on("click",function(e){
+			e=e||event;
+			e.stopPropagation();
+			$(".search .inp").attr("style","display:none");
+			$(".text").val("");
+		})
+		
+	})
+</script>
 <div class="HEADER">
 
 <div class="bg_video">
@@ -71,7 +90,7 @@
 				<li><a href="javascript:;">攻略中心</a></li>
 				<li><a href="javascript:;">模式实验室</a></li>
 				<li><a href="javascript:;">海克斯战利品库</a></li>
-				<li><a href="javascript:;">屏保下载</a></li>
+				<li><a href="#!/showrole">屏保下载</a></li>
 				<li>
 					<a href="javascript:;">
 					<svg class="icon small" aria-hidden="true">
@@ -91,7 +110,7 @@
 			</ul>
 			<ul>
 				<li><a href="javascript:;">在线客服</a></li>
-				<li><a href="javascript:;">视频中心</a></li>
+				<li><a href="#!/videocenter">视频中心</a></li>
 				<li><a href="javascript:;">官方论坛</a></li>
 				<li><a href="javascript:;">官方微信</a></li>
 				<li><a href="javascript:;">官方微博</a></li>
@@ -124,10 +143,10 @@
 			</svg>
 		    <div class="inp">
 		    	<div class="search_top">
-			    	 <input type="text" placeholder="按下回车进行搜索"/>
+			    	 <input class="text" type="text" placeholder="按下回车进行搜索"/>
 			    	 
 	                 <span><img src="img/search.png" alt="" /></span> 	    	
-	                 <span><img src="img/cuowu.png" alt="" /></span>
+	                 <span class="out"><img src="img/cuowu.png" alt="" /></span>
 		    	</div>
 		    	<ul>
 		    		<p>快速链接</p>
@@ -150,14 +169,39 @@
 		<!--登录-->
 		<div class="login">
 			<div class="user">
-				<div>
+				<div class="imm">
 					<img src="img/default.png" />
 					<img src="img/userbg.png" />
 				</div>
 				
-				<div>
-					<p>亲爱的召唤师,欢迎 <a href="javascript:;">登录</a></p>
+				<div class="aff">
+					<p>亲爱的召唤师,欢迎 <a href="javascript:;" data-toggle="modal" data-target="#myModal">登录</a></p>
 					<p>登陆后查看自己的战绩、资产、声望值等</p>
+					<!-- 模态框（Modal） -->
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog" style="width: 500px;height: 600px;">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+										&times;
+									</button>
+									
+									<h4 class="modal-title" id="myModalLabel" style="font-size: 25px;line-height: 25px;font-weight: bold;background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255,232,184,1)), to(rgba(175,133,48,1)));-webkit-background-clip: text;-webkit-text-fill-color: transparent; ">
+									 欢迎登陆
+									</h4>
+								</div>
+								<div class="modal-body">
+									<input type="text" id="username" placeholder="账号" />
+									<input type="text" id="password" placeholder="密码"/>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn">
+										确认登陆
+									</button>
+								</div>
+							</div><!-- /.modal-content -->
+						</div><!-- /.modal -->
+					</div>
 				</div>
 			</div>	
 			

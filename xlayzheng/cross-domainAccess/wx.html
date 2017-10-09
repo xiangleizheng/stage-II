@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/fortianmao.css"/>
+		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+		<script type="text/javascript">
+					
+		
+		$(function(){
+			
+			
+			$(".search").on("click",function(){
+		
+				 $.getJSON("http://query.yahooapis.com/v1/public/yql", {
+				 	//微信精选    pno第几页  ps显示数量   key是appkey
+				    q: "select * from json where url=\"http://v.juhe.cn/weixin/query?pno=1&ps=50&key=9ff9bfa8f9154b43b782e11d82a63db1\"",
+				    format: "json"
+				 },function(data) {
+				    if (data.query) {
+                        console.log(data.query.results.json.result.list)
+				    } else {
+				        console.log('no such code: ' + code);
+				    }
+			
+			     })
+		    })
+		})	
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<a target="_blank" class="search">搜  索</a>
+
+		</div>
+	</body>
+</html>

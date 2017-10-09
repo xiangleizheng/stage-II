@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>音乐台</title>
+		<link rel="stylesheet" type="text/css" href="css/forqqmusic.css"/>
+		<link rel="shortcut icon" href="img/favicon.ico" >
+		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+					
+		
+		$(function(){
+
+			document.onkeyup=function(event){
+			        var event=event||window.event;
+			        if(event.keyCode==13){
+			        load();
+			        }
+			};
+			
+			$(".search").on("click",load);
+			$(".txt").on("keyup",load);
+			
+			function load(){
+		                let kw = $('.txt')[0].value;
+//		                console.log(kw);
+		                let list=[];
+                        $.ajax({
+							type:"get",
+							url:"https://c.y.qq.com/soso/fcgi-bin/search_for_qq_cp?g_tk=5381&uin=0&format=jsonp&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&w="+kw+"&zhidaqu=1&catZhida=1&t=0&flag=1&ie=utf-8&sem=1&aggr=0&perpage=30&n=30&p=1&_=1489396018874&jsonpCallback=_jsonpky20i0jqjfr",
+							dataType:"jsonp",
+							jsonp:"jsonpCallback",  //qq音乐
+							async:true,
+							success:function(data){
+								list = list.concat(data.data.song.list)
+						    }
+					    });		                
+                        $.ajax({
+							type:"get",
+							url:"https://c.y.qq.com/soso/fcgi-bin/search_for_qq_cp?g_tk=5381&uin=0&format=jsonp&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&w="+kw+"&zhidaqu=1&catZhida=1&t=0&flag=1&ie=utf-8&sem=1&aggr=0&perpage=30&n=30&p=2&_=1489396018874&jsonpCallback=_jsonpky20i0jqjfr",
+							dataType:"jsonp",
+							jsonp:"jsonpCallback",  //qq音乐
+							async:true,
+							success:function(data){
+								list = list.concat(data.data.song.list)
+//								console.log(list);
+								$(".music")[0].style.display="block";
+								$(".result").html("");
+								for(var i=0;i<list.length;i++){
+								    $(".result").append("<li class='"+list[i].songid+"'><p>"+list[i].songname+"</p><span>"+list[i].albumname+"</span><strong>"+list[i].singer[0].name+"</strong></li>")
+								}
+
+						    }
+					    })
+		    }
+			
+			function creatvideo(a){
+				$("body i").empty();
+				$("body i").append("<video  class='videoplay' controls='' autoplay='' loop='loop' name='media'></video>");
+				$(".videoplay").append("<source  src='http://ws.stream.qqmusic.qq.com/"+a+".m4a?fromtag=46' type='audio/mp4'>")
+			}
+			
+			$(".result").on("click","li",function(){
+				var songid = $(this)[0].className;
+                creatvideo(songid);
+			})
+		})	
+		</script>
+	</head>
+	<body>
+			<div class="box">
+				<input type="text" class="txt" placeholder="请输入歌曲名" />
+				<a target="_blank" class="search">搜  索</a>
+			</div>
+			<div class="music">
+			    <ul class="result"></ul>
+		    </div>
+		    <i>
+				<!--<video class="videoplay" controls="" autoplay="" loop="loop" name="media">
+				      <source src="http://ws.stream.qqmusic.qq.com/203451421.m4a?fromtag=46" type="audio/mp4">
+				</video>-->
+			</i>
+	</body>
+</html>

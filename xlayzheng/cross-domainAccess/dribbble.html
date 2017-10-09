@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/forqqmusic.css"/>
+		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../base64.js"></script>
+		<script type="text/javascript">
+					
+		
+		$(function(){
+			/* //1.加密  
+				var result = Base.encode('125中文');  //--> "MTI15Lit5paH"
+				  
+				//2.解密  
+				var result2 = Base.decode(result); //--> '125中文'
+			*/
+			document.onkeyup=function(event){
+			        var event=event||window.event;
+			        if(event.keyCode==13){
+			        load();
+			        }
+			};
+			
+			$(".search").on("click",load);
+			$(".txt").on("keyup",load);
+			
+			function load(){
+		                let kw = $('.txt')[0].value;
+		                console.log(kw);
+                        $.ajax({
+							type:"get",
+//							url:"https://api.dribbble.com/v1/shots?per_page=2&page=1&access_token=63a9af05823fc615ab237c49ef12b8cf17b06ce24e04c0c3d406aeeb72524eb1",
+//                          url:'https://api.dribbble.com/v1/user/likes?per_page=20&page=1&access_token=63a9af05823fc615ab237c49ef12b8cf17b06ce24e04c0c3d406aeeb72524eb1',
+							url:"https://c.y.qq.com/soso/fcgi-bin/search_for_qq_cp?g_tk=5381&uin=0&format=jsonp&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&w="+kw+"&zhidaqu=1&catZhida=1&t=0&flag=1&ie=utf-8&sem=1&aggr=0&perpage=20&n=50&p=1&_=1489396018874&jsonpCallback=_jsonpky20i0jqjfr",
+//							url:"https://api.darlin.me/music/lyric/204264513/?callback=_jsonpyx9udl4oog",
+							//淘宝的数据地址
+	                        //url:"https://suggest.taobao.com/sug?code=utf-8&q=手机&_ksTS=1502958214110_1909&callback=jsonp1910&k=1&area=c2c&bucketid=1",
+							dataType:"jsonp",
+//							jsonp:"callback",       //一般为callback   
+							jsonp:"jsonpCallback",  //qq音乐
+							async:true,
+							success:function(data){
+								var list = data.data.song.list;
+								console.log(list);
+								$(".music")[0].style.display="block";
+								$(".result").html("");
+								for(var i=0;i<list.length;i++){
+								    $(".result").append("<li class='"+list[i].songid+"'><p>"+list[i].songname+"</p><span>"+list[i].albumname+"</span><strong>"+list[i].singer[0].name+"</strong></li>")
+								}
+//								console.log(new Base64().decode(data.lyric));
+
+						    }
+					    })
+		    }
+			
+			function creatvideo(a){
+				$("body i").empty();
+				$("body i").append("<video  class='videoplay' controls='' autoplay='' loop='loop' name='media'></video>");
+				$(".videoplay").append("<source  src='http://ws.stream.qqmusic.qq.com/"+a+".m4a?fromtag=46' type='audio/mp4'>")
+			}
+			
+			$(".result").on("click","li",function(){
+				var songid = $(this)[0].className;
+                creatvideo(songid);
+			})
+		})	
+		</script>
+	</head>
+	<body>
+			<div class="box">
+				<input type="text" class="txt" placeholder="请输入歌曲名" />
+				<a target="_blank" class="search">搜  索</a>
+			</div>
+			<div class="music">
+			    <ul class="result"></ul>
+		    </div>
+		    <i>
+				<!--<video class="videoplay" controls="" autoplay="" loop="loop" name="media">
+				      <source src="http://ws.stream.qqmusic.qq.com/203451421.m4a?fromtag=46" type="audio/mp4">
+				</video>-->
+			</i>
+	</body>
+</html>

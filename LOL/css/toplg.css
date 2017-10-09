@@ -171,7 +171,8 @@ div.header {
       width: 400px;
       display: none;
       flex-direction: column;
-      justify-content: flex-start; }
+      justify-content: flex-start;
+      color: #000000; }
       div.header div.search div.inp div.search_top {
         position: relative;
         width: 100%; }
@@ -182,6 +183,8 @@ div.header {
           border: 0;
           border-bottom: 5px solid #000;
           outline: none; }
+        div.header div.search div.inp div.search_top span {
+          cursor: pointer; }
         div.header div.search div.inp div.search_top span:nth-child(2) {
           position: absolute;
           left: 10px;
@@ -202,6 +205,8 @@ div.header {
           text-indent: 10px;
           line-height: 30px;
           height: 30px; }
+        div.header div.search div.inp ul li {
+          cursor: pointer; }
         div.header div.search div.inp ul li {
           width: 380px;
           height: 30px;
@@ -238,25 +243,88 @@ div.header {
       justify-content: space-around; }
       div.header div.login div.user div {
         margin-top: 10px; }
-      div.header div.login div.user div:first-child {
+      div.header div.login div.user div.imm {
         width: 75px;
         height: 75px;
         position: relative; }
-        div.header div.login div.user div:first-child img {
+        div.header div.login div.user div.imm img {
           position: absolute; }
-        div.header div.login div.user div:first-child img:first-child {
+        div.header div.login div.user div.imm img:first-child {
           top: 4.5px;
           left: 4.5px;
           border-radius: 50%; }
-      div.header div.login div.user div:last-child {
+      div.header div.login div.user div.aff {
         padding-top: 18px;
         box-sizing: border-box; }
-        div.header div.login div.user div:last-child p:first-child {
+        div.header div.login div.user div.aff p:first-child {
           font-size: 18px; }
-          div.header div.login div.user div:last-child p:first-child a {
-            color: #d49c2a; }
-        div.header div.login div.user div:last-child p:last-child {
+          div.header div.login div.user div.aff p:first-child a {
+            color: #d49c2a;
+            outline: none; }
+        div.header div.login div.user div.aff p:last-child {
           font-size: 12px; }
+        div.header div.login div.user div.aff #myModal .modal-dialog .modal-content .modal-header {
+          background: #313131;
+          margin-top: 0;
+          width: 100%;
+          height: 50px;
+          position: relative; }
+          div.header div.login div.user div.aff #myModal .modal-dialog .modal-content .modal-header #myModalLabel {
+            position: absolute;
+            left: 0;
+            text-align: center;
+            width: 100%;
+            color: #ffcb60;
+            font-size: 0px;
+            font-weight: bold;
+            background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffe8b8), to(#af8530));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; }
+          div.header div.login div.user div.aff #myModal .modal-dialog .modal-content .modal-header .close {
+            position: absolute;
+            z-index: 10;
+            right: 10px;
+            outline: none; }
+        div.header div.login div.user div.aff #myModal .modal-dialog .modal-content .modal-body {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center; }
+          div.header div.login div.user div.aff #myModal .modal-dialog .modal-content .modal-body input {
+            border: 1px solid #bd9440;
+            outline: none;
+            text-indent: 20px; }
+          div.header div.login div.user div.aff #myModal .modal-dialog .modal-content .modal-body input:first-child {
+            margin-bottom: 10px; }
+          div.header div.login div.user div.aff #myModal .modal-dialog .modal-content .modal-body input {
+            flex-shrink: 0;
+            width: 70%;
+            height: 50px;
+            color: #000000; }
+        div.header div.login div.user div.aff #myModal .modal-dialog .modal-content .modal-footer {
+          height: 60px;
+          background-color: #313131; }
+          div.header div.login div.user div.aff #myModal .modal-dialog .modal-content .modal-footer .btn:hover {
+            background-color: rgba(0, 0, 0, 0.65);
+            color: #f5d185; }
+          div.header div.login div.user div.aff #myModal .modal-dialog .modal-content .modal-footer .btn {
+            outline: none;
+            margin: 0 auto;
+            cursor: pointer;
+            display: block;
+            width: 155px;
+            height: 35px;
+            border: 2px solid #bd9440;
+            text-align: center;
+            line-height: 20px;
+            background-color: rgba(0, 0, 0, 0.02);
+            font-size: 14px;
+            font-weight: bold;
+            color: #c89b3c;
+            -moz-border-image: -moz-linear-gradient(top, #6b5024 0%, #b88d35 100%);
+            -webkit-border-image: -webkit-linear-gradient(top, #6b5024 0%, #b88d35 100%);
+            border-image: linear-gradient(to bottom, #6b5024 0%, #b88d35 100%);
+            border-image-slice: 1; }
     div.header div.login div.user:hover {
       background-color: rgba(255, 255, 255, 0.1); }
     div.header div.login div.user:hover + div.dropcon {

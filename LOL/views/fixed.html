@@ -1,0 +1,368 @@
+
+
+<script>
+   $(function(){
+	   var AllHet = $(window).height();
+	   var mainHet= $('.floatCtro').height();
+	   var fixedTop = (AllHet - mainHet)/2
+	 //  $('div.floatCtro').css({top:fixedTop+'px'}); 
+	   $('div.floatCtro p').click(function(){
+			var ind = $('div.floatCtro p').index(this)+1;
+			var topVal = $('#float0'+ind).offset().top;
+			$('body,html').animate({scrollTop:topVal},1000)
+		})
+		$('div.floatCtro a').click(function(){
+			$('body,html').animate({scrollTop:480},1000)
+			})
+	   $(window).scroll(scrolls)
+	   scrolls()
+	   function scrolls(){
+		   var f1,f2,f3,f4/*,f5,f6*/,bck;
+		   var fixRight = $('div.floatCtro p');
+		   var blackTop = $('div.floatCtro a')
+		   var sTop = $(window).scrollTop();
+		   fl = $('#float01').offset().top;
+		   f2 = $('#float02').offset().top;
+		   f3 = $('#float03').offset().top;
+		   f4 = $('#float04').offset().top;
+//		   f5 = $('#float05').offset().top;
+//		   f6 = $('#float06').offset().top;
+		   
+			
+		   if(sTop<=f2-100){
+			   blackTop.fadeOut(300).css('display','none')
+			   }
+		   else{
+			   blackTop.fadeIn(300).css('display','block')
+			   }
+		   
+		   if(sTop>=fl){
+			   fixRight.eq(0).addClass('cur').siblings().removeClass('cur');
+			   }
+		   if(sTop>=f2-100){
+			   fixRight.eq(1).addClass('cur').siblings().removeClass('cur');
+			   }
+		   if(sTop>=f3-100){
+			   fixRight.eq(2).addClass('cur').siblings().removeClass('cur');
+			   }
+		   if(sTop>=f4-100){
+			   fixRight.eq(3).addClass('cur').siblings().removeClass('cur');
+			   }
+//		   if(sTop>=f5-100){
+//			   fixRight.eq(4).addClass('cur').siblings().removeClass('cur');
+//			   }
+//		   if(sTop>=f6-100){
+//			   fixRight.eq(5).addClass('cur').siblings().removeClass('cur');
+//			  }
+		
+	     }
+	   
+	   
+		    var mySwiper = new Swiper('.yuan-container', {
+				keyboardControl : true,//键控
+				prevButton:'.swiper-button-prev',
+	      nextButton:'.swiper-button-next',//左右按钮
+				pagination : '.yuan-pagination',//分页器
+				paginationType : 'bullets',//分页器类型   bullets圆点（默认）fraction分式   progress进度条  custom自定义
+				paginationClickable :true,//设置为true时，点击分页器的指示点分页器会控制Swiper切换。
+	            paginationElement : 'span',//设定分页器指示器（小点）的HTML标签。
+	            paginationBulletRender: function (swiper, index, className) {
+				      return '<span class="' + className + '">' + (index + 1) + '</span>';
+				},
+	      uniqueNavElements :true,//默认为true时，仅本swiper的container内的分页器有效，设置为false后，container以外的分页器也生效了。
+				autoplay: 4000,//可选选项，自动滑动
+				loop:true,
+		    effect : 'slide',
+		   })
+		    
+		   document.documentElement.style.fontSize=innerWidth/25+"px";
+		
+		function T(a,b){
+			$(a).click(function(){
+	                var $this = $(this),
+	                    index = $this.index();
+	                $this.addClass("active").siblings("li").removeClass("active");
+	
+	                $(b).eq(index).addClass("selected").siblings("div").removeClass("selected");
+	        });
+       }
+		T("ul.tab li","div.products>div");
+		T("ul.tab2 li","div.products2>div");
+		T("ul.tab3 li","div.products3>div");
+		
+		
+	  })
+
+</script>
+
+
+
+<body>
+	
+<div class="main">
+	
+<!-----------源计划--------------------->		
+     <div id="float01" class="cur">
+			 		<div class="yuan-container">
+						  <div class="swiper-wrapper">
+						    <div class="swiper-slide">
+						    	 <img src="imgyuan/y1.jpg" alt="" />
+						       <p style="background-image:linear-gradient(130deg,rgba(216,18,181,1) 30%,rgba(255,255,255,0.7),rgba(216,18,181,1) 85%)">源计划 &nbsp;&nbsp;火</p>
+						    </div>
+						    <div class="swiper-slide">
+						    	<img src="imgyuan/y2.jpg" alt="" />
+						    	<p style="background-image:linear-gradient(130deg,rgba(219,15,102,1) 30%,rgba(255,255,255,0.7),rgba(219,15,102,1) 85%)">源计划 &nbsp;&nbsp;雄心</p>
+						    </div>
+						    <div class="swiper-slide">
+						    	<img src="imgyuan/y3.jpg" alt="" />
+						    	<p style="background-image:linear-gradient(130deg,rgba(57,177,12,1) 30%,rgba(255,255,255,0.7),rgba(57,177,12,1) 85%)">源计划 &nbsp;&nbsp;自由</p>
+						    </div>
+						    <div class="swiper-slide">
+						    	<img src="imgyuan/y4.jpg" alt="" />
+						    	<p style="background-image:linear-gradient(130deg,rgba(16,102,218,1) 30%,rgba(255,255,255,0.7),rgba(16,102,218,1) 85%)">源计划 &nbsp;&nbsp;联合</p>
+						    </div>
+						    <div class="swiper-slide">
+						    	<img src="imgyuan/y5.jpg" alt="" />
+						    	<p style="background-image:linear-gradient(130deg,rgba(240,21,65,1) 30%,rgba(255,255,255,0.7),rgba(240,21,65,1) 85%)">源计划 &nbsp;&nbsp;雷</p>
+						    </div>
+						    <div class="swiper-slide">
+						    	<img src="imgyuan/y6.jpg" alt="" />
+						    	<p style="background-image:linear-gradient(130deg,rgba(252,120,3,1) 30%,rgba(255,255,255,0.7),rgba(252,120,3,1) 85%)">源计划 &nbsp;&nbsp;林</p>
+						    </div>
+						    <div class="swiper-slide">
+						    	<img src="imgyuan/y7.jpg" alt="" />
+						    	<p style="background-image:linear-gradient(130deg,rgba(253,84,2,1) 30%,rgba(255,255,255,0.7),rgba(253,84,2,1) 85%)">源计划 &nbsp;&nbsp;风</p>
+						    </div>
+						    <div class="swiper-slide">
+						    	<img src="imgyuan/y8.jpg" alt="" />
+						    	<p style="background-image:linear-gradient(130deg,rgba(245,179,3,1) 30%,rgba(255,255,255,0.7),rgba(245,179,3,1) 85%)">源计划 &nbsp;&nbsp;山</p>
+						    </div>
+						    <div class="swiper-slide">
+						    	<img src="imgyuan/y9.jpg" alt="" />
+						    	<p style="background-image:linear-gradient(130deg,rgba(139,24,19,1) 30%,rgba(255,255,255,0.7),rgba(139,24,19,1) 85%)">源计划 &nbsp;&nbsp;阴</p>
+						    </div>
+						  </div>
+						  <!--分页器-->
+					  	<div class="yuan-pagination"></div>
+					  	<!--左右-->
+					  	<div class="swiper-button-prev swiper-button-white"></div>
+			        <div class="swiper-button-next swiper-button-white"></div>
+			        
+			    </div>     	
+     </div>
+<!----------最新----------------------->
+     <div id="float02">
+     	<div class="con">
+    <!------左侧------------>
+     		<div class="left">
+     		<!--标题-->
+     			<div class="tittle">
+     			    <span class="tittle">{{tittlearr[0]}}</span>
+     			    <span class="iconfont">&#xe64a;&nbsp;<span>{{more}}</span></span>
+     			    
+     			</div>
+     		<!--视频列表-->	
+     			<ul class="videolist">
+     				<li ng-repeat="i in newv">
+     					<div class="video"><img ng-src="{{i.video}}"><div class="play"></div></div>
+     					<div class="intro">{{i.intro}}</div>
+     					<div class="nandt">
+	     					<div class="num"><span class="iconfont">&#xe602;</span>&nbsp;{{i.num}}</div>
+	     					<div class="time">{{i.time}}</div>
+     					</div>
+     				</li>
+     			</ul>
+     		</div>
+    <!------右侧------------>
+     		<div class="right">
+     		
+                <div class="wrapper">
+                    <p class="tittle">视频排行</p>
+			        <ul class="tab">
+			            <li class="tab-item active">今日</li>
+			            <li class="tab-item">本周</li>
+			            <li class="tab-item">本月</li>
+			        </ul>
+			        <div class="products">
+			            <div class="main selected">
+			                <ul>
+			                    <li ng-repeat="i in dtop">
+			                    	<span class="no">{{i.no}}</span>
+			                    	<p class="intro slh">{{i.intro}}</p>
+			                    	<p class="auth">作者&nbsp;：&nbsp;{{i.auth}}</p>
+			                    	<span class="num"><span class="iconfont">&#xe602;</span>&nbsp;{{i.num}}</span>
+			                    </li>
+			                    <li class="aft" ng-repeat="i in dbottom">
+			                        <span class="gray">{{i.no}}</span>
+			                        <p class="intro slh">{{i.intro}}</p>
+			                        <span class="num"><span class="iconfont">&#xe602;</span>&nbsp;{{i.num}}</span>
+			                    </li>
+			                </ul>
+			            </div>
+			            <div class="main">
+			                <ul>
+			                    <li ng-repeat="i in wtop">
+			                    	<span class="no">{{i.no}}</span>
+			                    	<p class="intro slh">{{i.intro}}</p>
+			                    	<p class="auth">作者&nbsp;：&nbsp;{{i.auth}}</p>
+			                    	<span class="num"><span class="iconfont">&#xe602;</span>&nbsp;{{i.num}}</span>
+			                    </li>
+			                    <li class="aft" ng-repeat="i in wbottom">
+			                        <span class="gray">{{i.no}}</span>
+			                        <p class="intro slh">{{i.intro}}</p>
+			                        <span class="num"><span class="iconfont">&#xe602;</span>&nbsp;{{i.num}}</span>
+			                    </li>
+			                </ul>
+			            </div>
+			            <div class="main">
+			                <ul>
+			                    <li ng-repeat="i in mtop">
+			                    	<span class="no">{{i.no}}</span>
+			                    	<p class="intro slh">{{i.intro}}</p>
+			                    	<p class="auth">作者&nbsp;：&nbsp;{{i.auth}}</p>
+			                    	<span class="num"><span class="iconfont">&#xe602;</span>&nbsp;{{i.num}}</span>
+			                    </li>
+			                    <li class="aft" ng-repeat="i in mbottom">
+			                        <span class="gray">{{i.no}}</span>
+			                        <p class="intro slh">{{i.intro}}</p>
+			                        <span class="num"><span class="iconfont">&#xe602;</span>&nbsp;{{i.num}}</span>
+			                    </li>
+			                </ul>
+			            </div>
+			        </div>
+			    </div>
+			    
+     		</div>
+     	</div>
+     </div>
+     
+<!--解说------------------------------->     
+     <div id="float03">
+        <div class="con">
+        
+            <div class="jieshuo">
+                <div class="wrapper">
+                    <p class="tittle">{{tittlearr[1]}}</p>
+			        <ul class="tab2">
+			            <li class="tab-item active">最新</li>
+			            <li class="tab-item" ng-repeat="i in jieshuo">{{i}}</li>
+			        </ul>
+			        <span class="iconfont">&#xe64a;&nbsp;<span>{{more}}</span></span>
+			        <div class="products2">
+			            <div class="main selected">
+			                <ul class="videolist">
+	             				<li ng-repeat="i in jieshuov1">
+			     					<div class="video"><img ng-src="{{i.video}}"><div class="play"></div></div>
+			     					<div class="intro">{{i.intro}}</div>
+			     					<div class="nandt">
+				     					<div class="num"><span class="iconfont">&#xe602;</span>&nbsp;{{i.num}}</div>
+				     					<div class="time">{{i.time}}</div>
+			     					</div>
+			     				</li>
+			                </ul>
+			            </div>
+			            <div class="main">
+			                <ul>
+	             				<li ng-repeat="i in jieshuov2">
+			     					<div class="video"><img ng-src="{{i.video}}"><div class="play"></div></div>
+			     					<div class="intro">{{i.intro}}</div>
+			     					<div class="nandt">
+				     					<div class="num"><span class="iconfont">&#xe602;</span>&nbsp;{{i.num}}</div>
+				     					<div class="time">{{i.time}}</div>
+			     					</div>
+			     				</li>	
+			                </ul>
+			            </div>
+			            <div class="main"><strong>{{so}}</strong></div>
+			            <div class="main"><strong>{{so}}</strong></div>
+			            <div class="main"><strong>{{so}}</strong></div>
+			            <div class="main"><strong>{{so}}</strong></div>
+			            <div class="main"><strong>{{so}}</strong></div>
+			            <div class="main"><strong>{{so}}</strong></div>
+			            <div class="main"><strong>{{so}}</strong></div>
+			            <div class="main"><strong>{{so}}</strong></div>
+			            <div class="main"><strong>{{so}}</strong></div>
+			            <div class="main"><strong>{{so}}</strong></div>
+			        </div>
+			    </div>
+     		</div>
+     		
+        </div>
+     </div>
+<!--赛事---------------------------->  
+     <div id="float04">
+        <div class="con">
+        
+            <div class="game">
+                <div class="wrapper">
+                    <p class="tittle">{{tittlearr[2]}}</p>
+			        <ul class="tab3">
+			            <li class="tab-item active">最新赛事</li>
+			            <li class="tab-item" ng-repeat="i in game">{{i}}</li>
+			        </ul>
+			        <span class="iconfont">&#xe64a;&nbsp;<span>{{more}}</span></span>
+			        <div class="products3">
+			            <div class="main selected">
+			                <ul class="videolist">
+	             				<li ng-repeat="i in jieshuov2">
+			     					<div class="video"><img ng-src="{{i.video}}"><div class="play"></div></div>
+			     					<div class="intro">{{i.intro}}</div>
+			     					<div class="nandt">
+				     					<div class="num"><span class="iconfont">&#xe602;</span>&nbsp;{{i.num}}</div>
+				     					<div class="time">{{i.time}}</div>
+			     					</div>
+			     				</li>
+			                </ul>
+			            </div>
+			            <div class="main">
+			                <ul>
+	             				<li ng-repeat="i in jieshuov1">
+			     					<div class="video"><img ng-src="{{i.video}}"><div class="play"></div></div>
+			     					<div class="intro">{{i.intro}}</div>
+			     					<div class="nandt">
+				     					<div class="num"><span class="iconfont">&#xe602;</span>&nbsp;{{i.num}}</div>
+				     					<div class="time">{{i.time}}</div>
+			     					</div>
+			     				</li>	
+			                </ul>
+			            </div>
+			            <div class="main"><strong>{{soo}}</strong></div>
+			            <div class="main"><strong>{{soo}}</strong></div>
+			            <div class="main"><strong>{{soo}}</strong></div>
+			            <div class="main"><strong>{{soo}}</strong></div>
+			            <div class="main"><strong>{{soo}}</strong></div>
+			            <div class="main"><strong>{{soo}}</strong></div>
+			            <div class="main"><strong>{{soo}}</strong></div>
+			            <div class="main"><strong>{{soo}}</strong></div>
+			            <div class="main"><strong>{{soo}}</strong></div>
+			            <div class="main"><strong>{{soo}}</strong></div>
+			            <div class="main"><strong>{{soo}}</strong></div>
+			            <div class="main"><strong>{{soo}}</strong></div>
+			            <div class="main"><strong>{{soo}}</strong></div>
+			        </div>
+			    </div>
+     		</div>
+     		
+        </div>     
+     
+     </div>
+     <!--<div id="float05"></div>
+     <div id="float06"></div>-->
+
+
+     
+     <div class="floatCtro">
+          <p>源计划</p>
+          <p>最新</p>
+          <p>解说</p>
+          <p>赛事</p>
+          <!--<p>周免</p>
+          <p>官方</p>-->
+          <a>
+            <font style="width:60px; height:1px; display:block"></font>
+            <span>返回顶部</span>
+          </a>
+     </div>
+</div>
+</body>
+

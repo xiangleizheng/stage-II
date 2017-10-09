@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<script>
+		//长轮询
+		{
+			let getdata=function*(url){
+				yield new Promise(function(resolve,reject){
+
+						    var client = new XMLHttpRequest();
+						    client.open("GET", url);
+						    client.onreadystatechange = handler;
+						    client.responseType = "json";
+						    client.setRequestHeader("Accept", "application/json");
+						    client.send();
+						
+						    function handler() {
+						      if (this.readyState !== 4) {
+						        return;
+						      }
+						      if (this.status === 200) {
+						        resolve(this.response);
+						      } else {
+						        reject(new Error(this.statusText));
+						      }
+						    };
+				});
+			}
+			
+			let run=function(){
+//				let generator=getdata("old.json");
+				let step=getdata("old.json").next();
+				step.value.then(function(a){
+					if(a.status=="latest"){
+						console.log(a)
+					}else{
+						setTimeout(function(){
+							console.log("正在得到最新数据");
+							run();							
+						},2000)
+
+					}
+				},function(b){
+					console.error(b)
+				})
+			}
+			run();
+		}
+			
+		</script>
+	</body>
+</html>

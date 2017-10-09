@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<button id="btn">修改</button> <input id="text" type="text" />
+		
+		<button id="btn1">查看姓名</button>
+		<button id="btn2">查看继承了Person类方法的Student类的一个实例化对象团团的信息</button>
+		
+		
+		<script>
+			function Person(name,age){
+				this.name=name ;
+				this.age=age;
+				
+				Object.defineProperties(this,{
+					"gname":{                 //通过公有的方法访问私有的属性   还可以设置获取条件
+							get:function(){
+								if(prompt("我的第一辆车是什么车(read)？")=="Cayenne")
+								    return name;
+								else
+								    return "禁止访问";
+							},
+							set:function(v){
+								if(prompt("我的QQ名叫什么(modify)？")=="Ao")
+								   name=v;
+								else
+								   return "没有修改权限";
+								   
+							}
+				   },
+				    'gage':{
+							get:function(){
+								if(prompt("想知道我多少岁(read)？")=="yes")
+								    return age;
+								else
+								    return "禁止访问";
+							},				   	
+				   	
+				   }
+					
+				})
+			}
+			
+			Person.prototype.getPersonInfo=function(){
+				return this.name+","+this.age
+			}
+			
+			var p =new Person("郑向磊",22);	
+			
+			var btn = document.getElementById("btn");
+			var btn1 = document.getElementById("btn1");
+			var btn2 = document.getElementById("btn2");
+			var inp = document.getElementById("text");
+			
+			btn.addEventListener("click",function(){
+				p.gname=inp.value;
+				inp.value="";
+			})
+			
+            btn1.addEventListener("click",function(){
+            	alert(p.gname);
+            })
+            
+//			p.gname="Bo";          //修改为Bo
+//			console.log(p.gname);  //获取名字
+
+
+
+            function Student(name,age,school){
+            	Person.call(this,name,age);
+            	this.school=school;
+            }
+            
+            Student.prototype=Object.create(Person.prototype);  //Student继承Person的prototype上的方法
+            Student.prototype.constructor=Student;   //指定Student的构造函数为 Student
+            
+            Student.prototype.getStudentInfo=function(){  //覆盖父类的getPeronInfo方法
+            	 return Person.prototype.getPersonInfo.call(this)+","+this.school;  //Person.prototype.getPersonInfo.call(this) 调用父类的getPersonInfo方法,改变 this指向为Student的实例
+            }
+            var s=new Student("团团",20,"武纺");
+            
+            btn2.addEventListener("click",function(){
+               alert(s.getStudentInfo()); 
+            })
+           
+		</script>
+	</body>
+</html>
